@@ -72,11 +72,16 @@ function upsertDoc(kind, id, data) {
 }
 
 /* ---------- utilitaires HTTP ---------- */
-function send(res, status, data) {
+function send(res, status, data, req) {
   res.statusCode = status;
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');
-  res.end(JSON.stringify(data));
+  const body = JSON.stringify(data);
+  if (req && body.length > 50000 && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+    res.setHeader('Content-Encoding', 'gzip');
+    return res.end(require('zlib').gzipSync(body));
+  }
+  res.end(body);
 }
 async function readBody(req) {
   if (req.body !== undefined) return typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
@@ -224,7 +229,7 @@ async function handle(req, res) {
     return send(res, 200, {
       chapters: rows.filter(r => r.kind === 'chapter').map(r => ({ ...r.data, id: r.id })),
       bac: rows.filter(r => r.kind === 'bac').map(r => ({ ...r.data, _id: r.id })),
-    });
+    }, req);
   }
   if (method === 'GET' && path === '/progress') {
     const [p] = await query(`select data from progress where user_id = $1`, [me.id]);

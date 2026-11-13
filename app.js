@@ -508,7 +508,7 @@
       ${bacGroups().map(([niv, items]) => `<h2 class="part-title">${esc(niv)} <span class="count">${items.length} sujets</span></h2><div class="grid">${items.map(({ b, i }) => {
         const k = b._id != null ? b._id - 1 : i;
         return `<a class="card" href="#bac${i + 1}"><div class="top"><span class="emoji">📝</span><div><div class="chnum">${esc(b.duree)}${P.bac[k] != null ? ` · ma note ${P.bac[k]}/20` : ''}</div><h3>${esc(b.titre)}</h3></div></div>
-        <p>Chapitres : ${(b.chapitres || []).map(n => { const ch = CH.find(c => c.id === n); return ch ? esc(ch.titre) : n; }).join(', ')}</p></a>`;
+        <p title="${esc((b.chapitres || []).map(n => { const ch = CH.find(c => c.id === n); return ch ? ch.titre : n; }).join(', '))}">Chapitres ${(b.chapitres || []).join(' · ')}</p></a>`;
       }).join('')}</div>`).join('')}</div>`;
   }
 
