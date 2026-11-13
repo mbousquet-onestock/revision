@@ -406,6 +406,455 @@ print(x)</code></pre></li>
           correction: R`<ol><li><b>(2 pts)</b> \(C_M(q)=q^2-6q+13\). \(C_M'(q)=2q-6\), négatif pour \(q\lt 3\), positif pour \(q\gt 3\). \(C_M\) est décroissante sur \(]0\,;3]\) et croissante sur \([3\,;6]\) : le coût moyen est minimal pour \(q=3\) (300 objets) et vaut \(C_M(3)=9-18+13=4\) centaines d'euros par centaine, soit \(4\) € par objet.</li>
 <li><b>(1 pt)</b> \(C'(q)=3q^2-12q+13\), donc \(C_m(3)=27-36+13=4\). On constate que \(C_m(3)=C_M(3)\) : le coût moyen minimal est égal au coût marginal.</li>
 <li><b>(2 pts)</b> \(B(q)=13q-C(q)=13q-q^3+6q^2-13q=-q^3+6q^2\). \(B'(q)=-3q^2+12q=3q(4-q)\). Sur \(]0\,;6]\), \(3q\gt 0\), donc \(B'(q)\) a le signe de \(4-q\) : \(B\) est croissante sur \(]0\,;4]\), décroissante sur \([4\,;6]\). Le bénéfice est maximal pour \(q=4\) (400 objets) et vaut \(B(4)=-64+96=32\) centaines d'euros, soit \(3\,200\) €.</li></ol>` }
+      ] },
+    { titre: "DS n°3 — Signe de la dérivée, tangentes et inégalité", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Du signe de f' aux variations", points: 5,
+          enonce: R`<p>Une fonction \(f\) est dérivable sur \([-4\,;5]\). On donne le tableau de signes de sa dérivée \(f'\) ainsi que quelques valeurs : \(f(-4)=-2\), \(f(-1)=6\), \(f(3)=-4\) et \(f(5)=1\).</p>
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-4\)</td><td></td><td>\(-1\)</td><td></td><td>\(3\)</td><td></td><td>\(5\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+</table>
+<ol><li>Dresser le tableau de variations de \(f\) sur \([-4\,;5]\).</li>
+<li>Déterminer les extremums locaux de \(f\), puis le maximum et le minimum de \(f\) sur \([-4\,;5]\).</li>
+<li>Comparer \(f(0)\) et \(f(2)\) en justifiant.</li>
+<li>Donner l'équation de la tangente à la courbe de \(f\) au point d'abscisse \(-1\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'\gt 0\) sur \(]-4\,;-1[\), \(f'\lt 0\) sur \(]-1\,;3[\) et \(f'\gt 0\) sur \(]3\,;5[\) : \(f\) est croissante, puis décroissante, puis croissante.
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-4\)</td><td></td><td>\(-1\)</td><td></td><td>\(3\)</td><td></td><td>\(5\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td>\(-2\)</td><td>↗</td><td>\(6\)</td><td>↘</td><td>\(-4\)</td><td>↗</td><td>\(1\)</td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(f'\) s'annule en \(-1\) en passant de \(+\) à \(-\) : \(f(-1)=6\) est un maximum local. \(f'\) s'annule en \(3\) en passant de \(-\) à \(+\) : \(f(3)=-4\) est un minimum local.<br>
+Sur \([-4\,;5]\), on compare avec les valeurs aux bornes : \(f(-4)=-2\) et \(f(5)=1\). Le maximum de \(f\) est \(6\) (atteint en \(x=-1\)) et le minimum est \(-4\) (atteint en \(x=3\)).</li>
+<li><b>(1 pt)</b> \(0\) et \(2\) appartiennent à \([-1\,;3]\), intervalle sur lequel \(f\) est strictement décroissante. Comme \(0\lt 2\), on a \(f(0)\gt f(2)\).</li>
+<li><b>(1 pt)</b> \(f'(-1)=0\) et \(f(-1)=6\). La tangente a pour équation \(y=0\times(x+1)+6\), soit \(y=6\) : c'est une tangente horizontale.</li></ol>` },
+        { titre: "Exercice 2 — Étude d'un polynôme de degré 3", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \([-4\,;2]\) par \(f(x)=x^3+3x^2-9x-2\), de courbe \(\mathcal{C}\).</p>
+<ol><li>Calculer \(f'(x)\) et montrer que \(f'(x)=3(x+3)(x-1)\).</li>
+<li>Étudier le signe de \(f'(x)\) et dresser le tableau de variations complet de \(f\) sur \([-4\,;2]\).</li>
+<li>Donner le maximum et le minimum de \(f\) sur \([-4\,;2]\).</li>
+<li>Déterminer l'équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(0\).</li>
+<li>Déterminer les points de \(\mathcal{C}\) où la tangente est parallèle à la droite d'équation \(y=15x+1\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f'(x)=3x^2+6x-9\). Or \(3(x+3)(x-1)=3(x^2-x+3x-3)=3(x^2+2x-3)=3x^2+6x-9\) : c'est bien égal.</li>
+<li><b>(2,5 pts : signe 1 pt, valeurs 1 pt, flèches 0,5 pt)</b> \(f'(x)\) est un trinôme de racines \(-3\) et \(1\), de coefficient \(3\gt 0\) : il est positif à l'extérieur des racines et négatif entre elles.<br>
+\(f(-4)=-64+48+36-2=18\) ; \(f(-3)=-27+27+27-2=25\) ; \(f(1)=1+3-9-2=-7\) ; \(f(2)=8+12-18-2=0\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-4\)</td><td></td><td>\(-3\)</td><td></td><td>\(1\)</td><td></td><td>\(2\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td>\(18\)</td><td>↗</td><td>\(25\)</td><td>↘</td><td>\(-7\)</td><td>↗</td><td>\(0\)</td></tr>
+</table></li>
+<li><b>(1 pt)</b> D'après le tableau, le maximum de \(f\) sur \([-4\,;2]\) est \(25\), atteint en \(x=-3\), et le minimum est \(-7\), atteint en \(x=1\).</li>
+<li><b>(1,5 pt)</b> \(f(0)=-2\) et \(f'(0)=-9\). \(T : y=f'(0)(x-0)+f(0)\), soit \(y=-9x-2\).</li>
+<li><b>(2 pts)</b> Deux droites sont parallèles si elles ont le même coefficient directeur. On cherche donc \(x\in[-4\,;2]\) tel que \(f'(x)=15\) :
+\[3x^2+6x-9=15\iff 3x^2+6x-24=0\iff x^2+2x-8=0.\]
+\(\Delta=4+32=36\), d'où \(x=\dfrac{-2-6}{2}=-4\) ou \(x=\dfrac{-2+6}{2}=2\). Les deux valeurs sont dans \([-4\,;2]\). Les points cherchés sont \((-4\,;18)\) et \((2\,;0)\).</li></ol>` },
+        { titre: "Exercice 3 — Une inégalité et deux courbes", points: 7,
+          enonce: R`<p>On considère la fonction \(h\) définie sur \([0\,;+\infty[\) par \(h(x)=2x^3-3x^2+1\).</p>
+<ol><li>Calculer \(h'(x)\) et étudier son signe sur \([0\,;+\infty[\).</li>
+<li>Dresser le tableau de variations de \(h\) sur \([0\,;+\infty[\) et donner son minimum.</li>
+<li>En déduire que pour tout réel \(x\geqslant 0\), \(2x^3+1\geqslant 3x^2\).</li>
+<li>On note \(\mathcal{C}_f\) la courbe de \(f : x\mapsto 2x^3+1\) et \(\mathcal{C}_g\) celle de \(g : x\mapsto 3x^2\). Donner la position relative de \(\mathcal{C}_f\) et \(\mathcal{C}_g\) sur \([0\,;+\infty[\) et préciser leur(s) point(s) commun(s).</li>
+<li>Vérifier que \(h(x)=(x-1)^2(2x+1)\) et retrouver ainsi le résultat de la question 3.</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> \(h'(x)=6x^2-6x=6x(x-1)\). Sur \([0\,;+\infty[\), \(6x\geqslant 0\) (nul seulement en \(0\)), donc \(h'(x)\) a le signe de \(x-1\) : \(h'(x)\lt 0\) sur \(]0\,;1[\) et \(h'(x)\gt 0\) sur \(]1\,;+\infty[\).</li>
+<li><b>(2 pts)</b> \(h(0)=1\) et \(h(1)=2-3+1=0\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(h'(x)\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(h\)</td><td>\(1\)</td><td>↘</td><td>\(0\)</td><td>↗</td><td></td></tr>
+</table>
+Le minimum de \(h\) sur \([0\,;+\infty[\) est \(0\), atteint en \(x=1\).</li>
+<li><b>(1 pt)</b> Pour tout \(x\geqslant 0\), \(h(x)\geqslant 0\), c'est-à-dire \(2x^3-3x^2+1\geqslant 0\), soit \(2x^3+1\geqslant 3x^2\).</li>
+<li><b>(1 pt)</b> \(f(x)-g(x)=h(x)\geqslant 0\) : \(\mathcal{C}_f\) est au-dessus de \(\mathcal{C}_g\) sur \([0\,;+\infty[\). Elles ont un seul point commun, d'abscisse \(1\) (le seul \(x\) où \(h(x)=0\)) : le point \((1\,;3)\).</li>
+<li><b>(1 pt)</b> \((x-1)^2(2x+1)=(x^2-2x+1)(2x+1)=2x^3+x^2-4x^2-2x+2x+1=2x^3-3x^2+1=h(x)\). Pour \(x\geqslant 0\), \((x-1)^2\geqslant 0\) et \(2x+1\gt 0\), donc \(h(x)\geqslant 0\) : on retrouve bien \(2x^3+1\geqslant 3x^2\).</li></ol>` }
+      ] },
+    { titre: "DS n°4 — Quotient, boîte et racine cubique", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Encadrer une fonction rationnelle", points: 6,
+          enonce: R`<p>Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=\dfrac{2x-1}{x^2+2}\).</p>
+<ol><li>Justifier que \(f\) est définie et dérivable sur \(\mathbb{R}\), puis montrer que \(f'(x)=\dfrac{-2(x-2)(x+1)}{(x^2+2)^2}\).</li>
+<li>Dresser le tableau de variations de \(f\) sur \(\mathbb{R}\) (on ne demande pas les limites).</li>
+<li>Montrer que pour tout réel \(x\) : \(f(x)-\dfrac12=-\dfrac{(x-2)^2}{2(x^2+2)}\) et \(f(x)+1=\dfrac{(x+1)^2}{x^2+2}\).</li>
+<li>En déduire que pour tout réel \(x\), \(-1\leqslant f(x)\leqslant \dfrac12\). Quels sont le maximum et le minimum de \(f\) sur \(\mathbb{R}\) ?</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> Pour tout réel \(x\), \(x^2+2\geqslant 2\gt 0\) : le dénominateur ne s'annule jamais, \(f\) est un quotient de polynômes définie et dérivable sur \(\mathbb{R}\).<br>
+Avec \(u=2x-1\), \(u'=2\), \(v=x^2+2\), \(v'=2x\) :
+\[f'(x)=\frac{2(x^2+2)-(2x-1)\times 2x}{(x^2+2)^2}=\frac{2x^2+4-4x^2+2x}{(x^2+2)^2}=\frac{-2x^2+2x+4}{(x^2+2)^2}.\]
+Or \(-2(x-2)(x+1)=-2(x^2-x-2)=-2x^2+2x+4\) : c'est bien égal.</li>
+<li><b>(1,5 pt)</b> \((x^2+2)^2\gt 0\), donc \(f'(x)\) a le signe de \(-2(x-2)(x+1)\), trinôme de coefficient \(-2\lt 0\) et de racines \(-1\) et \(2\) : négatif à l'extérieur des racines, positif entre. \(f(-1)=\dfrac{-3}{3}=-1\) et \(f(2)=\dfrac{3}{6}=\dfrac12\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-1\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↘</td><td>\(-1\)</td><td>↗</td><td>\(\frac12\)</td><td>↘</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(f(x)-\dfrac12=\dfrac{2(2x-1)-(x^2+2)}{2(x^2+2)}=\dfrac{-x^2+4x-4}{2(x^2+2)}=-\dfrac{(x-2)^2}{2(x^2+2)}\).<br>
+\(f(x)+1=\dfrac{2x-1+x^2+2}{x^2+2}=\dfrac{x^2+2x+1}{x^2+2}=\dfrac{(x+1)^2}{x^2+2}\).</li>
+<li><b>(1 pt)</b> Un carré est positif et \(x^2+2\gt 0\) : donc \(f(x)-\dfrac12\leqslant 0\) et \(f(x)+1\geqslant 0\) pour tout réel \(x\), soit \(-1\leqslant f(x)\leqslant \dfrac12\). Comme \(f(-1)=-1\) et \(f(2)=\dfrac12\), le minimum de \(f\) sur \(\mathbb{R}\) est \(-1\) (en \(x=-1\)) et le maximum est \(\dfrac12\) (en \(x=2\)). Le tableau seul ne suffisait pas à l'affirmer sans connaître le comportement en \(\pm\infty\).</li></ol>` },
+        { titre: "Exercice 2 — La boîte à base carrée", points: 8,
+          enonce: R`<p>Une entreprise fabrique des boîtes sans couvercle en forme de pavé droit, à base carrée, de volume \(500\) cm³. On note \(x\) le côté de la base et \(h\) la hauteur, en cm (\(x\gt 0\)). On veut utiliser le moins de carton possible.</p>
+<ol><li>Exprimer \(h\) en fonction de \(x\).</li>
+<li>Montrer que la surface de carton utilisée (fond + 4 faces latérales) est \(S(x)=x^2+\dfrac{2000}{x}\), en cm².</li>
+<li>Montrer que \(S'(x)=\dfrac{2(x^3-1000)}{x^2}\).</li>
+<li>Étudier le signe de \(S'(x)\) et dresser le tableau de variations de \(S\) sur \(]0\,;+\infty[\).</li>
+<li>Donner les dimensions de la boîte qui utilise le moins de carton, et la surface correspondante.</li>
+<li>Pour des raisons de rangement, on impose \(x\leqslant 8\). Quelle est alors la surface minimale de carton ?</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> Le volume vaut \(x^2h=500\), donc \(h=\dfrac{500}{x^2}\).</li>
+<li><b>(1,5 pt)</b> Le fond a une aire \(x^2\), chacune des 4 faces latérales une aire \(xh\). Donc \(S=x^2+4xh=x^2+4x\times\dfrac{500}{x^2}=x^2+\dfrac{2000}{x}\).</li>
+<li><b>(1,5 pt)</b> \(S'(x)=2x-\dfrac{2000}{x^2}=\dfrac{2x^3-2000}{x^2}=\dfrac{2(x^3-1000)}{x^2}\).</li>
+<li><b>(2 pts)</b> \(x^2\gt 0\), donc \(S'(x)\) a le signe de \(x^3-1000\). La fonction cube est strictement croissante et \(10^3=1000\) : \(x^3-1000\lt 0\) si \(x\lt 10\) et \(x^3-1000\gt 0\) si \(x\gt 10\). \(S(10)=100+200=300\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(10\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(S'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(S\)</td><td>||</td><td>↘</td><td>\(300\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> \(S\) est minimale pour \(x=10\). La boîte a alors une base de \(10\) cm sur \(10\) cm et une hauteur \(h=\dfrac{500}{100}=5\) cm ; elle utilise \(300\) cm² de carton.</li>
+<li><b>(1 pt)</b> \(S\) est strictement décroissante sur \(]0\,;8]\subset\,]0\,;10]\) : son minimum sur cet intervalle est atteint en \(x=8\) et vaut \(S(8)=64+\dfrac{2000}{8}=64+250=314\) cm².</li></ol>` },
+        { titre: "Exercice 3 — Approcher la racine cubique de 20", points: 6,
+          enonce: R`<p>On note \(\alpha\) le réel positif tel que \(\alpha^3=20\). On pose \(f(x)=x^3-20\) sur \(]0\,;+\infty[\).</p>
+<ol><li>Étudier les variations de \(f\) sur \(]0\,;+\infty[\). Calculer \(f(2)\) et \(f(3)\) et en déduire que \(2\lt\alpha\lt 3\).</li>
+<li>Montrer que la méthode de Newton appliquée à \(f\) s'écrit \(x_{n+1}=\dfrac{2x_n^3+20}{3x_n^2}\).</li>
+<li>On part de \(x_0=3\). Calculer \(x_1\) (valeur exacte puis approchée à \(10^{-4}\)), puis une valeur approchée de \(x_2\) à \(10^{-4}\) près.</li>
+<li>Compléter la fonction Python suivante pour qu'elle renvoie \(x_n\).
+<pre><code>def newton(n):
+    x = 3
+    for i in range(n):
+        x = ......
+    return x</code></pre></li>
+<li>Pourquoi ne peut-on pas partir de \(x_0=0\) ?</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f'(x)=3x^2\gt 0\) sur \(]0\,;+\infty[\) : \(f\) est strictement croissante. \(f(2)=8-20=-12\lt 0\) et \(f(3)=27-20=7\gt 0\). Comme \(f(\alpha)=0\) et que \(f\) est strictement croissante, on a \(f(2)\lt f(\alpha)\lt f(3)\) donc \(2\lt\alpha\lt 3\).</li>
+<li><b>(1,5 pt)</b> \(x_{n+1}=x_n-\dfrac{f(x_n)}{f'(x_n)}=x_n-\dfrac{x_n^3-20}{3x_n^2}=\dfrac{3x_n^3-x_n^3+20}{3x_n^2}=\dfrac{2x_n^3+20}{3x_n^2}\).</li>
+<li><b>(1,5 pt)</b> \(x_1=\dfrac{2\times 27+20}{3\times 9}=\dfrac{74}{27}\approx 2{,}7407\). Puis, à la calculatrice, \(x_2=\dfrac{2x_1^3+20}{3x_1^2}\approx 2{,}7147\). (Pour comparaison \(\alpha\approx 2{,}714\,42\) : la convergence est très rapide.)</li>
+<li><b>(1,5 pt)</b> <pre><code>        x = (2*x**3 + 20) / (3*x**2)</code></pre> (on peut aussi écrire <code>x = x - (x**3 - 20) / (3*x**2)</code>).</li>
+<li><b>(0,5 pt)</b> \(f'(0)=0\) : la tangente en \(0\) est horizontale et ne coupe pas l'axe des abscisses ; la formule demanderait une division par zéro.</li></ol>` }
+      ] },
+    { titre: "DS n°5 — Vrai/faux, tangente et rectangle sous une parabole", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Vrai ou faux ?", points: 4,
+          enonce: R`<p>Pour chaque affirmation, dire si elle est vraie ou fausse en justifiant.</p><ol>
+<li>Si \(f\) est dérivable sur \(\mathbb{R}\) avec \(f'(x)=(x-2)^2\), alors \(f\) admet un minimum en \(2\).</li>
+<li>La fonction \(g(x)=x^3-3x^2+3x\) n'admet aucun extremum local sur \(\mathbb{R}\).</li>
+<li>Pour tout réel \(x\geqslant 0\), \(\sqrt{x}-x\leqslant \dfrac14\).</li>
+<li>Si \(f\) est dérivable et strictement décroissante sur \([1\,;3]\), alors \(f'(2)\lt 0\).</li></ol>`,
+          correction: R`<p><b>1 pt par affirmation (réponse 0,25 pt, justification 0,75 pt).</b></p><ol>
+<li><b>Faux.</b> \(f'(x)=(x-2)^2\geqslant 0\) et ne s'annule qu'en \(2\) : \(f\) est strictement croissante sur \(\mathbb{R}\). \(f'(2)=0\) mais \(f'\) ne change pas de signe : pas d'extremum en \(2\).</li>
+<li><b>Vrai.</b> \(g'(x)=3x^2-6x+3=3(x-1)^2\geqslant 0\), nul seulement en \(1\) : \(g\) est strictement croissante sur \(\mathbb{R}\), donc n'a aucun extremum local.</li>
+<li><b>Vrai.</b> Soit \(k(x)=\sqrt{x}-x\). Sur \(]0\,;+\infty[\), \(k'(x)=\dfrac{1}{2\sqrt x}-1=\dfrac{1-2\sqrt x}{2\sqrt x}\), du signe de \(1-2\sqrt x\) : positif si \(\sqrt x\lt\frac12\), c'est-à-dire \(x\lt\frac14\), négatif si \(x\gt\frac14\). \(k\) est croissante sur \([0\,;\frac14]\) puis décroissante : son maximum est \(k\left(\frac14\right)=\frac12-\frac14=\frac14\). Donc \(\sqrt x-x\leqslant\frac14\).</li>
+<li><b>Faux.</b> Contre-exemple : \(f(x)=-(x-2)^3\) est strictement décroissante sur \([1\,;3]\) (car \(f'(x)=-3(x-2)^2\leqslant 0\), nul seulement en \(2\)), mais \(f'(2)=0\). On sait seulement que \(f'(2)\leqslant 0\).</li></ol>` },
+        { titre: "Exercice 2 — Courbe et tangente horizontale", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=x^3-x^2-x+2\), de courbe \(\mathcal{C}\).</p>
+<ol><li>Calculer \(f'(x)\) et vérifier que \(f'(x)=(3x+1)(x-1)\).</li>
+<li>Dresser le tableau de variations de \(f\) sur \(\mathbb{R}\) (valeurs exactes, sans les limites).</li>
+<li>Déterminer l'équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(1\).</li>
+<li>Montrer que pour tout réel \(x\), \(f(x)-1=(x-1)^2(x+1)\).</li>
+<li>En déduire la position relative de \(\mathcal{C}\) et de \(T\) sur \(\mathbb{R}\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'(x)=3x^2-2x-1\). Et \((3x+1)(x-1)=3x^2-3x+x-1=3x^2-2x-1\).</li>
+<li><b>(2 pts)</b> \(f'\) est un trinôme de coefficient \(3\gt 0\) et de racines \(-\frac13\) et \(1\) : positif à l'extérieur, négatif entre.<br>
+\(f\left(-\frac13\right)=-\frac1{27}-\frac19+\frac13+2=\dfrac{-1-3+9+54}{27}=\dfrac{59}{27}\) et \(f(1)=1-1-1+2=1\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-\frac13\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↗</td><td>\(\frac{59}{27}\)</td><td>↘</td><td>\(1\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> \(f(1)=1\) et \(f'(1)=0\) : \(T : y=0\times(x-1)+1\), soit \(y=1\).</li>
+<li><b>(1,5 pt)</b> \((x-1)^2(x+1)=(x^2-2x+1)(x+1)=x^3+x^2-2x^2-2x+x+1=x^3-x^2-x+1\), et \(f(x)-1=x^3-x^2-x+1\) : c'est égal.</li>
+<li><b>(2 pts)</b> On étudie le signe de \(f(x)-1\). \((x-1)^2\geqslant 0\), nul seulement en \(1\), donc \(f(x)-1\) a le signe de \(x+1\) (pour \(x\neq 1\)) :
+<ul><li>si \(x\lt -1\) : \(f(x)-1\lt 0\), \(\mathcal{C}\) est en dessous de \(T\) ;</li>
+<li>si \(x\gt -1\) et \(x\neq 1\) : \(f(x)-1\gt 0\), \(\mathcal{C}\) est au-dessus de \(T\) ;</li>
+<li>\(\mathcal{C}\) et \(T\) ont deux points communs : \((-1\,;1)\) (où la courbe traverse la droite) et \((1\,;1)\) (point de contact de la tangente).</li></ul></li></ol>` },
+        { titre: "Exercice 3 — Le rectangle sous l'arche", points: 8,
+          enonce: R`<p>Dans un repère orthonormé (unité : le mètre), une arche a la forme de la parabole \(\mathcal{P}\) d'équation \(y=12-x^2\), au-dessus de l'axe des abscisses. On veut y placer une porte rectangulaire \(ABCD\) avec \(A(-x\,;0)\), \(B(x\,;0)\), \(C\) et \(D\) sur \(\mathcal{P}\), où \(x\gt 0\).</p>
+<ol><li>Quelles sont les valeurs possibles de \(x\) ? Montrer que l'aire de la porte est \(A(x)=24x-2x^3\).</li>
+<li>Étudier les variations de \(A\) et en déduire les dimensions de la porte d'aire maximale, ainsi que cette aire.</li>
+<li>On s'intéresse maintenant au périmètre \(P(x)\) de la porte. Montrer que \(P(x)=-2x^2+4x+24\).</li>
+<li>À l'aide de la dérivée, déterminer la valeur de \(x\) pour laquelle le périmètre est maximal, et ce périmètre. La porte d'aire maximale a-t-elle le plus grand périmètre ?</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> \(C\) a pour coordonnées \((x\,;12-x^2)\). Il faut \(x\gt 0\) et une hauteur \(12-x^2\gt 0\), soit \(x^2\lt 12\), donc \(x\in\,]0\,;2\sqrt3[\). La largeur est \(AB=2x\), la hauteur \(12-x^2\), d'où \(A(x)=2x(12-x^2)=24x-2x^3\).</li>
+<li><b>(3 pts)</b> \(A'(x)=24-6x^2=6(4-x^2)=6(2-x)(2+x)\). Sur \(]0\,;2\sqrt3[\), \(6(2+x)\gt 0\), donc \(A'(x)\) a le signe de \(2-x\) : positif sur \(]0\,;2[\), négatif sur \(]2\,;2\sqrt3[\) (et \(2\lt 2\sqrt3\approx 3{,}46\)).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(2\)</td><td></td><td>\(2\sqrt3\)</td></tr>
+<tr><td>signe de \(A'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(A\)</td><td></td><td>↗</td><td>\(32\)</td><td>↘</td><td></td></tr>
+</table>
+L'aire est maximale pour \(x=2\) : \(A(2)=48-16=32\) m². La porte mesure alors \(4\) m de large et \(12-4=8\) m de haut.</li>
+<li><b>(1 pt)</b> \(P(x)=2\times AB+2\times BC=2\times 2x+2(12-x^2)=-2x^2+4x+24\).</li>
+<li><b>(2 pts)</b> \(P'(x)=-4x+4\), positif pour \(x\lt 1\), négatif pour \(x\gt 1\) (et \(1\in\,]0\,;2\sqrt3[\)). \(P\) est croissante sur \(]0\,;1]\), décroissante sur \([1\,;2\sqrt3[\) : le périmètre est maximal pour \(x=1\) et vaut \(P(1)=-2+4+24=26\) m (porte de \(2\) m sur \(11\) m). La porte d'aire maximale (\(x=2\)) n'a donc pas le plus grand périmètre : \(P(2)=24\lt 26\).</li></ol>` }
+      ] },
+    { titre: "DS n°6 — Bénéfice, coût moyen et racine carrée", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Maximiser le bénéfice", points: 6,
+          enonce: R`<p>Une coopérative produit chaque jour \(q\) tonnes d'aliment pour bétail, avec \(q\in[0\,;10]\). Le coût de production, en milliers d'euros, est \(C(q)=q^3-12q^2+60q+50\). Toute la production est vendue \(36\) milliers d'euros la tonne.</p>
+<ol><li>Calculer \(C'(q)\) et montrer que le coût est strictement croissant sur \([0\,;10]\).</li>
+<li>Montrer que le bénéfice est \(B(q)=-q^3+12q^2-24q-50\).</li>
+<li>Calculer \(B'(q)\) et déterminer les valeurs de \(q\) où \(B'\) s'annule (valeurs exactes).</li>
+<li>Dresser le tableau de variations de \(B\) sur \([0\,;10]\) (valeurs approchées au centième). En déduire la production qui maximise le bénéfice, et ce bénéfice à l'euro près.</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(C'(q)=3q^2-24q+60=3(q^2-8q+20)\). Le trinôme \(q^2-8q+20\) a pour discriminant \(\Delta=64-80=-16\lt 0\) : il garde le signe de son coefficient \(1\gt 0\). Donc \(C'(q)\gt 0\) et \(C\) est strictement croissante sur \([0\,;10]\).</li>
+<li><b>(1 pt)</b> Recette : \(36q\). \(B(q)=36q-C(q)=36q-q^3+12q^2-60q-50=-q^3+12q^2-24q-50\).</li>
+<li><b>(1,5 pt)</b> \(B'(q)=-3q^2+24q-24=-3(q^2-8q+8)\). Pour \(q^2-8q+8\) : \(\Delta=64-32=32\), \(\sqrt{32}=4\sqrt2\), d'où \(q_1=\dfrac{8-4\sqrt2}{2}=4-2\sqrt2\approx 1{,}17\) et \(q_2=4+2\sqrt2\approx 6{,}83\), tous deux dans \([0\,;10]\).</li>
+<li><b>(2 pts)</b> \(B'(q)=-3(q-q_1)(q-q_2)\) est négatif à l'extérieur des racines et positif entre. Valeurs : \(B(0)=-50\), \(B(q_1)\approx -63{,}25\), \(B(q_2)\approx 27{,}25\), \(B(10)=-1000+1200-240-50=-90\).
+<table class="tv">
+<tr><td>\(q\)</td><td>\(0\)</td><td></td><td>\(4-2\sqrt2\)</td><td></td><td>\(4+2\sqrt2\)</td><td></td><td>\(10\)</td></tr>
+<tr><td>signe de \(B'(q)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(B\)</td><td>\(-50\)</td><td>↘</td><td>\(\approx -63{,}25\)</td><td>↗</td><td>\(\approx 27{,}25\)</td><td>↘</td><td>\(-90\)</td></tr>
+</table>
+Le bénéfice est maximal pour \(q=4+2\sqrt2\approx 6{,}83\) tonnes. Il vaut \(B(4+2\sqrt2)=32\sqrt2-18\approx 27{,}255\) milliers d'euros, soit environ \(27\,255\) €.</li></ol>` },
+        { titre: "Exercice 2 — Coût moyen et méthode de Newton", points: 7,
+          enonce: R`<p>On reprend le coût \(C(q)=q^3-12q^2+60q+50\) de l'exercice 1. Le coût moyen par tonne est \(C_M(q)=\dfrac{C(q)}{q}\) pour \(q\in\,]0\,;10]\).</p>
+<ol><li>Montrer que \(C_M(q)=q^2-12q+60+\dfrac{50}{q}\) puis que \(C_M'(q)=\dfrac{2g(q)}{q^2}\) avec \(g(q)=q^3-6q^2-25\).</li>
+<li>Étudier les variations de \(g\) sur \([0\,;10]\). Justifier que \(g(q)\lt 0\) sur \([0\,;4]\). On admet que \(g\) s'annule une seule fois sur \([0\,;10]\), en un réel \(\alpha\in\,]4\,;10[\).</li>
+<li>Pour approcher \(\alpha\), on applique la méthode de Newton à \(g\) en partant de \(q_0=7\). Calculer \(q_1\) (valeur exacte et approchée), puis une valeur approchée de \(q_2\) à \(10^{-4}\) près.</li>
+<li>Voici un programme Python. Qu'affiche-t-il ? Que représente la variable <code>n</code> ?
+<pre><code>q = 7
+n = 0
+ecart = 1
+while ecart &gt; 10**-4:
+    nouveau = q - (q**3 - 6*q**2 - 25) / (3*q**2 - 12*q)
+    ecart = abs(nouveau - q)
+    q = nouveau
+    n = n + 1
+print(n, q)</code></pre></li>
+<li>En déduire les variations de \(C_M\) et la production pour laquelle le coût moyen est minimal (on donnera ce coût moyen à l'euro près).</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> \(C_M(q)=\dfrac{q^3-12q^2+60q+50}{q}=q^2-12q+60+\dfrac{50}{q}\). Donc
+\[C_M'(q)=2q-12-\frac{50}{q^2}=\frac{2q^3-12q^2-50}{q^2}=\frac{2(q^3-6q^2-25)}{q^2}=\frac{2g(q)}{q^2}.\]</li>
+<li><b>(1,5 pt)</b> \(g'(q)=3q^2-12q=3q(q-4)\) : négatif sur \(]0\,;4[\), positif sur \(]4\,;10[\). \(g\) est décroissante sur \([0\,;4]\) et croissante sur \([4\,;10]\), avec \(g(0)=-25\), \(g(4)=64-96-25=-57\), \(g(10)=1000-600-25=375\). Sur \([0\,;4]\), \(g\) décroît de \(-25\) à \(-57\) : \(g(q)\leqslant -25\lt 0\).</li>
+<li><b>(1,5 pt)</b> \(q_1=q_0-\dfrac{g(q_0)}{g'(q_0)}\) avec \(g(7)=343-294-25=24\) et \(g'(7)=147-84=63\) : \(q_1=7-\dfrac{24}{63}=7-\dfrac{8}{21}=\dfrac{139}{21}\approx 6{,}6190\). À la calculatrice, \(q_2=q_1-\dfrac{g(q_1)}{g'(q_1)}\approx 6{,}5783\).</li>
+<li><b>(1 pt)</b> Le programme applique la méthode de Newton jusqu'à ce que deux termes successifs diffèrent de moins de \(10^{-4}\) ; <code>n</code> compte le nombre d'itérations effectuées. Les écarts successifs valent environ \(0{,}38\) ; \(0{,}041\) ; \(0{,}000\,45\) ; \(0{,}000\,000\,06\) : le programme affiche <code>4 6.5778012925...</code>, donc \(\alpha\approx 6{,}5778\).</li>
+<li><b>(1 pt)</b> \(q^2\gt 0\), donc \(C_M'(q)\) a le signe de \(g(q)\) : négatif sur \(]0\,;\alpha[\), positif sur \(]\alpha\,;10]\). \(C_M\) est décroissante sur \(]0\,;\alpha]\) et croissante sur \([\alpha\,;10]\). Le coût moyen est minimal pour une production d'environ \(6{,}58\) tonnes ; il vaut \(C_M(\alpha)\approx 31{,}94\) milliers d'euros par tonne, soit environ \(31\,935\) € la tonne.</li></ol>` },
+        { titre: "Exercice 3 — Racine carrée et tangente", points: 7,
+          enonce: R`<p>On note \(\mathcal{C}\) la courbe de la fonction racine carrée \(f(x)=\sqrt x\) sur \([0\,;+\infty[\).</p>
+<ol><li>Déterminer l'équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(1\).</li>
+<li>On pose \(h(x)=\dfrac{x+1}{2}-\sqrt x\) sur \([0\,;+\infty[\). Montrer que pour \(x\gt 0\), \(h'(x)=\dfrac{\sqrt x-1}{2\sqrt x}\).</li>
+<li>Étudier le signe de \(h'(x)\), dresser le tableau de variations de \(h\) et donner son minimum.</li>
+<li>En déduire que pour tout \(x\geqslant 0\), \(\sqrt x\leqslant\dfrac{x+1}{2}\), et interpréter graphiquement.</li>
+<li>Application : sans calculer \(\sqrt{1{,}02}\), montrer que \(\sqrt{1{,}02}\leqslant 1{,}01\). Comparer avec la valeur donnée par la calculatrice.</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'(x)=\dfrac{1}{2\sqrt x}\) sur \(]0\,;+\infty[\), \(f(1)=1\), \(f'(1)=\dfrac12\). \(T : y=\dfrac12(x-1)+1\), soit \(y=\dfrac{x+1}{2}\).</li>
+<li><b>(1,5 pt)</b> \(h'(x)=\dfrac12-\dfrac{1}{2\sqrt x}=\dfrac{\sqrt x}{2\sqrt x}-\dfrac{1}{2\sqrt x}=\dfrac{\sqrt x-1}{2\sqrt x}\).</li>
+<li><b>(2 pts)</b> \(2\sqrt x\gt 0\) pour \(x\gt 0\), donc \(h'(x)\) a le signe de \(\sqrt x-1\) : négatif si \(0\lt x\lt 1\), positif si \(x\gt 1\) (la racine carrée est strictement croissante et \(\sqrt1=1\)). \(h(0)=\frac12\), \(h(1)=1-1=0\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(h'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(h\)</td><td>\(\frac12\)</td><td>↘</td><td>\(0\)</td><td>↗</td><td></td></tr>
+</table>
+(la double barre signale que \(h\) n'est pas dérivable en \(0\), mais \(h(0)\) existe.) Le minimum de \(h\) est \(0\), atteint en \(x=1\).</li>
+<li><b>(1 pt)</b> Donc \(h(x)\geqslant 0\) pour tout \(x\geqslant 0\), soit \(\sqrt x\leqslant\dfrac{x+1}{2}\). Graphiquement : la courbe de la racine carrée est en dessous de sa tangente \(T\) en \(1\), avec un seul point de contact \((1\,;1)\).</li>
+<li><b>(1 pt)</b> Avec \(x=1{,}02\) : \(\sqrt{1{,}02}\leqslant\dfrac{2{,}02}{2}=1{,}01\). La calculatrice donne \(\sqrt{1{,}02}\approx 1{,}009\,95\) : l'approximation par la tangente est excellente près de \(1\).</li></ol>` }
+      ] },
+    { titre: "DS n°7 — Fonctions rationnelles, paramètres et clôture", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Une fonction et sa droite oblique", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \(]1\,;+\infty[\) par \(f(x)=\dfrac{x^2-3x+6}{x-1}\), de courbe \(\mathcal{C}\), et \(\mathcal{D}\) la droite d'équation \(y=x-2\).</p>
+<ol><li>Montrer que pour tout \(x\gt 1\), \(f(x)=x-2+\dfrac{4}{x-1}\).</li>
+<li>Montrer que \(f'(x)=\dfrac{(x-3)(x+1)}{(x-1)^2}\).</li>
+<li>Dresser le tableau de variations de \(f\) sur \(]1\,;+\infty[\) et donner son minimum.</li>
+<li>En déduire que pour tout \(x\gt 1\), \(x^2-3x+6\geqslant 3(x-1)\). Retrouver ce résultat par un calcul direct.</li>
+<li>Étudier la position relative de \(\mathcal{C}\) et de \(\mathcal{D}\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(x-2+\dfrac{4}{x-1}=\dfrac{(x-2)(x-1)+4}{x-1}=\dfrac{x^2-3x+2+4}{x-1}=\dfrac{x^2-3x+6}{x-1}=f(x)\).</li>
+<li><b>(2 pts)</b> Avec la forme de la question 1 et \(\left(\dfrac1v\right)'=-\dfrac{v'}{v^2}\) : \(f'(x)=1-\dfrac{4}{(x-1)^2}=\dfrac{(x-1)^2-4}{(x-1)^2}\). On factorise \(a^2-b^2\) : \((x-1)^2-4=(x-1-2)(x-1+2)=(x-3)(x+1)\). Donc \(f'(x)=\dfrac{(x-3)(x+1)}{(x-1)^2}\).<br>
+(On peut aussi utiliser \(\left(\frac uv\right)'\) : \(\dfrac{(2x-3)(x-1)-(x^2-3x+6)}{(x-1)^2}=\dfrac{x^2-2x-3}{(x-1)^2}\), même résultat.)</li>
+<li><b>(2 pts)</b> Sur \(]1\,;+\infty[\) : \((x-1)^2\gt 0\) et \(x+1\gt 0\), donc \(f'(x)\) a le signe de \(x-3\). \(f(3)=\dfrac{9-9+6}{2}=3\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(1\)</td><td></td><td>\(3\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td>||</td><td>↘</td><td>\(3\)</td><td>↗</td><td></td></tr>
+</table>
+Le minimum de \(f\) sur \(]1\,;+\infty[\) est \(3\), atteint en \(x=3\).</li>
+<li><b>(1,5 pt)</b> Pour tout \(x\gt 1\), \(\dfrac{x^2-3x+6}{x-1}\geqslant 3\) ; comme \(x-1\gt 0\), on multiplie sans changer le sens : \(x^2-3x+6\geqslant 3(x-1)\).<br>
+Calcul direct : \(x^2-3x+6-3(x-1)=x^2-6x+9=(x-3)^2\geqslant 0\). On retrouve le résultat.</li>
+<li><b>(1,5 pt)</b> \(f(x)-(x-2)=\dfrac{4}{x-1}\gt 0\) pour tout \(x\gt 1\) : \(\mathcal{C}\) est strictement au-dessus de \(\mathcal{D}\) sur \(]1\,;+\infty[\) (elles n'ont aucun point commun).</li></ol>` },
+        { titre: "Exercice 2 — Retrouver une fonction", points: 5,
+          enonce: R`<p>Soit \(g\) définie sur \(\mathbb{R}\) par \(g(x)=\dfrac{ax+b}{x^2+1}\), où \(a\) et \(b\) sont des réels. Sa courbe admet une tangente horizontale au point d'abscisse \(1\), et \(g(1)=2\).</p>
+<ol><li>Montrer que \(g'(x)=\dfrac{-ax^2-2bx+a}{(x^2+1)^2}\), puis déterminer \(a\) et \(b\).</li>
+<li>Dans la suite, \(g(x)=\dfrac{4x}{x^2+1}\). Dresser le tableau de variations de \(g\) sur \(\mathbb{R}\) (sans les limites).</li>
+<li>Montrer que pour tout réel \(x\), \(-2\leqslant g(x)\leqslant 2\).</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> \(g'(x)=\dfrac{a(x^2+1)-(ax+b)\times 2x}{(x^2+1)^2}=\dfrac{ax^2+a-2ax^2-2bx}{(x^2+1)^2}=\dfrac{-ax^2-2bx+a}{(x^2+1)^2}\).<br>
+Tangente horizontale en \(1\) : \(g'(1)=\dfrac{-a-2b+a}{4}=-\dfrac{b}{2}=0\), donc \(b=0\). Puis \(g(1)=\dfrac{a}{2}=2\), donc \(a=4\).</li>
+<li><b>(1,5 pt)</b> Avec \(a=4\), \(b=0\) : \(g'(x)=\dfrac{4-4x^2}{(x^2+1)^2}=\dfrac{4(1-x)(1+x)}{(x^2+1)^2}\). Le dénominateur est strictement positif ; \(4(1-x^2)\) est un trinôme de coefficient \(-4\lt 0\) et de racines \(-1\) et \(1\). \(g(-1)=-2\), \(g(1)=2\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-1\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(g'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(g\)</td><td></td><td>↘</td><td>\(-2\)</td><td>↗</td><td>\(2\)</td><td>↘</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(2-g(x)=\dfrac{2x^2+2-4x}{x^2+1}=\dfrac{2(x-1)^2}{x^2+1}\geqslant 0\) et \(g(x)+2=\dfrac{4x+2x^2+2}{x^2+1}=\dfrac{2(x+1)^2}{x^2+1}\geqslant 0\). Donc \(-2\leqslant g(x)\leqslant 2\) pour tout réel \(x\) : \(2\) est le maximum de \(g\) sur \(\mathbb{R}\) et \(-2\) son minimum.</li></ol>` },
+        { titre: "Exercice 3 — La clôture la moins chère", points: 7,
+          enonce: R`<p>Un maraîcher veut clôturer un terrain rectangulaire de \(800\) m² situé le long d'une route. On note \(x\) la longueur (en m) du côté qui longe la route et \(y\) l'autre dimension. Le grillage côté route, plus solide, coûte \(30\) € le mètre ; les trois autres côtés coûtent \(10\) € le mètre.</p>
+<ol><li>Exprimer \(y\) en fonction de \(x\), puis montrer que le coût total de la clôture est \(K(x)=40x+\dfrac{16\,000}{x}\), pour \(x\gt 0\).</li>
+<li>Montrer que \(K'(x)=\dfrac{40(x-20)(x+20)}{x^2}\).</li>
+<li>Dresser le tableau de variations de \(K\) sur \(]0\,;+\infty[\).</li>
+<li>Donner les dimensions du terrain pour lesquelles la clôture coûte le moins cher, et ce coût.</li>
+<li>Vérifier le résultat sans dérivée en montrant que \(K(x)-1600=\dfrac{40(x-20)^2}{x}\).</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> L'aire vaut \(xy=800\), donc \(y=\dfrac{800}{x}\). Côté route : \(30x\) € ; côté opposé : \(10x\) € ; les deux autres côtés : \(2\times 10y=20y\) €. Donc \(K(x)=40x+20\times\dfrac{800}{x}=40x+\dfrac{16\,000}{x}\).</li>
+<li><b>(1,5 pt)</b> \(K'(x)=40-\dfrac{16\,000}{x^2}=\dfrac{40x^2-16\,000}{x^2}=\dfrac{40(x^2-400)}{x^2}=\dfrac{40(x-20)(x+20)}{x^2}\).</li>
+<li><b>(1,5 pt)</b> Sur \(]0\,;+\infty[\), \(x^2\gt 0\) et \(x+20\gt 0\) : \(K'(x)\) a le signe de \(x-20\). \(K(20)=800+800=1600\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(20\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(K'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(K\)</td><td>||</td><td>↘</td><td>\(1600\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> Le coût est minimal pour \(x=20\) m ; alors \(y=\dfrac{800}{20}=40\) m. Le terrain mesure \(20\) m le long de la route sur \(40\) m de profondeur, et la clôture coûte \(1\,600\) €.</li>
+<li><b>(1 pt)</b> \(K(x)-1600=\dfrac{40x^2-1600x+16\,000}{x}=\dfrac{40(x^2-40x+400)}{x}=\dfrac{40(x-20)^2}{x}\geqslant 0\) pour \(x\gt 0\), avec égalité seulement pour \(x=20\) : on retrouve que \(1600\) € est le coût minimal.</li></ol>` }
+      ] },
+    { titre: "DS n°8 — Cylindre, hyperbole et Newton", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Le cylindre dans la sphère", points: 7,
+          enonce: R`<p>On place un cylindre de hauteur \(h\) et de rayon \(r\) (en cm) à l'intérieur d'une sphère de centre \(O\) et de rayon \(3\) cm, de sorte que les cercles de ses deux bases soient sur la sphère. On rappelle que le volume d'un cylindre est \(\pi r^2h\) et celui d'une boule de rayon \(R\) est \(\frac43\pi R^3\).</p>
+<ol><li>En considérant le triangle rectangle formé par \(O\), le centre d'une base et un point du cercle de cette base, montrer que \(r^2=9-\dfrac{h^2}{4}\). Quelles sont les valeurs possibles de \(h\) ?</li>
+<li>En déduire que le volume du cylindre est \(V(h)=\pi\left(9h-\dfrac{h^3}{4}\right)\).</li>
+<li>Montrer que \(V'(h)=\dfrac{3\pi}{4}(12-h^2)\).</li>
+<li>Étudier les variations de \(V\) et déterminer la hauteur et le rayon du cylindre de volume maximal (valeurs exactes et approchées au dixième), ainsi que ce volume.</li>
+<li>Quelle proportion du volume de la boule ce cylindre occupe-t-il ? (au pourcent près)</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> Le centre d'une base est à la distance \(\dfrac h2\) de \(O\) (par symétrie). Dans le triangle rectangle, l'hypoténuse est un rayon de la sphère : par Pythagore, \(r^2+\left(\dfrac h2\right)^2=3^2\), donc \(r^2=9-\dfrac{h^2}{4}\). Il faut \(h\gt 0\) et \(r^2\gt 0\), soit \(h^2\lt 36\) : \(h\in\,]0\,;6[\).</li>
+<li><b>(1 pt)</b> \(V=\pi r^2h=\pi\left(9-\dfrac{h^2}{4}\right)h=\pi\left(9h-\dfrac{h^3}{4}\right)\).</li>
+<li><b>(1,5 pt)</b> \(V'(h)=\pi\left(9-\dfrac{3h^2}{4}\right)=\dfrac{3\pi}{4}\left(12-h^2\right)\) (car \(\dfrac{3\pi}{4}\times 12=9\pi\)).</li>
+<li><b>(2 pts)</b> \(\dfrac{3\pi}{4}\gt 0\), donc \(V'(h)\) a le signe de \(12-h^2=(\sqrt{12}-h)(\sqrt{12}+h)\), c'est-à-dire de \(2\sqrt3-h\) sur \(]0\,;6[\). \(V\) est croissante sur \(]0\,;2\sqrt3]\) et décroissante sur \([2\sqrt3\,;6[\).
+<table class="tv">
+<tr><td>\(h\)</td><td>\(0\)</td><td></td><td>\(2\sqrt3\)</td><td></td><td>\(6\)</td></tr>
+<tr><td>signe de \(V'(h)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(V\)</td><td></td><td>↗</td><td>\(12\sqrt3\,\pi\)</td><td>↘</td><td></td></tr>
+</table>
+Le volume est maximal pour \(h=2\sqrt3\approx 3{,}5\) cm. Alors \(r^2=9-\dfrac{12}{4}=6\), \(r=\sqrt6\approx 2{,}4\) cm, et \(V=\pi\times 6\times 2\sqrt3=12\sqrt3\,\pi\approx 65{,}3\) cm³.</li>
+<li><b>(1 pt)</b> Volume de la boule : \(\frac43\pi\times 27=36\pi\). Proportion : \(\dfrac{12\sqrt3\,\pi}{36\pi}=\dfrac{\sqrt3}{3}\approx 0{,}577\), soit environ \(58\,\%\).</li></ol>` },
+        { titre: "Exercice 2 — Autour de l'hyperbole y = 4/x", points: 6,
+          enonce: R`<p>Dans un repère orthonormé d'origine \(O\), on considère la courbe \(\mathcal{H}\) d'équation \(y=\dfrac4x\) pour \(x\gt 0\), et un point \(M\) de \(\mathcal{H}\) d'abscisse \(x\).</p>
+<ol><li>Montrer que \(OM^2=f(x)\) avec \(f(x)=x^2+\dfrac{16}{x^2}\).</li>
+<li>Montrer que \(f'(x)=\dfrac{2(x-2)(x+2)(x^2+4)}{x^3}\) et étudier son signe sur \(]0\,;+\infty[\).</li>
+<li>En déduire la position du point \(M\) le plus proche de \(O\) et la distance \(OM\) minimale.</li>
+<li>Soit \(a\gt 0\). Montrer que la tangente à \(\mathcal{H}\) au point d'abscisse \(a\) a pour équation \(y=-\dfrac{4}{a^2}x+\dfrac{8}{a}\).</li>
+<li>Cette tangente coupe les axes en deux points \(P\) et \(Q\). Montrer que l'aire du triangle \(OPQ\) ne dépend pas de \(a\).</li></ol>`,
+          correction: R`<ol><li><b>(0,5 pt)</b> \(M\left(x\,;\frac4x\right)\), donc \(OM^2=x^2+\left(\dfrac4x\right)^2=x^2+\dfrac{16}{x^2}\).</li>
+<li><b>(2 pts)</b> \(f'(x)=2x-\dfrac{32}{x^3}=\dfrac{2x^4-32}{x^3}=\dfrac{2(x^4-16)}{x^3}\). Or \(x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x^2+4)\). Sur \(]0\,;+\infty[\), \(x^3\gt 0\), \(x+2\gt 0\) et \(x^2+4\gt 0\) : \(f'(x)\) a le signe de \(x-2\), négatif sur \(]0\,;2[\), positif sur \(]2\,;+\infty[\).</li>
+<li><b>(1 pt)</b> \(f\) est décroissante sur \(]0\,;2]\) puis croissante sur \([2\,;+\infty[\) : son minimum est \(f(2)=4+4=8\). Comme \(OM=\sqrt{f(x)}\) et que la racine carrée est croissante, \(OM\) est minimale pour \(x=2\), c'est-à-dire au point \(M(2\,;2)\), et vaut \(\sqrt8=2\sqrt2\approx 2{,}83\).</li>
+<li><b>(1,5 pt)</b> Avec \(g(x)=\dfrac4x\) : \(g'(x)=-\dfrac{4}{x^2}\), \(g(a)=\dfrac4a\), \(g'(a)=-\dfrac{4}{a^2}\). Tangente : \(y=-\dfrac{4}{a^2}(x-a)+\dfrac4a=-\dfrac{4}{a^2}x+\dfrac4a+\dfrac4a=-\dfrac{4}{a^2}x+\dfrac8a\).</li>
+<li><b>(1 pt)</b> Pour \(x=0\) : \(y=\dfrac8a\), donc \(Q\left(0\,;\frac8a\right)\). Pour \(y=0\) : \(\dfrac{4}{a^2}x=\dfrac8a\iff x=2a\), donc \(P(2a\,;0)\). Le triangle \(OPQ\) est rectangle en \(O\) : son aire vaut \(\dfrac12\times 2a\times\dfrac8a=8\), quel que soit \(a\gt 0\).</li></ol>` },
+        { titre: "Exercice 3 — Newton à la poursuite d'une racine", points: 7,
+          enonce: R`<p>Soit \(f(x)=x^3-3x+1\). On s'intéresse à la solution \(\alpha\) de l'équation \(f(x)=0\) située dans \([0\,;1]\).</p>
+<ol><li>Calculer \(f'(x)\) et montrer que \(f\) est strictement décroissante sur \([0\,;1]\). Calculer \(f(0)\) et \(f(1)\). On admet que \(\alpha\) est l'unique solution de \(f(x)=0\) dans \([0\,;1]\).</li>
+<li>On applique la méthode de Newton avec \(x_0=0\). Calculer \(x_1\) puis \(x_2\) sous forme de fractions, puis donner une valeur approchée de \(x_2\) à \(10^{-4}\) près.</li>
+<li>Calculer \(f\left(\frac13\right)\). En déduire, sans calculatrice, que \(\alpha\gt\dfrac13\).</li>
+<li>Compléter le programme Python suivant pour qu'il applique la méthode de Newton à partir de \(x_0=0\) tant que \(|f(x)|\) dépasse \(10^{-8}\).
+<pre><code>x = 0
+while abs(x**3 - 3*x + 1) &gt; 10**-8:
+    x = ......
+print(x)</code></pre></li>
+<li>Que se passerait-il si on lançait la méthode avec \(x_0=1\) ?</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'(x)=3x^2-3=3(x-1)(x+1)\). Sur \([0\,;1[\), \(x-1\lt 0\) et \(x+1\gt 0\), donc \(f'(x)\lt 0\) (et \(f'(1)=0\)) : \(f\) est strictement décroissante sur \([0\,;1]\). \(f(0)=1\) et \(f(1)=1-3+1=-1\).</li>
+<li><b>(2 pts)</b> \(x_1=0-\dfrac{f(0)}{f'(0)}=-\dfrac{1}{-3}=\dfrac13\).<br>
+\(f\left(\frac13\right)=\dfrac1{27}-1+1=\dfrac1{27}\) et \(f'\left(\frac13\right)=\dfrac13-3=-\dfrac83\). Donc \(x_2=\dfrac13-\dfrac{1/27}{-8/3}=\dfrac13+\dfrac{1}{27}\times\dfrac38=\dfrac13+\dfrac{1}{72}=\dfrac{25}{72}\approx 0{,}3472\).</li>
+<li><b>(1 pt)</b> \(f\left(\frac13\right)=\dfrac1{27}\gt 0=f(\alpha)\). Comme \(f\) est strictement décroissante sur \([0\,;1]\), \(f\left(\frac13\right)\gt f(\alpha)\) entraîne \(\dfrac13\lt\alpha\).</li>
+<li><b>(1,5 pt)</b> <pre><code>    x = x - (x**3 - 3*x + 1) / (3*x**2 - 3)</code></pre> Le programme affiche environ \(0{,}347\,296\,35\) (il s'arrête après \(x_3\)).</li>
+<li><b>(1 pt)</b> \(f'(1)=0\) : la tangente en \(1\) est horizontale, elle ne coupe pas l'axe des abscisses. Le calcul de \(x_1\) demanderait une division par zéro (Python afficherait une erreur <code>ZeroDivisionError</code>).</li></ol>` }
+      ] },
+    { titre: "DS n°9 — Degré 4, inégalité et vitesse économique", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Un polynôme de degré 4", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=3x^4-4x^3-12x^2+5\), de courbe \(\mathcal{C}\).</p>
+<ol><li>Calculer \(f'(x)\) et montrer que \(f'(x)=12x(x-2)(x+1)\).</li>
+<li>Dresser le tableau de signes de \(f'(x)\) sur \(\mathbb{R}\).</li>
+<li>Dresser le tableau de variations de \(f\) (valeurs aux points où \(f'\) s'annule, sans les limites).</li>
+<li>Déterminer les extremums locaux de \(f\). Le maximum local est-il le maximum de \(f\) sur \(\mathbb{R}\) ? (on pourra calculer \(f(3)\)). Quel est le minimum de \(f\) sur \(\mathbb{R}\) ?</li>
+<li>Déterminer l'équation de la tangente à \(\mathcal{C}\) au point d'abscisse \(1\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'(x)=12x^3-12x^2-24x=12x(x^2-x-2)\). Or \((x-2)(x+1)=x^2+x-2x-2=x^2-x-2\), donc \(f'(x)=12x(x-2)(x+1)\).</li>
+<li><b>(2 pts)</b>
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-1\)</td><td></td><td>\(0\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>\(12x\)</td><td></td><td>\(-\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td><td>\(+\)</td><td></td></tr>
+<tr><td>\(x-2\)</td><td></td><td>\(-\)</td><td></td><td>\(-\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>\(x+1\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td><td>\(+\)</td><td></td><td>\(+\)</td><td></td></tr>
+<tr><td>\(f'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(f(-1)=3+4-12+5=0\) ; \(f(0)=5\) ; \(f(2)=48-32-48+5=-27\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-1\)</td><td></td><td>\(0\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↘</td><td>\(0\)</td><td>↗</td><td>\(5\)</td><td>↘</td><td>\(-27\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(f'\) change de signe en \(-1\), \(0\) et \(2\) : \(f\) admet un minimum local \(0\) en \(-1\), un maximum local \(5\) en \(0\) et un minimum local \(-27\) en \(2\).<br>
+\(f(3)=243-108-108+5=32\gt 5\) : le maximum local \(5\) n'est pas le maximum de \(f\) sur \(\mathbb{R}\).<br>
+Sur \(]-\infty\,;0]\), \(f(x)\geqslant f(-1)=0\) ; sur \([0\,;+\infty[\), \(f(x)\geqslant f(2)=-27\). Donc le minimum de \(f\) sur \(\mathbb{R}\) est \(-27\), atteint en \(x=2\).</li>
+<li><b>(1,5 pt)</b> \(f(1)=3-4-12+5=-8\) et \(f'(1)=12\times 1\times(-1)\times 2=-24\). Tangente : \(y=-24(x-1)-8\), soit \(y=-24x+16\).</li></ol>` },
+        { titre: "Exercice 2 — Une inégalité de degré 4", points: 6,
+          enonce: R`<p>On veut démontrer que pour tout réel \(x\) : \(x^4+3\geqslant 4x\). On pose \(h(x)=x^4-4x+3\) sur \(\mathbb{R}\).</p>
+<ol><li>Calculer \(h'(x)\) et étudier son signe sur \(\mathbb{R}\).</li>
+<li>Dresser le tableau de variations de \(h\) et donner son minimum.</li>
+<li>Conclure.</li>
+<li>Déterminer l'équation de la tangente à la courbe de \(x\mapsto x^4\) au point d'abscisse \(1\), puis interpréter graphiquement l'inégalité démontrée.</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(h'(x)=4x^3-4=4(x^3-1)\). La fonction cube est strictement croissante et \(1^3=1\) : \(x^3-1\lt 0\) si \(x\lt 1\) et \(x^3-1\gt 0\) si \(x\gt 1\). Donc \(h'(x)\lt 0\) sur \(]-\infty\,;1[\) et \(h'(x)\gt 0\) sur \(]1\,;+\infty[\).</li>
+<li><b>(2 pts)</b> \(h(1)=1-4+3=0\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(h'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(h\)</td><td></td><td>↘</td><td>\(0\)</td><td>↗</td><td></td></tr>
+</table>
+\(h\) admet un minimum égal à \(0\), atteint en \(x=1\).</li>
+<li><b>(1 pt)</b> Pour tout réel \(x\), \(h(x)\geqslant 0\), donc \(x^4-4x+3\geqslant 0\), c'est-à-dire \(x^4+3\geqslant 4x\) (égalité seulement pour \(x=1\)).</li>
+<li><b>(1,5 pt)</b> Pour \(g(x)=x^4\) : \(g(1)=1\), \(g'(x)=4x^3\), \(g'(1)=4\). Tangente : \(y=4(x-1)+1=4x-3\). L'inégalité s'écrit \(x^4\geqslant 4x-3\) : la courbe de \(x\mapsto x^4\) est au-dessus de sa tangente au point d'abscisse \(1\) sur tout \(\mathbb{R}\), et ne la touche qu'au point \((1\,;1)\).</li></ol>` },
+        { titre: "Exercice 3 — À quelle vitesse rouler ?", points: 6,
+          enonce: R`<p>Un camion doit parcourir \(300\) km à vitesse constante \(v\) (en km/h), avec \(v\in[30\,;90]\). Le salaire du chauffeur coûte \(45\) € par heure et le carburant coûte \(\dfrac{v^2}{80}\) € par heure.</p>
+<ol><li>Exprimer la durée du trajet en fonction de \(v\).</li>
+<li>Montrer que le coût total du trajet est \(C(v)=\dfrac{13\,500}{v}+\dfrac{15v}{4}\).</li>
+<li>Montrer que \(C'(v)=\dfrac{15(v-60)(v+60)}{4v^2}\).</li>
+<li>Dresser le tableau de variations de \(C\) sur \([30\,;90]\).</li>
+<li>À quelle vitesse faut-il rouler pour que le trajet coûte le moins cher ? Donner ce coût et la durée du trajet.</li></ol>`,
+          correction: R`<ol><li><b>(0,5 pt)</b> Durée \(=\dfrac{\text{distance}}{\text{vitesse}}=\dfrac{300}{v}\) heures.</li>
+<li><b>(1,5 pt)</b> Coût horaire : \(45+\dfrac{v^2}{80}\). Donc \(C(v)=\dfrac{300}{v}\left(45+\dfrac{v^2}{80}\right)=\dfrac{13\,500}{v}+\dfrac{300v}{80}=\dfrac{13\,500}{v}+\dfrac{15v}{4}\).</li>
+<li><b>(1,5 pt)</b> \(C'(v)=-\dfrac{13\,500}{v^2}+\dfrac{15}{4}=\dfrac{15v^2-54\,000}{4v^2}=\dfrac{15(v^2-3600)}{4v^2}=\dfrac{15(v-60)(v+60)}{4v^2}\) (car \(54\,000=15\times 3600\)).</li>
+<li><b>(1,5 pt)</b> Sur \([30\,;90]\), \(4v^2\gt 0\) et \(v+60\gt 0\) : \(C'(v)\) a le signe de \(v-60\). \(C(30)=450+112{,}5=562{,}5\) ; \(C(60)=225+225=450\) ; \(C(90)=150+337{,}5=487{,}5\).
+<table class="tv">
+<tr><td>\(v\)</td><td>\(30\)</td><td></td><td>\(60\)</td><td></td><td>\(90\)</td></tr>
+<tr><td>signe de \(C'(v)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(C\)</td><td>\(562{,}5\)</td><td>↘</td><td>\(450\)</td><td>↗</td><td>\(487{,}5\)</td></tr>
+</table></li>
+<li><b>(1 pt)</b> Le coût est minimal pour \(v=60\) km/h : le trajet coûte alors \(450\) € et dure \(\dfrac{300}{60}=5\) heures.</li></ol>` }
+      ] },
+    { titre: "DS n°10 — Synthèse : QCM, étude, position et affiche", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — QCM", points: 4,
+          enonce: R`<p>Pour chaque question, une seule réponse est exacte. Recopier la bonne réponse en justifiant.</p><ol>
+<li>La dérivée de \(f(x)=\dfrac{x-1}{x+2}\) sur \(]-2\,;+\infty[\) est : a) \(1\) ; b) \(\dfrac{3}{(x+2)^2}\) ; c) \(\dfrac{-3}{(x+2)^2}\).</li>
+<li>Le nombre de points de la courbe de \(g(x)=x^3+3x\) où la tangente est horizontale est : a) \(0\) ; b) \(1\) ; c) \(2\).</li>
+<li>Le maximum de \(k(x)=-2x^2+8x-3\) sur \([0\,;1]\) est : a) \(5\) ; b) \(3\) ; c) \(-3\).</li>
+<li>Méthode de Newton pour \(f(x)=x^2-10\) avec \(x_0=3\) : \(x_1\) vaut a) \(\dfrac{19}{6}\) ; b) \(\sqrt{10}\) ; c) \(3{,}5\).</li></ol>`,
+          correction: R`<p><b>1 pt par question.</b></p><ol>
+<li><b>b)</b> \(f'(x)=\dfrac{1\times(x+2)-(x-1)\times 1}{(x+2)^2}=\dfrac{3}{(x+2)^2}\).</li>
+<li><b>a)</b> \(g'(x)=3x^2+3\geqslant 3\gt 0\) : \(g'\) ne s'annule jamais, aucune tangente horizontale.</li>
+<li><b>b)</b> \(k'(x)=-4x+8\gt 0\) sur \([0\,;1]\) : \(k\) est croissante sur \([0\,;1]\), son maximum est \(k(1)=-2+8-3=3\). (Le piège : \(5=k(2)\) est le maximum sur \(\mathbb{R}\), mais \(2\notin[0\,;1]\).)</li>
+<li><b>a)</b> \(x_1=3-\dfrac{f(3)}{f'(3)}=3-\dfrac{-1}{6}=\dfrac{19}{6}\approx 3{,}1667\), proche de \(\sqrt{10}\approx 3{,}1623\) sans lui être égal.</li></ol>` },
+        { titre: "Exercice 2 — Étude sur un intervalle fermé", points: 6,
+          enonce: R`<p>Soit \(f\) définie sur \([0\,;5]\) par \(f(x)=\dfrac13x^3-\dfrac52x^2+4x+1\).</p>
+<ol><li>Calculer \(f'(x)\) et le factoriser.</li>
+<li>Dresser le tableau de variations de \(f\) sur \([0\,;5]\) (valeurs exactes sous forme de fractions).</li>
+<li>Donner le maximum et le minimum de \(f\) sur \([0\,;5]\).</li>
+<li>Déterminer l'équation de la tangente à la courbe de \(f\) au point d'abscisse \(2\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f'(x)=x^2-5x+4\). \(\Delta=25-16=9\), racines \(\dfrac{5-3}{2}=1\) et \(\dfrac{5+3}{2}=4\) : \(f'(x)=(x-1)(x-4)\).</li>
+<li><b>(2 pts)</b> \(f'\) est positif à l'extérieur de \([1\,;4]\) et négatif entre. \(f(0)=1\) ; \(f(1)=\dfrac13-\dfrac52+5=\dfrac{2-15+30}{6}=\dfrac{17}{6}\) ; \(f(4)=\dfrac{64}{3}-40+17=\dfrac{64}{3}-23=-\dfrac53\) ; \(f(5)=\dfrac{125}{3}-\dfrac{125}{2}+21=\dfrac{250-375+126}{6}=\dfrac16\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(1\)</td><td></td><td>\(4\)</td><td></td><td>\(5\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td>\(1\)</td><td>↗</td><td>\(\frac{17}{6}\)</td><td>↘</td><td>\(-\frac53\)</td><td>↗</td><td>\(\frac16\)</td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> On compare les extremums locaux aux valeurs aux bornes : \(\dfrac{17}{6}\gt 1\) et \(\dfrac{17}{6}\gt\dfrac16\), donc le maximum est \(\dfrac{17}{6}\), atteint en \(x=1\) ; \(-\dfrac53\lt 1\) et \(-\dfrac53\lt\dfrac16\), donc le minimum est \(-\dfrac53\), atteint en \(x=4\).</li>
+<li><b>(1,5 pt)</b> \(f(2)=\dfrac83-10+8+1=\dfrac53\) et \(f'(2)=4-10+4=-2\). Tangente : \(y=-2(x-2)+\dfrac53=-2x+\dfrac{17}{3}\).</li></ol>` },
+        { titre: "Exercice 3 — Une courbe au-dessus d'une droite", points: 5,
+          enonce: R`<p>Soit \(f\) définie sur \(]-2\,;+\infty[\) par \(f(x)=\dfrac{2x^2+3x}{x+2}\), de courbe \(\mathcal{C}\), et \(\mathcal{D}\) la droite d'équation \(y=2x-1\).</p>
+<ol><li>Montrer que \(f'(x)=\dfrac{2(x+1)(x+3)}{(x+2)^2}\).</li>
+<li>Étudier les variations de \(f\) sur \(]-2\,;+\infty[\) et donner son minimum.</li>
+<li>Montrer que \(f(x)-(2x-1)=\dfrac{2}{x+2}\) et en déduire la position relative de \(\mathcal{C}\) et \(\mathcal{D}\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(f'(x)=\dfrac{(4x+3)(x+2)-(2x^2+3x)\times 1}{(x+2)^2}=\dfrac{4x^2+11x+6-2x^2-3x}{(x+2)^2}=\dfrac{2x^2+8x+6}{(x+2)^2}\). Or \(2(x+1)(x+3)=2(x^2+4x+3)=2x^2+8x+6\).</li>
+<li><b>(1,5 pt)</b> Sur \(]-2\,;+\infty[\) : \((x+2)^2\gt 0\) et \(x+3\gt 0\), donc \(f'(x)\) a le signe de \(x+1\). \(f\) est décroissante sur \(]-2\,;-1]\) et croissante sur \([-1\,;+\infty[\). Son minimum est \(f(-1)=\dfrac{2-3}{1}=-1\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-2\)</td><td></td><td>\(-1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td>||</td><td>↘</td><td>\(-1\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(2 pts)</b> \(f(x)-(2x-1)=\dfrac{2x^2+3x-(2x-1)(x+2)}{x+2}=\dfrac{2x^2+3x-(2x^2+3x-2)}{x+2}=\dfrac{2}{x+2}\). Sur \(]-2\,;+\infty[\), \(x+2\gt 0\), donc \(f(x)-(2x-1)\gt 0\) : \(\mathcal{C}\) est strictement au-dessus de \(\mathcal{D}\).</li></ol>` },
+        { titre: "Exercice 4 — L'affiche économique", points: 5,
+          enonce: R`<p>On veut imprimer une affiche rectangulaire dont la zone imprimée a une aire de \(384\) cm². On laisse des marges de \(2\) cm à gauche et à droite, et de \(3\) cm en haut et en bas. On note \(x\) la largeur de la zone imprimée (en cm, \(x\gt 0\)).</p>
+<ol><li>Exprimer la hauteur de la zone imprimée en fonction de \(x\), puis montrer que l'aire totale de l'affiche est \(A(x)=408+6x+\dfrac{1536}{x}\).</li>
+<li>Étudier les variations de \(A\) sur \(]0\,;+\infty[\).</li>
+<li>Quelles dimensions donner à l'affiche pour utiliser le moins de papier possible ? Quelle est alors son aire ?</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> Hauteur imprimée : \(\dfrac{384}{x}\). L'affiche mesure \(x+4\) de large et \(\dfrac{384}{x}+6\) de haut, donc \(A(x)=(x+4)\left(\dfrac{384}{x}+6\right)=384+6x+\dfrac{1536}{x}+24=408+6x+\dfrac{1536}{x}\).</li>
+<li><b>(2 pts)</b> \(A'(x)=6-\dfrac{1536}{x^2}=\dfrac{6x^2-1536}{x^2}=\dfrac{6(x^2-256)}{x^2}=\dfrac{6(x-16)(x+16)}{x^2}\). Sur \(]0\,;+\infty[\), \(A'(x)\) a le signe de \(x-16\) : \(A\) est décroissante sur \(]0\,;16]\) et croissante sur \([16\,;+\infty[\). \(A(16)=408+96+96=600\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(16\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(A'(x)\)</td><td>||</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(A\)</td><td>||</td><td>↘</td><td>\(600\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> L'aire est minimale pour \(x=16\) : la zone imprimée mesure \(16\) cm sur \(\dfrac{384}{16}=24\) cm, donc l'affiche mesure \(20\) cm de large sur \(30\) cm de haut, pour une aire de \(600\) cm².</li></ol>` }
       ] }
   ]
 });
