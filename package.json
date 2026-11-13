@@ -1,0 +1,6 @@
+{
+  "name": "revision-maths-premiere",
+  "private": true,
+  "scripts": { "validate": "node scripts/validate.js" },
+  "devDependencies": { "katex": "0.16.11" }
+}
