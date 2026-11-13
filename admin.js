@@ -12,6 +12,7 @@
     if (s < 86400) return `il y a ${Math.round(s / 3600)} h`;
     return `il y a ${Math.round(s / 86400)} j`;
   };
+  const nameOf = u => [u.prenom, u.nom].filter(Boolean).join(' ') || u.username;
   const avg = arr => { const v = arr.filter(x => x != null); return v.length ? +(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1) : null; };
 
   /* bouton à double clic de confirmation (pas de confirm() dans certains environnements) */
@@ -57,7 +58,7 @@
       <tbody>${students.map(u => {
         const s = summary(u.progress);
         return `<tr class="${u.actif ? '' : 'muted'}">
-          <td><b>${esc(u.nom || u.username)}</b><small>${esc(u.username)}${u.actif ? '' : ' · désactivé'}</small></td>
+          <td><b>${esc(nameOf(u))}</b><small>${esc(u.lycee || u.username)}${!u.email_verified ? ' · e-mail non confirmé' : u.actif ? '' : ' · désactivé'}</small></td>
           <td><div class="mini"><div class="bar"><span style="width:${s.pct}%"></span></div><span>${s.exDone}/${s.exTot}</span></div></td>
           <td class="num">${s.quiz ?? '—'}</td><td class="num">${s.ds ?? '—'}${s.nbDs ? `<small>${s.nbDs} DS</small>` : ''}</td><td class="num">${s.bac ?? '—'}</td>
           <td>${ago(u.derniere_vue || u.last_login)}<small>${u.nb_vues} pages vues</small></td>
@@ -79,8 +80,8 @@
     };
     el.innerHTML = `<div class="wrap">
       <div class="eyebrow"><a href="#admin">← Tous les élèves</a></div>
-      <section class="hero"><h1>${esc(u.nom || u.username)}</h1>
-        <p>Identifiant <b>${esc(u.username)}</b> · dernière connexion ${fmtDate(u.last_login)} · progression enregistrée ${fmtDate(u.progress_at)}</p></section>
+      <section class="hero"><h1>${esc(nameOf(u))}</h1>
+        <p>${u.lycee ? esc(u.lycee) + ' · ' : ''}Identifiant <b>${esc(u.username)}</b>${u.email ? ' · ' + esc(u.email) : ''} · dernière connexion ${fmtDate(u.last_login)} · progression enregistrée ${fmtDate(u.progress_at)}</p></section>
       <div class="stats">
         <div><span>Exercices réussis</span><b>${s.exDone}/${s.exTot}</b></div>
         <div><span>Moyenne quiz</span><b>${s.quiz ?? '—'}<small>/20</small></b></div>
@@ -115,10 +116,13 @@
   /* ================= gestion des accès ================= */
   async function pageAcces(el) {
     el.innerHTML = `<div class="wrap"><section class="hero"><div class="eyebrow">Backoffice</div><h1>Gestion des accès</h1>
-      <p>Crée un compte par élève et transmets-lui son identifiant et son mot de passe. Un compte désactivé ne peut plus se connecter mais garde sa progression.</p></section>
+      <p>Les élèves peuvent créer leur compte eux-mêmes depuis l'écran de connexion : il s'ouvre quand ils confirment leur adresse e-mail. Tu peux aussi créer un compte ici et transmettre l'identifiant et le mot de passe. Un compte désactivé ne peut plus se connecter mais garde sa progression.</p></section>
       <form class="sheet form grid-form" id="newuser">
         <h2>Nouveau compte</h2>
-        <div><label for="nu-nom">Nom affiché</label><input id="nu-nom" placeholder="Léa Martin"></div>
+        <div><label for="nu-prenom">Prénom</label><input id="nu-prenom" placeholder="Léa"></div>
+        <div><label for="nu-nom">Nom</label><input id="nu-nom" placeholder="Martin"></div>
+        <div><label for="nu-lycee">Lycée</label><input id="nu-lycee"></div>
+        <div><label for="nu-email">E-mail (facultatif)</label><input id="nu-email" type="email"></div>
         <div><label for="nu-user">Identifiant</label><input id="nu-user" placeholder="lea.martin" required pattern="[a-zA-Z0-9._\\-]{2,40}" autocapitalize="none"></div>
         <div><label for="nu-pass">Mot de passe</label><div class="row"><input id="nu-pass" required minlength="6"><button type="button" class="btn" id="gen">Générer</button></div></div>
         <div><label for="nu-role">Rôle</label><select id="nu-role"><option value="student">Élève</option><option value="admin">Administrateur</option></select></div>
@@ -131,7 +135,7 @@
     $('#newuser', el).addEventListener('submit', async e => {
       e.preventDefault();
       const msg = $('#nu-msg', el);
-      const body = { nom: $('#nu-nom', el).value, username: $('#nu-user', el).value, password: $('#nu-pass', el).value, role: $('#nu-role', el).value };
+      const body = { prenom: $('#nu-prenom', el).value, nom: $('#nu-nom', el).value, lycee: $('#nu-lycee', el).value, email: $('#nu-email', el).value, username: $('#nu-user', el).value, password: $('#nu-pass', el).value, role: $('#nu-role', el).value };
       try {
         await A().api('POST', '/admin/users', body);
         msg.className = 'form-msg ok';
@@ -145,18 +149,19 @@
       $('#users', el).outerHTML = `<div id="users" class="tablewrap sheet flush"><table class="admin-table">
         <thead><tr><th>Compte</th><th>Rôle</th><th>Statut</th><th>Dernière connexion</th><th>Actions</th></tr></thead>
         <tbody>${users.map(u => `<tr data-id="${u.id}" class="${u.actif ? '' : 'muted'}">
-          <td><b>${esc(u.nom || '—')}</b><small>${esc(u.username)}</small></td>
+          <td><b>${esc(nameOf(u))}</b><small>${esc(u.username)}${u.email ? ' · ' + esc(u.email) : ''}</small>${u.lycee ? `<small>${esc(u.lycee)}</small>` : ''}</td>
           <td>${u.role === 'admin' ? 'Administrateur' : 'Élève'}</td>
-          <td><span class="pill ${u.actif ? 'ok' : 'off'}">${u.actif ? 'Actif' : 'Désactivé'}</span></td>
+          <td>${!u.email_verified ? '<span class="pill wait">E-mail non confirmé</span>' : `<span class="pill ${u.actif ? 'ok' : 'off'}">${u.actif ? 'Actif' : 'Désactivé'}</span>`}</td>
           <td>${fmtDate(u.last_login)}</td>
-          <td class="acts">
-            <button class="btn small" data-a="rename">Renommer</button>
+          <td><div class="acts">
+            ${!u.email_verified ? '<button class="btn small primary" data-a="valider">Valider sans e-mail</button>' : ''}
+            <button class="btn small" data-a="rename">Modifier</button>
             <button class="btn small" data-a="pw">Nouveau mot de passe</button>
             ${u.id === me.id ? '' : `<button class="btn small" data-a="toggle">${u.actif ? 'Désactiver' : 'Réactiver'}</button>
             <button class="btn small" data-a="role">${u.role === 'admin' ? 'Passer élève' : 'Passer admin'}</button>
             <button class="btn small danger" data-a="del">Supprimer</button>`}
             <div class="inline-edit" hidden></div>
-          </td></tr>`).join('')}</tbody></table></div>`;
+          </div></td></tr>`).join('')}</tbody></table></div>`;
       const box = $('#users', el);
       box.querySelectorAll('[data-a="del"]').forEach(b => {
         const id = b.closest('tr').dataset.id;
@@ -167,12 +172,15 @@
         const tr = b.closest('tr'), id = tr.dataset.id, u = users.find(x => String(x.id) === id);
         const patch = async body => { try { await A().api('PATCH', '/admin/users/' + id, body); A().toast('Enregistré.'); loadUsers(); } catch (err) { A().toast(err.message); } };
         if (b.dataset.a === 'toggle') return patch({ actif: !u.actif });
+        if (b.dataset.a === 'valider') return patch({ valider: true });
         if (b.dataset.a === 'role') return patch({ role: u.role === 'admin' ? 'student' : 'admin' });
         const ie = tr.querySelector('.inline-edit');
         const isPw = b.dataset.a === 'pw';
         ie.hidden = false;
-        ie.innerHTML = `<input id="ie-${id}" ${isPw ? 'minlength="6" placeholder="Nouveau mot de passe"' : `value="${esc(u.nom)}"`}>
-          <button class="btn small primary" data-ok>Valider</button>${isPw ? '<button class="btn small" data-gen>Générer</button>' : ''}`;
+        ie.innerHTML = isPw ? `<input id="ie-${id}" minlength="6" placeholder="Nouveau mot de passe">
+          <button class="btn small primary" data-ok>Valider</button><button class="btn small" data-gen>Générer</button>`
+          : `<input id="ie-p-${id}" placeholder="Prénom" value="${esc(u.prenom)}"><input id="ie-n-${id}" placeholder="Nom" value="${esc(u.nom)}"><input id="ie-l-${id}" placeholder="Lycée" value="${esc(u.lycee)}">
+          <button class="btn small primary" data-ok>Valider</button>`;
         const inp = ie.querySelector('input'); inp.focus();
         ie.querySelector('[data-gen]')?.addEventListener('click', ev => { ev.stopPropagation(); inp.value = gen(); });
         ie.querySelector('[data-ok]').addEventListener('click', async ev => {
@@ -180,7 +188,7 @@
           if (isPw) {
             try { await A().api('PATCH', '/admin/users/' + id, { password: inp.value }); ie.innerHTML = `Nouveau mot de passe : <code>${esc(inp.value)}</code>`; }
             catch (err) { A().toast(err.message); }
-          } else patch({ nom: inp.value });
+          } else patch({ prenom: $(`#ie-p-${id}`, ie).value, nom: $(`#ie-n-${id}`, ie).value, lycee: $(`#ie-l-${id}`, ie).value });
         });
       });
     }
@@ -197,11 +205,11 @@
       <div class="tablewrap sheet flush"><table class="admin-table"><thead><tr><th>Chapitre</th><th>Vidéos</th><th>Cours</th><th>Quiz</th><th>Exercices</th><th>DS</th><th></th></tr></thead>
       <tbody>${CH.map(c => `<tr><td><b>${c.id}. ${esc(c.titre)}</b><small>${esc(c.partie)}</small></td>
         <td class="num">${c.videos.length}</td><td class="num">${c.cours.length}</td><td class="num">${c.quiz.length}</td><td class="num">${c.exercices.length}</td><td class="num">${c.ds.length}</td>
-        <td class="acts"><a class="btn small primary" href="#admin-ch-${c.id}">Modifier</a><a class="btn small" href="#ch${c.id}">Voir</a></td></tr>`).join('')}</tbody></table></div>
+        <td><div class="acts"><a class="btn small primary" href="#admin-ch-${c.id}">Modifier</a><a class="btn small" href="#ch${c.id}">Voir</a></div></td></tr>`).join('')}</tbody></table></div>
       <h2 class="section-title">Sujets type bac</h2>
       <div class="tablewrap sheet flush"><table class="admin-table"><tbody>${BAC.map((b, i) => `<tr><td><b>${esc(b.titre)}</b><small>Chapitres ${(b.chapitres || []).join(', ')}</small></td>
-        <td class="num">${(b.automatismes || []).length} QCM</td><td class="num">${(b.exercices || []).length} exercices</td>
-        <td class="acts"><a class="btn small primary" href="#admin-bac-${b._id}">Modifier</a><a class="btn small" href="#bac${i + 1}">Voir</a></td></tr>`).join('')}</tbody></table></div></div>`;
+        <td>${esc(b.niveau || '—')}</td><td class="num">${(b.automatismes || []).length} QCM</td><td class="num">${(b.exercices || []).length} exercices</td>
+        <td><div class="acts"><a class="btn small primary" href="#admin-bac-${b._id}">Modifier</a><a class="btn small" href="#bac${i + 1}">Voir</a></div></td></tr>`).join('')}</tbody></table></div></div>`;
   }
 
   /* ----- schémas d'édition ----- */
@@ -242,6 +250,7 @@
         { k: 'correction', label: 'Correction et barème', type: 'html', rows: 10 }] }] },
   ];
   const BACS = [
+    { k: 'niveau', label: 'Niveau', type: 'select', options: () => A().NIVEAUX.map(n => [n, n]) },
     { k: 'titre', label: 'Titre du sujet', type: 'text' },
     { k: 'duree', label: 'Durée', type: 'text', short: true },
     { k: 'chapitres', label: 'Chapitres couverts (numéros séparés par des virgules)', type: 'numlist' },

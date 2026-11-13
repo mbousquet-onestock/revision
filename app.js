@@ -35,7 +35,7 @@
     });
     let data = {};
     try { data = await r.json(); } catch (e) { /* réponse vide */ }
-    if (!r.ok) { const err = new Error(data.error || 'Erreur ' + r.status); err.status = r.status; throw err; }
+    if (!r.ok) { const err = new Error(data.error || 'Erreur ' + r.status); err.status = r.status; err.code = data.code; throw err; }
     return data;
   }
   function toast(msg) {
@@ -98,7 +98,7 @@
     const ub = $('#userbox');
     if (ub) {
       ub.hidden = !ME;
-      if (ME) ub.innerHTML = `<div class="who"><b>${esc(ME.nom || ME.username)}</b><small>${ME.role === 'admin' ? 'Administrateur' : 'Élève'} · ${esc(ME.username)}</small></div>
+      if (ME) ub.innerHTML = `<div class="who"><b>${esc(fullName(ME))}</b><small>${ME.role === 'admin' ? 'Administrateur' : 'Élève'} · ${esc(ME.username)}</small></div>
         <div class="userlinks"><a href="#compte">Mot de passe</a><button id="logout" class="linkbtn">Se déconnecter</button></div>`;
     }
   }
@@ -162,27 +162,105 @@
     });
   }
 
-  /* ---------- connexion ---------- */
-  function renderLogin(error) {
+  /* ---------- connexion, inscription, mot de passe oublié ---------- */
+  function fullName(u) { return [u.prenom, u.nom].filter(Boolean).join(' ') || u.username; }
+  const devNote = link => link ? `<br><small>Mode local, pas d'e-mail envoyé : <a href="${esc(link)}">ouvrir le lien</a></small>` : '';
+
+  function loginShell(inner) {
     document.body.classList.add('logged-out');
-    main.innerHTML = `<div class="login-wrap"><form class="sheet form login" id="login">
-        <div class="brand-mark big">∫</div>
-        <h1>Maths Première</h1>
-        <p class="lead">Connecte-toi avec l'identifiant donné par ton professeur.</p>
-        <label for="lg-user">Identifiant</label><input id="lg-user" autocomplete="username" autocapitalize="none" required>
+    main.innerHTML = `<div class="login-wrap"><div class="sheet login">
+      <div class="login-brand"><div class="brand-mark big">∫</div><div><h1>Maths Première</h1><p class="lead">Révisions de spécialité</p></div></div>
+      ${inner}</div></div>`;
+  }
+
+  function renderLogin(error, info) {
+    loginShell(`<div class="login-tabs"><button class="on" type="button">Se connecter</button><button type="button" data-go="register">Créer un compte</button></div>
+      <form class="form" id="login">
+        ${info ? `<p class="form-msg ok">${info}</p>` : ''}
+        <label for="lg-user">Identifiant ou e-mail</label><input id="lg-user" autocomplete="username" autocapitalize="none" required>
         <label for="lg-pass">Mot de passe</label><input id="lg-pass" type="password" autocomplete="current-password" required>
-        <div class="actions"><button class="btn primary" type="submit">Se connecter</button></div>
+        <div class="actions"><button class="btn primary" type="submit">Se connecter</button><button class="linkbtn" type="button" data-go="forgot">Mot de passe oublié ?</button></div>
         <p class="form-msg ko" id="lg-msg">${error ? esc(error) : ''}</p>
-      </form></div>`;
+      </form>`);
     $('#login').addEventListener('submit', async e => {
       e.preventDefault();
-      const btn = e.target.querySelector('button'); btn.disabled = true;
+      const btn = e.target.querySelector('button[type=submit]'); btn.disabled = true;
+      const msg = $('#lg-msg');
       try {
         const r = await api('POST', '/login', { username: $('#lg-user').value, password: $('#lg-pass').value });
         ME = r.user; await loadAll(); document.body.classList.remove('logged-out'); route();
-      } catch (err) { $('#lg-msg').textContent = err.message; btn.disabled = false; }
+      } catch (err) {
+        msg.textContent = err.message; btn.disabled = false;
+        if (err.code === 'unverified') {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'linkbtn'; b.textContent = "Renvoyer l'e-mail de confirmation";
+          b.addEventListener('click', async () => {
+            try { const r = await api('POST', '/resend', { login: $('#lg-user').value }); msg.className = 'form-msg ok'; msg.innerHTML = 'E-mail renvoyé (si tu viens d\'en demander un, attends une minute).' + devNote(r.devLink); }
+            catch (e2) { msg.textContent = e2.message; }
+          });
+          msg.append(document.createElement('br'), b);
+        }
+      }
     });
   }
+
+  function renderRegister() {
+    loginShell(`<div class="login-tabs"><button type="button" data-go="login">Se connecter</button><button class="on" type="button">Créer un compte</button></div>
+      <form class="form" id="register">
+        <div class="two"><div><label for="rg-prenom">Prénom</label><input id="rg-prenom" autocomplete="given-name" required></div>
+          <div><label for="rg-nom">Nom</label><input id="rg-nom" autocomplete="family-name" required></div></div>
+        <label for="rg-lycee">Lycée</label><input id="rg-lycee" placeholder="Lycée Victor Hugo, Paris" required>
+        <label for="rg-email">Adresse e-mail</label><input id="rg-email" type="email" autocomplete="email" required>
+        <label for="rg-user">Identifiant</label><input id="rg-user" autocapitalize="none" autocomplete="username" pattern="[a-zA-Z0-9._\\-]{2,40}" placeholder="lea.martin" required>
+        <label for="rg-pass">Mot de passe (6 caractères minimum)</label><input id="rg-pass" type="password" autocomplete="new-password" minlength="6" required>
+        <label for="rg-pass2">Confirme le mot de passe</label><input id="rg-pass2" type="password" autocomplete="new-password" minlength="6" required>
+        <div class="actions"><button class="btn primary" type="submit">Créer mon compte</button></div>
+        <p class="form-msg ko" id="rg-msg"></p>
+      </form>`);
+    $('#register').addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = $('#rg-msg'), btn = e.target.querySelector('button[type=submit]');
+      if ($('#rg-pass').value !== $('#rg-pass2').value) { msg.textContent = 'Les deux mots de passe sont différents.'; return; }
+      btn.disabled = true; msg.textContent = '';
+      try {
+        const r = await api('POST', '/register', { prenom: $('#rg-prenom').value, nom: $('#rg-nom').value, lycee: $('#rg-lycee').value, email: $('#rg-email').value, username: $('#rg-user').value, password: $('#rg-pass').value });
+        loginShell(`<div class="done-box"><h2>Vérifie ta boîte mail</h2>
+          <p>Un e-mail de confirmation vient d'être envoyé à <b>${esc(r.email)}</b>. Clique sur le lien qu'il contient pour ouvrir ton compte, puis connecte-toi.</p>
+          <p class="lead">Rien reçu ? Regarde dans les spams. Tu pourras aussi le renvoyer depuis l'écran de connexion.${devNote(r.devLink)}</p>
+          <div class="actions"><button class="btn primary" type="button" data-go="login">Aller à la connexion</button></div></div>`);
+      } catch (err) { msg.textContent = err.message; btn.disabled = false; }
+    });
+  }
+
+  function renderForgot() {
+    loginShell(`<form class="form" id="forgot"><h2>Mot de passe oublié</h2>
+        <p class="lead">Indique l'adresse e-mail de ton compte : tu recevras un lien pour choisir un nouveau mot de passe.</p>
+        <label for="fg-email">Adresse e-mail</label><input id="fg-email" type="email" autocomplete="email" required>
+        <div class="actions"><button class="btn primary" type="submit">Recevoir le lien</button><button class="linkbtn" type="button" data-go="login">Retour à la connexion</button></div>
+        <p class="form-msg" id="fg-msg"></p></form>`);
+    $('#forgot').addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = $('#fg-msg');
+      try { const r = await api('POST', '/forgot', { email: $('#fg-email').value }); msg.className = 'form-msg ok'; msg.innerHTML = "Si un compte correspond à cette adresse, un e-mail vient d'être envoyé." + devNote(r.devLink); }
+      catch (err) { msg.className = 'form-msg ko'; msg.textContent = err.message; }
+    });
+  }
+
+  function renderReset(token) {
+    loginShell(`<form class="form" id="reset"><h2>Nouveau mot de passe</h2>
+        <label for="rs-pass">Nouveau mot de passe (6 caractères minimum)</label><input id="rs-pass" type="password" autocomplete="new-password" minlength="6" required>
+        <div class="actions"><button class="btn primary" type="submit">Enregistrer</button></div>
+        <p class="form-msg ko" id="rs-msg"></p></form>`);
+    $('#reset').addEventListener('submit', async e => {
+      e.preventDefault();
+      try { await api('POST', '/reset', { token, password: $('#rs-pass').value }); renderLogin('', 'Mot de passe modifié : tu peux te connecter.'); }
+      catch (err) { $('#rs-msg').textContent = err.message; }
+    });
+  }
+
+  main.addEventListener('click', e => {
+    const g = e.target.closest('[data-go]'); if (!g || ME) return;
+    ({ login: () => renderLogin(), register: renderRegister, forgot: renderForgot })[g.dataset.go]();
+  });
 
   async function loadAll() {
     const [c, p] = await Promise.all([api('GET', '/content'), api('GET', '/progress')]);
@@ -201,6 +279,12 @@
     } catch (e) {
       ME = null;
       renderNav({ view: 'login' });
+      const q = new URLSearchParams(location.search);
+      const clearQuery = () => history.replaceState(null, '', location.pathname + location.hash);
+      if (q.get('reinit')) { const t = q.get('reinit'); clearQuery(); return renderReset(t); }
+      const compte = q.get('compte'); if (compte) clearQuery();
+      if (compte === 'valide') return renderLogin('', 'Adresse e-mail confirmée, ton compte est ouvert : connecte-toi !');
+      if (compte === 'lien-invalide') return renderLogin("Ce lien de confirmation a expiré ou a déjà servi. Connecte-toi pour en recevoir un nouveau.");
       renderLogin(e.status === 401 ? '' : e.message);
     }
   }
@@ -211,7 +295,7 @@
       <section class="hero">
         <div class="eyebrow">Maths · Première spécialité</div>
         <h1>Révise chapitre par chapitre, <span class="hl">à ton rythme</span>.</h1>
-        <p>Les 11 chapitres du manuel, avec pour chacun des vidéos, une fiche de cours, un quiz, 12 exercices corrigés du plus simple au plus difficile et deux DS chronométrés. Les sujets type bac servent à la révision finale.</p>
+        <p>Les 11 chapitres du manuel, avec pour chacun des vidéos, une fiche de cours, un quiz, 12 exercices corrigés du plus simple au plus difficile et dix DS chronométrés. Les sujets type bac servent à la révision finale.</p>
       </section>
       <ol class="steps">
         <li><b>Regarder</b>les vidéos pour comprendre</li>
@@ -237,7 +321,7 @@
     }
     if (BAC.length) {
       html += `<h2 class="part-title">Révision finale</h2><div class="grid">
-        <a class="card bac" href="#bac"><div class="top"><span class="emoji">🎓</span><div><div class="chnum">${BAC.length} sujets · 2 h</div><h3>Sujets type bac</h3></div></div>
+        <a class="card bac" href="#bac"><div class="top"><span class="emoji">🎓</span><div><div class="chnum">${BAC.length} sujets · 4 niveaux · 2 h</div><h3>Sujets type bac</h3></div></div>
         <p>Automatismes + exercices sur tout le programme, avec corrections et barème.</p></a></div>`;
     }
     html += `<p class="footer">Ta progression est enregistrée dans ce navigateur uniquement.</p></div>`;
@@ -420,15 +504,26 @@
   /* ---------- bac ---------- */
   function renderBacList() {
     main.innerHTML = `<div class="wrap"><section class="hero"><div class="eyebrow">Révision finale</div><h1>Sujets type bac</h1>
-      <p>Chaque sujet dure 2 h et suit le format de l'épreuve anticipée de mathématiques : une partie automatismes (QCM sans calculatrice, 6 points) puis des exercices sur 14 points qui mélangent les chapitres.</p></section>
-      <div class="grid">${BAC.map((b, i) => `<a class="card" href="#bac${i + 1}"><div class="top"><span class="emoji">📝</span><div><div class="chnum">${esc(b.duree)}${P.bac[b._id != null ? b._id - 1 : i] != null ? ` · ma note ${P.bac[b._id != null ? b._id - 1 : i]}/20` : ''}</div><h3>${esc(b.titre)}</h3></div></div>
-        <p>Chapitres : ${(b.chapitres || []).map(n => { const ch = CH.find(c => c.id === n); return ch ? esc(ch.titre) : n; }).join(', ')}</p></a>`).join('')}</div></div>`;
+      <p>Chaque sujet dure 2 h et suit le format de l'épreuve anticipée de mathématiques : une partie automatismes (QCM sans calculatrice, 6 points) puis des exercices sur 14 points qui mélangent les chapitres. Quatre niveaux, du sujet standard au sujet exigeant.</p></section>
+      ${bacGroups().map(([niv, items]) => `<h2 class="part-title">${esc(niv)} <span class="count">${items.length} sujets</span></h2><div class="grid">${items.map(({ b, i }) => {
+        const k = b._id != null ? b._id - 1 : i;
+        return `<a class="card" href="#bac${i + 1}"><div class="top"><span class="emoji">📝</span><div><div class="chnum">${esc(b.duree)}${P.bac[k] != null ? ` · ma note ${P.bac[k]}/20` : ''}</div><h3>${esc(b.titre)}</h3></div></div>
+        <p>Chapitres : ${(b.chapitres || []).map(n => { const ch = CH.find(c => c.id === n); return ch ? esc(ch.titre) : n; }).join(', ')}</p></a>`;
+      }).join('')}</div>`).join('')}</div>`;
+  }
+
+  const NIVEAUX = ['Standard', 'Intermédiaire', 'Approfondi', 'Exigeant'];
+  function bacGroups() {
+    const groups = new Map();
+    BAC.forEach((b, i) => { const n = b.niveau || 'Autres sujets'; if (!groups.has(n)) groups.set(n, []); groups.get(n).push({ b, i }); });
+    const rank = n => { const r = NIVEAUX.indexOf(n); return r < 0 ? 99 : r; };
+    return [...groups.entries()].sort((x, y) => rank(x[0]) - rank(y[0]));
   }
 
   function renderBacSubject(n) {
     const b = BAC[n - 1]; if (!b) return renderBacList();
     const key = b._id != null ? b._id - 1 : n - 1;
-    main.innerHTML = `<div class="wrap"><div class="eyebrow"><a href="#bac">← Tous les sujets</a></div>
+    main.innerHTML = `<div class="wrap"><div class="eyebrow"><a href="#bac">← Tous les sujets</a>${b.niveau ? ` · niveau ${esc(b.niveau)}` : ''}</div>
       <div class="ds-bar" style="margin-top:10px"><h2>${esc(b.titre)}</h2><span class="tag">${esc(b.duree)}</span><span class="timer"></span><button class="btn primary timer-btn">Démarrer le chrono</button></div>
       <h2 class="section-title">Partie 1 · Automatismes (6 points, sans calculatrice)</h2>
       <div class="sheet"><p class="lead">Une seule bonne réponse par question, 0,5 point chacune. Les réponses s'affichent quand tu valides la partie.</p>
@@ -481,7 +576,7 @@
 
   window.App = {
     api, toast, math, esc, chapterProgress, ytUrl, LVL, PARTIES,
-    get CH() { return CH; }, get BAC() { return BAC; }, get ME() { return ME; },
+    NIVEAUX, get CH() { return CH; }, get BAC() { return BAC; }, get ME() { return ME; },
     async reload() { await loadAll(); },
     refreshNav() { renderNav(parse()); },
   };

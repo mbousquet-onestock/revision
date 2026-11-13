@@ -48,7 +48,7 @@ const R = String.raw;
     { niveau: 1, titre: "...", enonce: R`...`, indice: R`...`, correction: R`...` }
   ],
 
-  ds: [                         // 2 devoirs surveillés d'1 h sur 20 points, chacun 3 ou 4 exercices
+  ds: [                         // 10 devoirs surveillés d'1 h sur 20 points, chacun 3 ou 4 exercices
     { titre: "DS n°1 — ...", duree: "1 h", calculatrice: true,
       exercices: [ { titre: "Exercice 1", points: 5, enonce: R`...`, correction: R`... barème détaillé ...` } ] }
   ]
@@ -56,18 +56,19 @@ const R = String.raw;
 })();
 ```
 
-## Structure des DS type bac (`data/bac.js`)
+## Structure des sujets type bac (`data/bacN-niveau.js`)
+
+Un fichier par niveau (Standard, Intermédiaire, Approfondi, Exigeant), 10 sujets par fichier.
 
 ```js
 (function () {
 const R = String.raw;
-window.BAC = [
-  { titre: "Sujet type bac n°1", duree: "2 h", calculatrice: false,
+const BAC = (window.BAC = window.BAC || []);
+BAC.push({ niveau: "Standard", titre: "Sujet standard n°2", duree: "2 h", calculatrice: false,
     chapitres: [2, 3, 4, 5, 10],
     automatismes: [ { q: R`...`, choix: [...4], bonne: 0, explication: R`...` } ],   // 12 QCM (6 points)
     exercices: [ { titre: "Exercice 1 — Suites", points: 5, chapitres: [3], enonce: R`...`, correction: R`...` } ]  // 14 points
-  }
-];
+});
 })();
 ```
 
