@@ -322,6 +322,312 @@ L'épicentre est donc <b>\(E(3;4)\)</b>, soit à 30 km à l'est et 40 km au nord
 <li>(2 pts) \(x^2+(25-7x)^2=25\iff50x^2-350x+600=0\iff x^2-7x+12=0\). \(\Delta=1\), \(x=3\) ou \(x=4\). Points <b>\((3;4)\) et \((4;-3)\)</b>.</li>
 <li>(1 pt) L'ordonnée doit être positive : <b>\(E(3;4)\)</b>, à 30 km à l'est et 40 km au nord de \(O\).</li>
 </ol>`}
+      ]},
+    { titre: "DS n°3 — Médiatrice, cercle et symétrique", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Médiatrice d'un segment", points: 5,
+          enonce: R`On donne les points \(A(3;-2)\) et \(B(1;4)\).
+<ol><li>Détermine une équation cartésienne de la médiatrice \(m\) du segment \([AB]\).</li><li>Détermine une équation cartésienne de la droite \((AB)\).</li><li>La droite \(d : 6x+2y+5=0\) est-elle parallèle à \((AB)\) ? Est-elle confondue avec \((AB)\) ?</li><li>Le point \(C\) de \(m\) d'abscisse \(5\) a pour ordonnée \(y_C\). Calcule \(y_C\), puis vérifie par un calcul de distances que \(CA=CB\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) La médiatrice de \([AB]\) passe par le milieu \(I\left(\frac{3+1}{2};\frac{-2+4}{2}\right)=(2;1)\) et a pour vecteur normal \(\overrightarrow{AB}\begin{pmatrix}-2\\6\end{pmatrix}\), ou plus simplement \(\begin{pmatrix}1\\-3\end{pmatrix}\). Donc \(m : x-3y+c=0\) ; avec \(I\) : \(2-3+c=0\), \(c=1\). <b>\(m : x-3y+1=0\)</b>.</li>
+<li>(1,5 pt) \(\overrightarrow{AB}\begin{pmatrix}-2\\6\end{pmatrix}\) est directeur de \((AB)\), donc \(\begin{pmatrix}-1\\3\end{pmatrix}\) aussi, et \(\vec n\begin{pmatrix}3\\1\end{pmatrix}\) est normal (produit scalaire \(-3+3=0\)). \((AB) : 3x+y+c=0\) ; avec \(A\) : \(9-2+c=0\), \(c=-7\). <b>\((AB) : 3x+y-7=0\)</b>. Vérification avec \(B\) : \(3+4-7=0\) ✓.</li>
+<li>(1 pt) Un vecteur normal de \(d\) est \(\begin{pmatrix}6\\2\end{pmatrix}=2\begin{pmatrix}3\\1\end{pmatrix}\) : les vecteurs normaux sont colinéaires, donc <b>\(d\parallel(AB)\)</b>. L'équation de \(d\) équivaut à \(3x+y+\frac52=0\), et \(\frac52\neq-7\) : par exemple \(A\) ne vérifie pas l'équation de \(d\) (\(18-4+5=19\neq0\)). Les droites sont <b>strictement parallèles</b>, pas confondues.</li>
+<li>(1 pt) \(C\in m\) : \(5-3y_C+1=0\), donc \(y_C=2\) et \(C(5;2)\).<br>\(CA^2=(3-5)^2+(-2-2)^2=4+16=20\) et \(CB^2=(1-5)^2+(4-2)^2=16+4=20\). Donc <b>\(CA=CB=2\sqrt5\)</b> ✓ : c'est normal, tout point de la médiatrice est équidistant de \(A\) et \(B\).</li>
+</ol>`},
+        { titre: "Exercice 2 — Un cercle passant par l'origine", points: 6,
+          enonce: R`Soit \(\mathcal C\) l'ensemble des points \(M(x;y)\) tels que \(x^2+y^2-6x+8y=0\).
+<ol><li>Montre que \(\mathcal C\) est un cercle dont tu donneras le centre \(\Omega\) et le rayon \(r\).</li><li>Justifie que l'origine \(O\) appartient à \(\mathcal C\), puis détermine une équation de la tangente \(T\) à \(\mathcal C\) en \(O\).</li><li>Détermine les coordonnées des points d'intersection de \(\mathcal C\) avec l'axe des ordonnées.</li><li>Le point \(K(1;-1)\) est-il à l'intérieur ou à l'extérieur du disque délimité par \(\mathcal C\) ? Justifie.</li></ol>`,
+          correction: R`<ol>
+<li>(2 pts) On complète les carrés : \(x^2-6x=(x-3)^2-9\) et \(y^2+8y=(y+4)^2-16\). L'équation devient \((x-3)^2-9+(y+4)^2-16=0\iff(x-3)^2+(y+4)^2=25\). Comme \(25=5^2&gt;0\), <b>\(\mathcal C\) est le cercle de centre \(\Omega(3;-4)\) et de rayon \(5\)</b>.</li>
+<li>(1,5 pt) \(0^2+0^2-0+0=0\) : \(O\in\mathcal C\). La tangente en \(O\) a pour vecteur normal \(\overrightarrow{\Omega O}\begin{pmatrix}-3\\4\end{pmatrix}\) : \(T : -3x+4y+c=0\), et \(O\in T\) donne \(c=0\). <b>\(T : -3x+4y=0\)</b>, soit \(3x-4y=0\).</li>
+<li>(1,5 pt) Sur l'axe des ordonnées, \(x=0\) : \(y^2+8y=0\iff y(y+8)=0\iff y=0\) ou \(y=-8\). Points d'intersection : <b>\(O(0;0)\) et \((0;-8)\)</b>. Vérification : \((0-3)^2+(-8+4)^2=9+16=25\) ✓.</li>
+<li>(1 pt) \(\Omega K^2=(1-3)^2+(-1+4)^2=4+9=13\) et \(13&lt;25\), donc \(\Omega K&lt;5\) : <b>\(K\) est à l'intérieur</b> du disque.</li>
+</ol>`},
+        { titre: "Exercice 3 — Parabole tournée vers le bas", points: 4,
+          enonce: R`Soit \(\mathcal P\) la parabole d'équation \(y=-2x^2+8x-3\) et \(d\) la droite d'équation \(y=-2x+5\).
+<ol><li>Détermine le sommet \(S\) de \(\mathcal P\) et précise son orientation.</li><li>Donne une équation de l'axe de symétrie de \(\mathcal P\).</li><li>Détermine les coordonnées des points d'intersection de \(\mathcal P\) et \(d\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(a=-2\), \(b=8\) : \(\alpha=-\frac{8}{2\times(-2)}=2\) et \(\beta=-2\times4+16-3=5\). <b>Sommet \(S(2;5)\)</b>. Comme \(a=-2&lt;0\), la parabole est <b>tournée vers le bas</b> : \(S\) est son point le plus haut.</li>
+<li>(0,5 pt) L'axe de symétrie est la droite d'équation <b>\(x=2\)</b>.</li>
+<li>(2 pts) On résout \(-2x^2+8x-3=-2x+5\iff-2x^2+10x-8=0\iff x^2-5x+4=0\). \(\Delta=25-16=9\), \(x_1=\frac{5-3}{2}=1\), \(x_2=\frac{5+3}{2}=4\). Avec \(d\) : \(y=-2+5=3\) et \(y=-8+5=-3\). Points <b>\((1;3)\) et \((4;-3)\)</b>.<br>Vérification sur \(\mathcal P\) : \(-2+8-3=3\) ✓ et \(-32+32-3=-3\) ✓.</li>
+</ol>`},
+        { titre: "Exercice 4 — Projeté et symétrique", points: 5,
+          enonce: R`Soit \(d\) la droite d'équation \(3x-y-4=0\) et \(A(-2;4)\).
+<ol><li>Détermine une équation de la droite \(\Delta\) perpendiculaire à \(d\) passant par \(A\).</li><li>Détermine les coordonnées du projeté orthogonal \(H\) de \(A\) sur \(d\).</li><li>Calcule la distance de \(A\) à \(d\) (valeur exacte).</li><li>Détermine les coordonnées du symétrique \(A'\) de \(A\) par rapport à la droite \(d\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) Un vecteur directeur de \(d\) est \(\vec u\begin{pmatrix}1\\3\end{pmatrix}\) (forme \((-b;a)\)) : il est normal à \(\Delta\). \(\Delta : x+3y+c=0\) ; avec \(A\) : \(-2+12+c=0\), \(c=-10\). <b>\(\Delta : x+3y-10=0\)</b>.</li>
+<li>(1,5 pt) De \(d\) : \(y=3x-4\). Dans \(\Delta\) : \(x+9x-12-10=0\), \(10x=22\), \(x=\frac{11}{5}\), puis \(y=\frac{33}{5}-\frac{20}{5}=\frac{13}{5}\). <b>\(H\left(\frac{11}{5};\frac{13}{5}\right)\)</b>. Vérification dans \(\Delta\) : \(\frac{11}{5}+\frac{39}{5}-10=0\) ✓.</li>
+<li>(1 pt) \(AH^2=\left(\frac{11}{5}+2\right)^2+\left(\frac{13}{5}-4\right)^2=\frac{441}{25}+\frac{49}{25}=\frac{490}{25}\), donc \(AH=\frac{\sqrt{490}}{5}=\frac{7\sqrt{10}}{5}\). La distance de \(A\) à \(d\) est <b>\(\frac{7\sqrt{10}}{5}\approx4{,}43\)</b>.</li>
+<li>(1 pt) \(H\) est le milieu de \([AA']\), donc \(x_{A'}=2x_H-x_A=\frac{22}{5}+2=\frac{32}{5}\) et \(y_{A'}=2y_H-y_A=\frac{26}{5}-4=\frac65\). <b>\(A'\left(\frac{32}{5};\frac65\right)\)</b>.</li>
+</ol>`}
+      ]},
+    { titre: "DS n°4 — Géométrie repérée en situation", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Dans un rectangle", points: 6,
+          enonce: R`\(ABCD\) est un rectangle tel que \(AB=8\) et \(AD=4\). \(I\) est le milieu de \([CD]\) et \(J\) celui de \([AB]\). On se place dans le repère orthonormé d'origine \(A\) dans lequel \(B(8;0)\) et \(D(0;4)\).
+<ol><li>Donne les coordonnées de \(C\), \(I\) et \(J\).</li><li>Démontre que le triangle \(AIB\) est rectangle en \(I\).</li><li>Donne une équation du cercle \(\mathcal C\) de diamètre \([AB]\) et vérifie que \(I\in\mathcal C\). Pourquoi était-ce prévisible ?</li><li>On cherche un point \(K\) du segment \([AB]\) tel que le triangle \(DKC\) soit rectangle en \(K\). On note \(K(k;0)\) avec \(0\leq k\leq8\). Montre que \(\overrightarrow{KD}\cdot\overrightarrow{KC}=(k-4)^2\) et conclus.</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) <b>\(C(8;4)\)</b>, \(I\) milieu de \([CD]\) : \(I\left(\frac{8+0}{2};\frac{4+4}{2}\right)=\)<b>\((4;4)\)</b>, \(J\) milieu de \([AB]\) : <b>\(J(4;0)\)</b>.</li>
+<li>(1,5 pt) \(\overrightarrow{IA}\begin{pmatrix}-4\\-4\end{pmatrix}\), \(\overrightarrow{IB}\begin{pmatrix}4\\-4\end{pmatrix}\). \(\overrightarrow{IA}\cdot\overrightarrow{IB}=-16+16=0\), donc \((IA)\perp(IB)\) : <b>\(AIB\) est rectangle en \(I\)</b>.</li>
+<li>(1,5 pt) Centre \(J(4;0)\), rayon \(\frac{AB}{2}=4\) : <b>\(\mathcal C : (x-4)^2+y^2=16\)</b>. Avec \(I\) : \((4-4)^2+4^2=16\) ✓, donc \(I\in\mathcal C\). C'était prévisible : un triangle rectangle est inscrit dans le cercle ayant son hypoténuse pour diamètre, et \(AIB\) est rectangle en \(I\) d'hypoténuse \([AB]\).</li>
+<li>(2 pts) \(\overrightarrow{KD}\begin{pmatrix}-k\\4\end{pmatrix}\), \(\overrightarrow{KC}\begin{pmatrix}8-k\\4\end{pmatrix}\). \(\overrightarrow{KD}\cdot\overrightarrow{KC}=-k(8-k)+16=k^2-8k+16=(k-4)^2\).<br>
+\(DKC\) rectangle en \(K\iff\overrightarrow{KD}\cdot\overrightarrow{KC}=0\iff(k-4)^2=0\iff k=4\). Il y a <b>un seul point : \(K=J(4;0)\)</b>, le milieu de \([AB]\). Interprétation : le cercle de diamètre \([DC]\) (centre \(I\), rayon \(4\)) touche la droite \((AB)\) en un seul point, \(J\) : il est tangent à \((AB)\).</li>
+</ol>`},
+        { titre: "Exercice 2 — Le bateau et le phare", points: 5,
+          enonce: R`Dans un repère orthonormé d'unité 1 km, un bateau suit une trajectoire rectiligne \(d\) passant par \(A(0;6)\) et \(B(8;2)\). Un phare est situé en \(P(1;0)\).
+<ol><li>Détermine une équation cartésienne de \(d\).</li><li>Détermine les coordonnées du point \(H\) de la trajectoire le plus proche du phare.</li><li>Calcule la distance minimale entre le bateau et le phare (arrondie au mètre).</li><li>La lumière du phare est visible jusqu'à 5 km. Détermine les points de la trajectoire où le bateau entre et sort de la zone de visibilité, puis la longueur du trajet effectué dans cette zone (au mètre près).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(\overrightarrow{AB}\begin{pmatrix}8\\-4\end{pmatrix}\), ou \(\begin{pmatrix}2\\-1\end{pmatrix}\), est directeur de \(d\), donc \(\vec n\begin{pmatrix}1\\2\end{pmatrix}\) est normal. \(d : x+2y+c=0\), avec \(A\) : \(12+c=0\). <b>\(d : x+2y-12=0\)</b> (vérification avec \(B\) : \(8+4-12=0\) ✓).</li>
+<li>(1,5 pt) \(H\) est le projeté orthogonal de \(P\) sur \(d\). La perpendiculaire à \(d\) passant par \(P\) a pour vecteur normal \(\begin{pmatrix}2\\-1\end{pmatrix}\) : \(2x-y+c=0\), avec \(P\) : \(c=-2\), soit \(2x-y-2=0\). On résout : \(y=2x-2\), puis \(x+4x-4-12=0\), \(x=\frac{16}{5}\) et \(y=\frac{32}{5}-2=\frac{22}{5}\). <b>\(H(3{,}2;4{,}4)\)</b>.</li>
+<li>(0,5 pt) \(PH=\sqrt{2{,}2^2+4{,}4^2}=\sqrt{4{,}84+19{,}36}=\sqrt{24{,}2}\approx4{,}919\). Distance minimale : <b>environ 4,919 km</b>, soit 4 919 m.</li>
+<li>(2 pts) La zone de visibilité est le disque de centre \(P\) et de rayon 5 : son bord a pour équation \((x-1)^2+y^2=25\). Sur \(d\), \(x=12-2y\) : \((11-2y)^2+y^2=25\iff5y^2-44y+96=0\). \(\Delta=1936-1920=16\), \(y_1=\frac{44-4}{10}=4\), \(y_2=\frac{44+4}{10}=4{,}8\). Points : <b>\((4;4)\) et \((2{,}4;4{,}8)\)</b> (vérification : \(9+16=25\) ✓ et \(1{,}96+23{,}04=25\) ✓).<br>
+Longueur du trajet dans la zone : \(\sqrt{1{,}6^2+0{,}8^2}=\sqrt{3{,}2}\approx1{,}789\) km, soit <b>environ 1 789 m</b>. (Cohérent : \(PH\approx4{,}92&lt;5\), donc la trajectoire coupe bien la zone.)</li>
+</ol>`},
+        { titre: "Exercice 3 — L'arche du pont", points: 4,
+          enonce: R`L'arche d'un pont est modélisée par une parabole \(\mathcal P\). Dans un repère orthonormé d'unité 1 m, ses pieds sont en \(O(0;0)\) et \(E(10;0)\) et sa hauteur maximale est de 5 m.
+<ol><li>Justifie que l'axe de symétrie de \(\mathcal P\) est la droite d'équation \(x=5\) et donne les coordonnées du sommet.</li><li>On admet que \(\mathcal P\) a une équation de la forme \(y=ax(x-10)\). Détermine \(a\) et développe l'équation.</li><li>Un camion de 4 m de large et de 4 m de haut passe exactement au milieu de l'arche. Peut-il passer ?</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(O\) et \(E\) sont deux points de \(\mathcal P\) de même ordonnée : ils sont symétriques par rapport à l'axe, qui passe donc par le milieu d'abscisse \(\frac{0+10}{2}=5\). Axe : <b>\(x=5\)</b>. Le sommet est sur l'axe et la hauteur maximale est 5 : <b>\(S(5;5)\)</b>.</li>
+<li>(1,5 pt) \(S\in\mathcal P\) : \(5=a\times5\times(5-10)=-25a\), donc <b>\(a=-\frac15\)</b>. \(y=-\frac15x(x-10)=\)<b>\(-\frac15x^2+2x\)</b>.</li>
+<li>(1,5 pt) Centré au milieu, le camion occupe les abscisses de \(3\) à \(7\). Par symétrie, la hauteur de l'arche est la plus faible aux bords : \(y(3)=-\frac95+6=\frac{21}{5}=4{,}2\) (et \(y(7)=4{,}2\) aussi). Sur \([3;7]\), l'arche est à au moins 4,2 m (la parabole monte jusqu'à \(x=5\) puis redescend). Comme \(4{,}2&gt;4\), <b>le camion passe</b> (avec 20 cm de marge aux coins).</li>
+</ol>`},
+        { titre: "Exercice 4 — Droites tangentes à un cercle", points: 5,
+          enonce: R`Soit \(\mathcal C\) le cercle d'équation \(x^2+y^2=8\) et, pour tout réel \(m\), la droite \(d_m\) d'équation \(y=x+m\).
+<ol><li>Donne le centre et le rayon de \(\mathcal C\).</li><li>Montre que les abscisses des points communs à \(\mathcal C\) et \(d_m\) sont les solutions de \(2x^2+2mx+m^2-8=0\).</li><li>Détermine les valeurs de \(m\) pour lesquelles \(d_m\) est tangente à \(\mathcal C\).</li><li>Pour \(m=4\), donne le point de contact \(T\) et vérifie que \((OT)\perp d_4\).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(x^2+y^2=8\iff(x-0)^2+(y-0)^2=(2\sqrt2)^2\) : centre <b>\(O(0;0)\)</b>, rayon <b>\(2\sqrt2\)</b>.</li>
+<li>(1,5 pt) \(M(x;y)\) est commun aux deux si \(y=x+m\) et \(x^2+y^2=8\), donc \(x^2+(x+m)^2=8\iff x^2+x^2+2mx+m^2-8=0\iff2x^2+2mx+m^2-8=0\).</li>
+<li>(2 pts) \(d_m\) est tangente à \(\mathcal C\) quand il y a un seul point commun, c'est-à-dire \(\Delta=0\). \(\Delta=(2m)^2-4\times2\times(m^2-8)=4m^2-8m^2+64=64-4m^2\). \(\Delta=0\iff m^2=16\iff\)<b>\(m=4\) ou \(m=-4\)</b>.</li>
+<li>(0,5 pt) Pour \(m=4\), la racine double est \(x=-\frac{2m}{2\times2}=-2\), puis \(y=-2+4=2\) : <b>\(T(-2;2)\)</b>. \(\overrightarrow{OT}\begin{pmatrix}-2\\2\end{pmatrix}\) et un vecteur directeur de \(d_4\) est \(\begin{pmatrix}1\\1\end{pmatrix}\) : produit scalaire \(-2+2=0\) ✓, le rayon \([OT]\) est bien perpendiculaire à la tangente.</li>
+</ol>`}
+      ]},
+    { titre: "DS n°5 — Vrai/faux, triangle et ensembles de points", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Vrai ou faux ?", points: 4,
+          enonce: R`Pour chaque affirmation, dis si elle est vraie ou fausse, en justifiant. Une réponse non justifiée ne rapporte aucun point.
+<ol><li>La droite d'équation \(4x-6y+1=0\) admet \(\vec u\begin{pmatrix}3\\2\end{pmatrix}\) pour vecteur directeur.</li><li>Les droites \(d_1 : x+2y-3=0\) et \(d_2 : 4x-2y+1=0\) sont perpendiculaires.</li><li>L'ensemble des points \(M(x;y)\) tels que \(x^2+y^2+2x-4y+6=0\) est un cercle.</li><li>La parabole d'équation \(y=3x^2+12x+7\) a pour sommet \(S(2;43)\).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) <b>Vrai.</b> Un vecteur directeur est \(\begin{pmatrix}-b\\a\end{pmatrix}=\begin{pmatrix}6\\4\end{pmatrix}=2\begin{pmatrix}3\\2\end{pmatrix}\). Autre justification : \(\vec u\cdot\vec n=3\times4+2\times(-6)=0\).</li>
+<li>(1 pt) <b>Vrai.</b> Vecteurs normaux \(\begin{pmatrix}1\\2\end{pmatrix}\) et \(\begin{pmatrix}4\\-2\end{pmatrix}\) : produit scalaire \(4-4=0\).</li>
+<li>(1 pt) <b>Faux.</b> \((x+1)^2-1+(y-2)^2-4+6=0\iff(x+1)^2+(y-2)^2=-1\). Une somme de carrés ne peut pas valoir \(-1\) : l'ensemble est <b>vide</b>.</li>
+<li>(1 pt) <b>Faux.</b> \(\alpha=-\frac{12}{2\times3}=-2\) et \(\beta=3\times4-24+7=-5\) : le sommet est \(S(-2;-5)\). (Piège de signe sur \(-\frac{b}{2a}\).)</li>
+</ol>`},
+        { titre: "Exercice 2 — Hauteur et aire d'un triangle", points: 6,
+          enonce: R`On donne les points \(A(-1;2)\), \(B(5;0)\) et \(C(3;6)\).
+<ol><li>Détermine une équation cartésienne de la droite \((AB)\).</li><li>Détermine une équation de la hauteur \(h\) du triangle \(ABC\) issue de \(C\).</li><li>Déduis-en les coordonnées du pied \(H\) de cette hauteur.</li><li>Calcule \(CH\) et \(AB\) (valeurs exactes), puis l'aire du triangle \(ABC\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(\overrightarrow{AB}\begin{pmatrix}6\\-2\end{pmatrix}\), ou \(\begin{pmatrix}3\\-1\end{pmatrix}\), est directeur, donc \(\vec n\begin{pmatrix}1\\3\end{pmatrix}\) est normal. \((AB) : x+3y+c=0\) ; avec \(A\) : \(-1+6+c=0\), \(c=-5\). <b>\((AB) : x+3y-5=0\)</b> (avec \(B\) : \(5+0-5=0\) ✓).</li>
+<li>(1,5 pt) \(h\) est perpendiculaire à \((AB)\) : \(\begin{pmatrix}3\\-1\end{pmatrix}\) lui est normal. \(h : 3x-y+c=0\) ; avec \(C\) : \(9-6+c=0\), \(c=-3\). <b>\(h : 3x-y-3=0\)</b>.</li>
+<li>(1,5 pt) De \(h\) : \(y=3x-3\). Dans \((AB)\) : \(x+9x-9-5=0\), \(x=\frac{14}{10}=\frac75\), puis \(y=\frac{21}{5}-3=\frac65\). <b>\(H\left(\frac75;\frac65\right)\)</b>. Vérification : \(\frac75+\frac{18}{5}-5=0\) ✓.</li>
+<li>(1,5 pt) \(CH^2=\left(3-\frac75\right)^2+\left(6-\frac65\right)^2=\frac{64}{25}+\frac{576}{25}=\frac{640}{25}\), donc \(CH=\frac{\sqrt{640}}{5}=\frac{8\sqrt{10}}{5}\). \(AB=\sqrt{36+4}=\sqrt{40}=2\sqrt{10}\).<br>Aire \(=\frac{AB\times CH}{2}=\frac12\times2\sqrt{10}\times\frac{8\sqrt{10}}{5}=\frac{8\times10}{5}=\)<b>\(16\)</b> unités d'aire.</li>
+</ol>`},
+        { titre: "Exercice 3 — Un point deux fois plus loin", points: 5,
+          enonce: R`On donne \(A(0;0)\) et \(B(3;0)\). On cherche l'ensemble \(\mathcal E\) des points \(M(x;y)\) tels que \(MA=2MB\).
+<ol><li>Justifie que \(MA=2MB\iff MA^2=4MB^2\).</li><li>Montre que \(M\in\mathcal E\iff x^2+y^2-8x+12=0\).</li><li>Déduis-en la nature de \(\mathcal E\) et ses éléments caractéristiques.</li><li>Vérifie le résultat avec les deux points de \(\mathcal E\) situés sur l'axe des abscisses.</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(MA\) et \(2MB\) sont des nombres positifs ; or deux nombres positifs sont égaux si et seulement si leurs carrés sont égaux. Donc \(MA=2MB\iff MA^2=(2MB)^2=4MB^2\).</li>
+<li>(2 pts) \(MA^2=x^2+y^2\) et \(MB^2=(x-3)^2+y^2=x^2-6x+9+y^2\). Donc \(MA^2=4MB^2\iff x^2+y^2=4x^2-24x+36+4y^2\iff0=3x^2+3y^2-24x+36\iff x^2+y^2-8x+12=0\) (en divisant par 3).</li>
+<li>(1,5 pt) \((x-4)^2-16+y^2+12=0\iff(x-4)^2+y^2=4\). <b>\(\mathcal E\) est le cercle de centre \((4;0)\) et de rayon \(2\)</b>.</li>
+<li>(0,5 pt) Sur l'axe des abscisses : \((2;0)\) et \((6;0)\). Pour \((2;0)\) : \(MA=2\), \(MB=1\) ✓. Pour \((6;0)\) : \(MA=6\), \(MB=3\) ✓.</li>
+</ol>`},
+        { titre: "Exercice 4 — Une famille de droites et une parabole", points: 5,
+          enonce: R`Soit \(\mathcal P : y=x^2-2x+3\) et, pour tout réel \(m\), la droite \(d_m : y=2x+m\).
+<ol><li>Détermine le sommet et l'axe de symétrie de \(\mathcal P\).</li><li>Pour \(m=0\), détermine les points d'intersection de \(\mathcal P\) et \(d_0\).</li><li>Discute, selon les valeurs de \(m\), le nombre de points d'intersection de \(\mathcal P\) et \(d_m\). Donne le point commun dans le cas où il est unique.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(\alpha=-\frac{-2}{2}=1\), \(\beta=1-2+3=2\). <b>Sommet \(S(1;2)\)</b>, <b>axe \(x=1\)</b>.</li>
+<li>(1,5 pt) \(x^2-2x+3=2x\iff x^2-4x+3=0\). \(\Delta=16-12=4\), \(x_1=1\), \(x_2=3\). Points <b>\((1;2)\) et \((3;6)\)</b> (vérification : \(9-6+3=6\) ✓).</li>
+<li>(2 pts) \(x^2-2x+3=2x+m\iff x^2-4x+3-m=0\), de discriminant \(\Delta=16-4(3-m)=4+4m\).
+<ul><li>Si \(m&gt;-1\) : \(\Delta&gt;0\), <b>deux points</b> d'intersection.</li><li>Si \(m=-1\) : \(\Delta=0\), <b>un seul point</b> : \(x=\frac42=2\), \(y=2\times2-1=3\), soit \((2;3)\) (vérification : \(4-4+3=3\) ✓). La droite est tangente à la parabole.</li><li>Si \(m&lt;-1\) : \(\Delta&lt;0\), <b>aucun point</b>.</li></ul></li>
+</ol>`}
+      ]},
+    { titre: "DS n°6 — Cercles, tangentes et distances", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Cercle, sécante et carré", points: 6,
+          enonce: R`Soit \(\mathcal C\) l'ensemble des points \(M(x;y)\) tels que \(x^2+y^2-4x+2y-20=0\) et \(d\) la droite d'équation \(x+y-6=0\).
+<ol><li>Montre que \(\mathcal C\) est un cercle de centre \(\Omega\) et de rayon \(r\) à préciser.</li><li>Détermine les coordonnées des points d'intersection \(A\) et \(B\) de \(\mathcal C\) et \(d\) (avec \(x_A&lt;x_B\)).</li><li>Détermine une équation des tangentes à \(\mathcal C\) en \(A\) et en \(B\), puis leur point d'intersection \(T\).</li><li>Quelle est la nature du quadrilatère \(\Omega ATB\) ? Justifie.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \((x-2)^2-4+(y+1)^2-1-20=0\iff(x-2)^2+(y+1)^2=25\). <b>Cercle de centre \(\Omega(2;-1)\) et de rayon \(5\)</b>.</li>
+<li>(2 pts) De \(d\) : \(y=6-x\). On remplace : \(x^2+(6-x)^2-4x+2(6-x)-20=0\iff2x^2-18x+28=0\iff x^2-9x+14=0\). \(\Delta=81-56=25\), \(x=\frac{9-5}{2}=2\) ou \(x=\frac{9+5}{2}=7\). <b>\(A(2;4)\)</b> et <b>\(B(7;-1)\)</b>. Vérification : \(0^2+5^2=25\) ✓ et \(5^2+0^2=25\) ✓.</li>
+<li>(1,5 pt) Tangente en \(A\) : vecteur normal \(\overrightarrow{\Omega A}\begin{pmatrix}0\\5\end{pmatrix}\), ou \(\begin{pmatrix}0\\1\end{pmatrix}\) : \(y+c=0\) avec \(4+c=0\), d'où <b>\(y=4\)</b>.<br>Tangente en \(B\) : vecteur normal \(\overrightarrow{\Omega B}\begin{pmatrix}5\\0\end{pmatrix}\), ou \(\begin{pmatrix}1\\0\end{pmatrix}\) : <b>\(x=7\)</b>.<br>Intersection : <b>\(T(7;4)\)</b>.</li>
+<li>(1 pt) \(\overrightarrow{\Omega A}\begin{pmatrix}0\\5\end{pmatrix}=\overrightarrow{BT}\begin{pmatrix}0\\5\end{pmatrix}\) : \(\Omega ATB\) est un parallélogramme. De plus \(\overrightarrow{\Omega A}\cdot\overrightarrow{\Omega B}=0\) (angle droit) et \(\Omega A=\Omega B=5\) : c'est un <b>carré</b> de côté 5.</li>
+</ol>`},
+        { titre: "Exercice 2 — Deux cercles sécants", points: 5,
+          enonce: R`On considère les cercles \(\mathcal C_1 : x^2+y^2-2x-2y-8=0\) et \(\mathcal C_2 : x^2+y^2-10x-6y+24=0\).
+<ol><li>Détermine le centre et le rayon de chacun des deux cercles.</li><li>Montre que tout point commun aux deux cercles appartient à la droite \(\delta : 2x+y-8=0\).</li><li>Déduis-en les coordonnées des points d'intersection des deux cercles.</li><li>Vérifie que \(\delta\) est perpendiculaire à la droite \((\Omega_1\Omega_2)\) joignant les centres.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(\mathcal C_1 : (x-1)^2-1+(y-1)^2-1-8=0\iff(x-1)^2+(y-1)^2=10\) : centre <b>\(\Omega_1(1;1)\)</b>, rayon <b>\(\sqrt{10}\)</b>.<br>
+\(\mathcal C_2 : (x-5)^2-25+(y-3)^2-9+24=0\iff(x-5)^2+(y-3)^2=10\) : centre <b>\(\Omega_2(5;3)\)</b>, rayon <b>\(\sqrt{10}\)</b>.</li>
+<li>(1,5 pt) Un point commun vérifie les deux équations, donc leur différence : \((x^2+y^2-2x-2y-8)-(x^2+y^2-10x-6y+24)=0\iff8x+4y-32=0\iff2x+y-8=0\).</li>
+<li>(1,5 pt) Avec \(y=8-2x\) dans \(\mathcal C_1\) : \(x^2+(8-2x)^2-2x-2(8-2x)-8=0\iff5x^2-30x+40=0\iff x^2-6x+8=0\). \(\Delta=4\), \(x=2\) ou \(x=4\). Points <b>\((2;4)\) et \((4;0)\)</b>. Vérification dans \(\mathcal C_2\) : \(9+1=10\) ✓ et \(1+9=10\) ✓.</li>
+<li>(0,5 pt) \(\overrightarrow{\Omega_1\Omega_2}\begin{pmatrix}4\\2\end{pmatrix}=2\begin{pmatrix}2\\1\end{pmatrix}\) est colinéaire au vecteur normal \(\begin{pmatrix}2\\1\end{pmatrix}\) de \(\delta\) : donc \(\delta\perp(\Omega_1\Omega_2)\) ✓.</li>
+</ol>`},
+        { titre: "Exercice 3 — Cercle de diamètre donné", points: 4,
+          enonce: R`On donne \(A(-1;-2)\) et \(B(5;2)\). Soit \(\mathcal C\) le cercle de diamètre \([AB]\).
+<ol><li>En utilisant \(\overrightarrow{MA}\cdot\overrightarrow{MB}=0\), montre que \(\mathcal C\) a pour équation \(x^2+y^2-4x-9=0\).</li><li>Déduis-en son centre et son rayon, et vérifie la cohérence avec \(A\) et \(B\).</li><li>Détermine les points \(E\) et \(F\) de \(\mathcal C\) situés sur l'axe des ordonnées (\(y_E&gt;0\)). Quelle est la nature du triangle \(ABE\) ?</li></ol>`,
+          correction: R`<ol>
+<li>(2 pts) \(\overrightarrow{MA}\begin{pmatrix}-1-x\\-2-y\end{pmatrix}\), \(\overrightarrow{MB}\begin{pmatrix}5-x\\2-y\end{pmatrix}\). \(\overrightarrow{MA}\cdot\overrightarrow{MB}=(-1-x)(5-x)+(-2-y)(2-y)=(x+1)(x-5)+(y+2)(y-2)=x^2-4x-5+y^2-4\). Donc \(M\in\mathcal C\iff x^2+y^2-4x-9=0\).</li>
+<li>(1 pt) \((x-2)^2-4+y^2-9=0\iff(x-2)^2+y^2=13\) : centre <b>\((2;0)\)</b>, rayon <b>\(\sqrt{13}\)</b>. Cohérence : \((2;0)\) est bien le milieu \(\left(\frac{-1+5}{2};\frac{-2+2}{2}\right)\) et \(\frac{AB}{2}=\frac{\sqrt{36+16}}{2}=\frac{\sqrt{52}}{2}=\sqrt{13}\) ✓.</li>
+<li>(1 pt) \(x=0\) : \(y^2-9=0\), \(y=3\) ou \(y=-3\). <b>\(E(0;3)\)</b>, <b>\(F(0;-3)\)</b>. \(E\) est sur le cercle de diamètre \([AB]\), donc <b>\(ABE\) est rectangle en \(E\)</b> (vérification : \(\overrightarrow{EA}\begin{pmatrix}-1\\-5\end{pmatrix}\cdot\overrightarrow{EB}\begin{pmatrix}5\\-1\end{pmatrix}=-5+5=0\) ✓).</li>
+</ol>`},
+        { titre: "Exercice 4 — Cercle tangent à une droite", points: 5,
+          enonce: R`Soit \(d\) la droite d'équation \(3x+4y-12=0\) et \(\Omega(7;9)\).
+<ol><li>Détermine une équation de la droite \(\Delta\) perpendiculaire à \(d\) passant par \(\Omega\).</li><li>Détermine les coordonnées du projeté orthogonal \(H\) de \(\Omega\) sur \(d\).</li><li>Calcule la distance de \(\Omega\) à \(d\).</li><li>Donne une équation du cercle de centre \(\Omega\) tangent à \(d\), et précise le point de contact.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) Un vecteur directeur de \(d\) est \(\begin{pmatrix}-4\\3\end{pmatrix}\), ou \(\begin{pmatrix}4\\-3\end{pmatrix}\) : il est normal à \(\Delta\). \(\Delta : 4x-3y+c=0\), avec \(\Omega\) : \(28-27+c=0\), \(c=-1\). <b>\(\Delta : 4x-3y-1=0\)</b>.</li>
+<li>(1,5 pt) On résout \(\begin{cases}3x+4y=12\\4x-3y=1\end{cases}\). En multipliant par 3 et 4 : \(9x+12y=36\) et \(16x-12y=4\) ; en additionnant, \(25x=40\), \(x=\frac85\). Puis \(4y=12-\frac{24}{5}=\frac{36}{5}\), \(y=\frac95\). <b>\(H\left(\frac85;\frac95\right)\)</b>. Vérification dans \(\Delta\) : \(\frac{32}{5}-\frac{27}{5}-1=0\) ✓.</li>
+<li>(1 pt) \(\Omega H^2=\left(7-\frac85\right)^2+\left(9-\frac95\right)^2=\left(\frac{27}{5}\right)^2+\left(\frac{36}{5}\right)^2=\frac{729+1296}{25}=\frac{2025}{25}=81\). <b>\(\Omega H=9\)</b>.</li>
+<li>(1 pt) Le cercle de centre \(\Omega\) tangent à \(d\) a pour rayon la distance de \(\Omega\) à \(d\) : <b>\((x-7)^2+(y-9)^2=81\)</b>. Il touche \(d\) au point <b>\(H\left(\frac85;\frac95\right)\)</b>.</li>
+</ol>`}
+      ]},
+    { titre: "DS n°7 — Paraboles, trajectoires et configurations", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Parabole passant par trois points", points: 5,
+          enonce: R`On cherche la parabole \(\mathcal P\) d'équation \(y=ax^2+bx+c\) passant par \(A(0;6)\), \(B(1;0)\) et \(C(2;-2)\).
+<ol><li>Écris un système d'équations vérifié par \(a\), \(b\), \(c\) et résous-le.</li><li>Détermine le sommet et l'axe de symétrie de \(\mathcal P\). Que remarques-tu ?</li><li>Détermine les points d'intersection de \(\mathcal P\) avec l'axe des abscisses.</li><li>Donne, sans calcul de second degré, les coordonnées du symétrique \(A'\) de \(A\) par rapport à l'axe de \(\mathcal P\), puis vérifie que \(A'\in\mathcal P\).</li></ol>`,
+          correction: R`<ol>
+<li>(2 pts) \(A\in\mathcal P\) : \(c=6\). \(B\in\mathcal P\) : \(a+b+c=0\), soit \(a+b=-6\). \(C\in\mathcal P\) : \(4a+2b+c=-2\), soit \(4a+2b=-8\), ou \(2a+b=-4\). En soustrayant : \(a=-4-(-6)=2\), puis \(b=-6-2=-8\). <b>\(\mathcal P : y=2x^2-8x+6\)</b>.</li>
+<li>(1 pt) \(\alpha=-\frac{-8}{4}=2\), \(\beta=8-16+6=-2\). <b>Sommet \(S(2;-2)\)</b>, axe <b>\(x=2\)</b>. On remarque que le sommet est le point \(C\).</li>
+<li>(1 pt) \(2x^2-8x+6=0\iff x^2-4x+3=0\), \(\Delta=4\), \(x=1\) ou \(x=3\). Points <b>\((1;0)\) et \((3;0)\)</b>, symétriques par rapport à \(x=2\) ✓.</li>
+<li>(1 pt) \(A'\) a la même ordonnée que \(A\) et une abscisse symétrique par rapport à 2 : \(x_{A'}=2\times2-0=4\). <b>\(A'(4;6)\)</b>. Vérification : \(2\times16-32+6=6\) ✓.</li>
+</ol>`},
+        { titre: "Exercice 2 — Le tir au basket", points: 5,
+          enonce: R`Un joueur tire au panier. La trajectoire du ballon est modélisée par la parabole d'équation \(y=-0{,}05x^2+0{,}9x+2\), où \(x\) est la distance horizontale au joueur et \(y\) la hauteur, en mètres.
+<ol><li>Détermine la hauteur maximale atteinte par le ballon et à quelle distance du joueur.</li><li>Un défenseur situé à 2 m du joueur saute et atteint 3,20 m avec les mains. Le ballon passe-t-il au-dessus ?</li><li>Si personne ne touche le ballon, à quelle distance du joueur retombe-t-il au sol ?</li><li>Le panier est à 3,05 m de haut. À quelles distances du joueur le ballon est-il à cette hauteur ? (Arrondir au cm.)</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(a=-0{,}05&lt;0\) : la parabole est tournée vers le bas, le maximum est atteint au sommet. \(\alpha=-\frac{0{,}9}{2\times(-0{,}05)}=9\) et \(\beta=-0{,}05\times81+0{,}9\times9+2=-4{,}05+8{,}1+2=6{,}05\). Hauteur maximale <b>6,05 m</b>, à <b>9 m</b> du joueur.</li>
+<li>(1 pt) \(y(2)=-0{,}2+1{,}8+2=3{,}6\) m et \(3{,}6&gt;3{,}2\) : <b>le ballon passe</b> au-dessus des mains du défenseur.</li>
+<li>(1 pt) \(-0{,}05x^2+0{,}9x+2=0\iff x^2-18x-40=0\) (en multipliant par \(-20\)). \(\Delta=324+160=484=22^2\), \(x=\frac{18-22}{2}=-2\) (exclu, \(x\geq0\)) ou \(x=\frac{18+22}{2}=20\). Le ballon retombe à <b>20 m</b>.</li>
+<li>(1,5 pt) \(-0{,}05x^2+0{,}9x+2=3{,}05\iff x^2-18x+21=0\). \(\Delta=324-84=240\), \(x=\frac{18\pm\sqrt{240}}{2}=9\pm\sqrt{60}\). Soit <b>\(x\approx1{,}25\) m</b> (en montant) et <b>\(x\approx16{,}75\) m</b> (en descendant). Pour marquer, le panier doit donc être à environ 16,75 m du joueur.</li>
+</ol>`},
+        { titre: "Exercice 3 — Un cercle inscrit dans un carré", points: 6,
+          enonce: R`\(OABC\) est un carré de côté 4. On se place dans le repère orthonormé où \(O(0;0)\), \(A(4;0)\), \(B(4;4)\), \(C(0;4)\). \(\mathcal C\) est le cercle inscrit dans le carré (tangent aux quatre côtés) et \(E\) le point de \([AB]\) tel que \(AE=1\).
+<ol><li>Donne le centre \(I\), le rayon et une équation de \(\mathcal C\), ainsi que les coordonnées de \(E\).</li><li>Détermine une équation cartésienne de la droite \((CE)\).</li><li>Détermine les coordonnées du projeté orthogonal \(H\) de \(I\) sur \((CE)\).</li><li>Calcule \(IH\). Déduis-en que \((CE)\) coupe \(\mathcal C\) en deux points \(M\) et \(N\), puis calcule la longueur \(MN\) (valeur exacte et arrondi au centième).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) Le centre est le centre du carré : <b>\(I(2;2)\)</b> ; le rayon est la moitié du côté : <b>\(2\)</b>. <b>\(\mathcal C : (x-2)^2+(y-2)^2=4\)</b>. \(E\) est sur \([AB]\) (abscisse 4) à 1 de \(A\) : <b>\(E(4;1)\)</b>.</li>
+<li>(1,5 pt) \(\overrightarrow{CE}\begin{pmatrix}4\\-3\end{pmatrix}\) est directeur, donc \(\vec n\begin{pmatrix}3\\4\end{pmatrix}\) est normal. \(3x+4y+c=0\), avec \(C\) : \(16+c=0\). <b>\((CE) : 3x+4y-16=0\)</b> (avec \(E\) : \(12+4-16=0\) ✓).</li>
+<li>(2 pts) Perpendiculaire à \((CE)\) passant par \(I\) : vecteur normal \(\begin{pmatrix}4\\-3\end{pmatrix}\), \(4x-3y+c=0\), avec \(I\) : \(8-6+c=0\), \(c=-2\). On résout \(\begin{cases}3x+4y=16\\4x-3y=2\end{cases}\) : \(9x+12y=48\) et \(16x-12y=8\), d'où \(25x=56\), \(x=\frac{56}{25}\), puis \(4y=16-\frac{168}{25}=\frac{232}{25}\), \(y=\frac{58}{25}\). <b>\(H\left(\frac{56}{25};\frac{58}{25}\right)\)</b>, soit \(H(2{,}24;2{,}32)\).</li>
+<li>(1,5 pt) \(IH^2=\left(\frac{6}{25}\right)^2+\left(\frac{8}{25}\right)^2=\frac{100}{625}\), donc \(IH=\frac{10}{25}=\)<b>\(\frac25\)</b>. Comme \(\frac25&lt;2\) (le rayon), la droite est à une distance du centre inférieure au rayon : <b>elle coupe \(\mathcal C\) en deux points</b>.<br>
+\(H\) est le milieu de la corde \([MN]\) et le triangle \(IHM\) est rectangle en \(H\) : \(HM^2=IM^2-IH^2=4-\frac{4}{25}=\frac{96}{25}\), donc \(HM=\frac{4\sqrt6}{5}\) et <b>\(MN=\frac{8\sqrt6}{5}\approx3{,}92\)</b>.</li>
+</ol>`},
+        { titre: "Exercice 4 — Le carrefour", points: 4,
+          enonce: R`Dans un repère orthonormé d'unité 1 km, une route rectiligne suit la droite \(d_1 : 2x-3y+6=0\). Une maison est située en \(P(4;-1)\). On veut construire un chemin rectiligne le plus court possible reliant la maison à la route.
+<ol><li>Donne un vecteur normal et un vecteur directeur de \(d_1\).</li><li>Détermine une équation de la droite \(d_2\) du chemin.</li><li>Détermine les coordonnées du carrefour \(K\) entre le chemin et la route.</li><li>Calcule la longueur du chemin, au mètre près.</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) Vecteur normal \(\vec n\begin{pmatrix}2\\-3\end{pmatrix}\), vecteur directeur \(\vec u\begin{pmatrix}3\\2\end{pmatrix}\) (forme \((-b;a)\) ; \(\vec u\cdot\vec n=6-6=0\) ✓).</li>
+<li>(1 pt) Le chemin le plus court est perpendiculaire à la route : \(\vec u\begin{pmatrix}3\\2\end{pmatrix}\) est normal à \(d_2\). \(d_2 : 3x+2y+c=0\), avec \(P\) : \(12-2+c=0\), \(c=-10\). <b>\(d_2 : 3x+2y-10=0\)</b>.</li>
+<li>(1 pt) On résout \(\begin{cases}2x-3y=-6\\3x+2y=10\end{cases}\) : \(4x-6y=-12\) et \(9x+6y=30\), d'où \(13x=18\), \(x=\frac{18}{13}\), puis \(2y=10-\frac{54}{13}=\frac{76}{13}\), \(y=\frac{38}{13}\). <b>\(K\left(\frac{18}{13};\frac{38}{13}\right)\approx(1{,}385;2{,}923)\)</b>.</li>
+<li>(1 pt) \(PK^2=\left(\frac{18}{13}-4\right)^2+\left(\frac{38}{13}+1\right)^2=\left(\frac{34}{13}\right)^2+\left(\frac{51}{13}\right)^2=\frac{1156+2601}{169}=\frac{3757}{169}=\frac{289}{13}\). \(PK=\frac{17}{\sqrt{13}}\approx4{,}715\) : le chemin mesure <b>environ 4 715 m</b>.</li>
+</ol>`}
+      ]},
+    { titre: "DS n°8 — Cercle circonscrit, tangente et hauteur", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Cercle circonscrit à un triangle", points: 6,
+          enonce: R`On donne \(A(-2;4)\), \(B(5;5)\) et \(C(6;-2)\).
+<ol><li>Détermine une équation de la médiatrice \(m_1\) de \([AB]\).</li><li>Vérifie que la médiatrice \(m_2\) de \([BC]\) a pour équation \(x-7y+5=0\).</li><li>Déduis-en le centre \(\Omega\) du cercle circonscrit au triangle \(ABC\), son rayon et une équation de ce cercle.</li><li>Démontre que \(ABC\) est rectangle en \(B\). Comment pouvait-on alors trouver \(\Omega\) directement ?</li></ol>`,
+          correction: R`<ol>
+<li>(2 pts) Milieu de \([AB]\) : \(\left(\frac32;\frac92\right)\). Vecteur normal \(\overrightarrow{AB}\begin{pmatrix}7\\1\end{pmatrix}\) : \(m_1 : 7x+y+c=0\), avec le milieu : \(\frac{21}{2}+\frac92+c=0\), \(c=-15\). <b>\(m_1 : 7x+y-15=0\)</b>.</li>
+<li>(1 pt) Milieu de \([BC]\) : \(\left(\frac{11}{2};\frac32\right)\) et \(\frac{11}{2}-\frac{21}{2}+5=0\) ✓. Vecteur normal de \(x-7y+5=0\) : \(\begin{pmatrix}1\\-7\end{pmatrix}=\overrightarrow{BC}\) ✓. C'est bien la médiatrice de \([BC]\).</li>
+<li>(1,5 pt) De \(m_2\) : \(x=7y-5\). Dans \(m_1\) : \(49y-35+y-15=0\), \(y=1\), \(x=2\). <b>\(\Omega(2;1)\)</b>. Rayon : \(\Omega A=\sqrt{(-4)^2+3^2}=5\). Cercle : <b>\((x-2)^2+(y-1)^2=25\)</b> (vérification : \(\Omega B^2=9+16=25\), \(\Omega C^2=16+9=25\) ✓).</li>
+<li>(1,5 pt) \(\overrightarrow{BA}\begin{pmatrix}-7\\-1\end{pmatrix}\cdot\overrightarrow{BC}\begin{pmatrix}1\\-7\end{pmatrix}=-7+7=0\) : <b>\(ABC\) est rectangle en \(B\)</b>. Le centre du cercle circonscrit à un triangle rectangle est le milieu de l'hypoténuse : \(\Omega\) est le milieu de \([AC]\), \(\left(\frac{-2+6}{2};\frac{4-2}{2}\right)=(2;1)\) ✓.</li>
+</ol>`},
+        { titre: "Exercice 2 — Tangente et théorème de Pythagore", points: 5,
+          enonce: R`Soit \(\mathcal C : x^2+y^2+6x-2y-15=0\) et \(A(0;5)\).
+<ol><li>Montre que \(\mathcal C\) est un cercle dont tu préciseras le centre \(\Omega\) et le rayon.</li><li>Vérifie que \(A\in\mathcal C\).</li><li>Détermine une équation de la tangente \(T\) à \(\mathcal C\) en \(A\).</li><li>\(T\) coupe l'axe des abscisses en \(K\). Calcule les coordonnées de \(K\), puis \(KA^2\) et \(K\Omega^2\), et vérifie la relation de Pythagore dans le triangle \(\Omega AK\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \((x+3)^2-9+(y-1)^2-1-15=0\iff(x+3)^2+(y-1)^2=25\). <b>Cercle de centre \(\Omega(-3;1)\) et de rayon \(5\)</b>.</li>
+<li>(0,5 pt) \((0+3)^2+(5-1)^2=9+16=25\) ✓.</li>
+<li>(1,5 pt) Vecteur normal \(\overrightarrow{\Omega A}\begin{pmatrix}3\\4\end{pmatrix}\) : \(3x+4y+c=0\), avec \(A\) : \(20+c=0\). <b>\(T : 3x+4y-20=0\)</b>.</li>
+<li>(1,5 pt) \(y=0\) : \(3x=20\), <b>\(K\left(\frac{20}{3};0\right)\)</b>. \(KA^2=\left(\frac{20}{3}\right)^2+5^2=\frac{400}{9}+\frac{225}{9}=\frac{625}{9}\) (donc \(KA=\frac{25}{3}\)). \(K\Omega^2=\left(\frac{20}{3}+3\right)^2+1^2=\frac{841}{9}+\frac99=\frac{850}{9}\).<br>
+\(\Omega A^2+KA^2=25+\frac{625}{9}=\frac{225+625}{9}=\frac{850}{9}=K\Omega^2\) ✓ : le triangle \(\Omega AK\) est rectangle en \(A\), ce qui confirme que la tangente est perpendiculaire au rayon \([\Omega A]\).</li>
+</ol>`},
+        { titre: "Exercice 3 — Parabole et droite", points: 5,
+          enonce: R`Soit \(\mathcal P : y=\frac12x^2-x-4\) et \(d : x-2y-4=0\).
+<ol><li>Écris l'équation de \(\mathcal P\) sous forme canonique et donne son sommet.</li><li>Détermine les points d'intersection de \(\mathcal P\) avec les axes du repère.</li><li>Détermine les points d'intersection de \(\mathcal P\) et \(d\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(\alpha=-\frac{-1}{2\times\frac12}=1\) et \(\beta=\frac12-1-4=-\frac92\). <b>\(y=\frac12(x-1)^2-\frac92\)</b> (vérification : \(\frac12(x^2-2x+1)-\frac92=\frac12x^2-x-4\) ✓). Sommet <b>\(S\left(1;-\frac92\right)\)</b>.</li>
+<li>(1,5 pt) Axe des ordonnées (\(x=0\)) : \(y=-4\), point <b>\((0;-4)\)</b>. Axe des abscisses : \(\frac12x^2-x-4=0\iff x^2-2x-8=0\), \(\Delta=4+32=36\), \(x=\frac{2-6}{2}=-2\) ou \(x=\frac{2+6}{2}=4\). Points <b>\((-2;0)\) et \((4;0)\)</b>.</li>
+<li>(2 pts) \(d : y=\frac12x-2\). \(\frac12x^2-x-4=\frac12x-2\iff\frac12x^2-\frac32x-2=0\iff x^2-3x-4=0\). \(\Delta=9+16=25\), \(x=\frac{3-5}{2}=-1\) ou \(x=\frac{3+5}{2}=4\). Points <b>\(\left(-1;-\frac52\right)\) et \((4;0)\)</b>. Vérification : \(\frac12+1-4=-\frac52\) ✓ et \(-1+5-4=0\) ✓ (dans \(d\)).</li>
+</ol>`},
+        { titre: "Exercice 4 — Dans un triangle rectangle", points: 4,
+          enonce: R`Dans un repère orthonormé, on considère \(A(0;0)\), \(B(6;0)\) et \(C(0;4)\). \(I\) est le milieu de \([BC]\).
+<ol><li>Démontre que \(IA=IB=IC\).</li><li>Détermine une équation de la droite \((BC)\).</li><li>Détermine les coordonnées du pied \(H\) de la hauteur issue de \(A\) dans le triangle \(ABC\).</li><li>Calcule \(AH\) (valeur exacte).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(I(3;2)\). \(IA^2=9+4=13\), \(IB^2=(6-3)^2+(0-2)^2=13\), \(IC^2=(0-3)^2+(4-2)^2=13\). Donc <b>\(IA=IB=IC=\sqrt{13}\)</b> : \(I\) est le centre du cercle circonscrit.</li>
+<li>(1 pt) \(\overrightarrow{BC}\begin{pmatrix}-6\\4\end{pmatrix}\), ou \(\begin{pmatrix}-3\\2\end{pmatrix}\), est directeur : \(\vec n\begin{pmatrix}2\\3\end{pmatrix}\) est normal. \(2x+3y+c=0\), avec \(B\) : \(12+c=0\). <b>\((BC) : 2x+3y-12=0\)</b>.</li>
+<li>(1,5 pt) La hauteur issue de \(A\) a pour vecteur normal \(\begin{pmatrix}-3\\2\end{pmatrix}\), ou \(\begin{pmatrix}3\\-2\end{pmatrix}\) : \(3x-2y+c=0\), avec \(A\) : \(c=0\). On résout : \(y=\frac32x\), puis \(2x+\frac92x=12\), \(\frac{13}{2}x=12\), \(x=\frac{24}{13}\) et \(y=\frac{36}{13}\). <b>\(H\left(\frac{24}{13};\frac{36}{13}\right)\)</b>.</li>
+<li>(0,5 pt) \(AH^2=\frac{576+1296}{169}=\frac{1872}{169}=\frac{144}{13}\), donc <b>\(AH=\frac{12}{\sqrt{13}}=\frac{12\sqrt{13}}{13}\)</b>. (Contrôle : \(AH=\frac{AB\times AC}{BC}=\frac{24}{\sqrt{52}}=\frac{12}{\sqrt{13}}\) ✓.)</li>
+</ol>`}
+      ]},
+    { titre: "DS n°9 — Antenne, lieu de points et tunnel", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — La zone de couverture d'une antenne", points: 7,
+          enonce: R`Dans un repère orthonormé d'unité 1 km, une antenne relais est installée en \(\Omega(3;2)\). Elle couvre tous les points situés à moins de 5 km. Une route rectiligne suit la droite \(d : x-y+4=0\).
+<ol><li>Écris une équation développée du cercle \(\mathcal C\) qui délimite la zone couverte.</li><li>Un village est situé en \(V(6;-1)\). Est-il couvert ?</li><li>Détermine les points \(E\) et \(F\) où la route entre et sort de la zone couverte.</li><li>Quelle longueur de route est couverte (au mètre près) ?</li><li>Détermine le point \(H\) de la route le plus proche de l'antenne, et vérifie que c'est le milieu de \([EF]\).</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \((x-3)^2+(y-2)^2=25\iff x^2-6x+9+y^2-4y+4-25=0\iff\)<b>\(x^2+y^2-6x-4y-12=0\)</b>.</li>
+<li>(1 pt) \(\Omega V^2=(6-3)^2+(-1-2)^2=9+9=18&lt;25\), donc \(\Omega V=\sqrt{18}\approx4{,}24&lt;5\) : <b>le village est couvert</b>.</li>
+<li>(2 pts) Sur \(d\), \(y=x+4\) : \((x-3)^2+(x+2)^2=25\iff2x^2-2x+13=25\iff x^2-x-6=0\). \(\Delta=1+24=25\), \(x=\frac{1-5}{2}=-2\) ou \(x=\frac{1+5}{2}=3\). <b>\(E(-2;2)\)</b> et <b>\(F(3;7)\)</b>. Vérification : \(25+0=25\) ✓ et \(0+25=25\) ✓.</li>
+<li>(1 pt) \(EF=\sqrt{5^2+5^2}=5\sqrt2\approx7{,}071\) : environ <b>7 071 m</b> de route couverte.</li>
+<li>(2 pts) \(H\) est le projeté orthogonal de \(\Omega\) sur \(d\). Un vecteur directeur de \(d\) est \(\begin{pmatrix}1\\1\end{pmatrix}\), normal à la perpendiculaire : \(x+y+c=0\), avec \(\Omega\) : \(c=-5\). On résout \(x+y=5\) et \(y=x+4\) : \(2x+4=5\), \(x=\frac12\), \(y=\frac92\). <b>\(H\left(\frac12;\frac92\right)\)</b>. Milieu de \([EF]\) : \(\left(\frac{-2+3}{2};\frac{2+7}{2}\right)=\left(\frac12;\frac92\right)\) ✓ (le triangle \(\Omega EF\) est isocèle en \(\Omega\), la hauteur est aussi médiane). Distance minimale : \(\Omega H=\sqrt{\frac{25}{4}+\frac{25}{4}}=\frac{5\sqrt2}{2}\approx3{,}54\) km.</li>
+</ol>`},
+        { titre: "Exercice 2 — Un lieu de points", points: 6,
+          enonce: R`On donne \(A(-1;2)\) et \(B(3;0)\). Pour un réel \(k\), on note \(\mathcal E_k\) l'ensemble des points \(M(x;y)\) tels que \(MA^2+MB^2=k\).
+<ol><li>Montre que \(MA^2+MB^2=2x^2+2y^2-4x-4y+14\).</li><li>Détermine la nature et les éléments caractéristiques de \(\mathcal E_{24}\).</li><li>Montre que \(MA^2+MB^2=2\left[(x-1)^2+(y-1)^2\right]+10\) et discute, selon \(k\), la nature de \(\mathcal E_k\).</li><li>Que représente le point \(I(1;1)\) pour le segment \([AB]\) ? Interprète \(\mathcal E_{10}\).</li></ol>`,
+          correction: R`<ol>
+<li>(2 pts) \(MA^2=(x+1)^2+(y-2)^2=x^2+2x+1+y^2-4y+4\) et \(MB^2=(x-3)^2+y^2=x^2-6x+9+y^2\). En additionnant : \(MA^2+MB^2=2x^2+2y^2-4x-4y+14\).</li>
+<li>(1,5 pt) \(2x^2+2y^2-4x-4y+14=24\iff x^2+y^2-2x-2y-5=0\iff(x-1)^2-1+(y-1)^2-1-5=0\iff(x-1)^2+(y-1)^2=7\). <b>\(\mathcal E_{24}\) est le cercle de centre \((1;1)\) et de rayon \(\sqrt7\)</b>.</li>
+<li>(1,5 pt) \(2\left[(x-1)^2+(y-1)^2\right]+10=2(x^2-2x+1+y^2-2y+1)+10=2x^2+2y^2-4x-4y+14\) ✓. Ainsi \(M\in\mathcal E_k\iff(x-1)^2+(y-1)^2=\frac{k-10}{2}\).
+<ul><li>Si \(k&gt;10\) : cercle de centre \((1;1)\) et de rayon \(\sqrt{\frac{k-10}{2}}\).</li><li>Si \(k=10\) : le seul point \((1;1)\).</li><li>Si \(k&lt;10\) : ensemble vide.</li></ul></li>
+<li>(1 pt) \(I\left(\frac{-1+3}{2};\frac{2+0}{2}\right)\) : <b>\(I\) est le milieu de \([AB]\)</b>. \(\mathcal E_{10}=\{I\}\) : la somme \(MA^2+MB^2\) est minimale, égale à 10, quand \(M\) est le milieu de \([AB]\) (contrôle : \(IA^2=(1+1)^2+(1-2)^2=5\) et \(IB^2=(3-1)^2+(0-1)^2=5\), total \(10\) ✓).</li>
+</ol>`},
+        { titre: "Exercice 3 — Le camion et le tunnel", points: 7,
+          enonce: R`L'entrée d'un tunnel est modélisée, dans un repère orthonormé d'unité 1 m, par la parabole d'équation \(y=-0{,}5x^2+3x\) pour \(0\leq x\leq6\) (le sol est l'axe des abscisses).
+<ol><li>Détermine la hauteur maximale du tunnel et l'axe de symétrie de la parabole.</li><li>Quelle est la largeur du tunnel au niveau du sol ?</li><li>Un camion de 2,5 m de large et de 3,8 m de haut se présente, centré sur l'axe du tunnel. Calcule la hauteur du tunnel au niveau des bords du camion. Le camion peut-il passer ?</li><li>Détermine la largeur exacte du tunnel à la hauteur de 3,8 m, puis une valeur approchée au cm. Confirme la réponse précédente.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(\alpha=-\frac{3}{2\times(-0{,}5)}=3\), \(\beta=-0{,}5\times9+9=4{,}5\). Hauteur maximale <b>4,5 m</b> (au centre), axe de symétrie <b>\(x=3\)</b>.</li>
+<li>(1 pt) \(-0{,}5x^2+3x=0\iff x(-0{,}5x+3)=0\iff x=0\) ou \(x=6\). Largeur au sol : <b>6 m</b>.</li>
+<li>(2 pts) Centré sur l'axe \(x=3\), le camion occupe les abscisses de \(3-1{,}25=1{,}75\) à \(3+1{,}25=4{,}25\). \(y(1{,}75)=-0{,}5\times3{,}0625+5{,}25=3{,}71875\) et, par symétrie, \(y(4{,}25)=3{,}71875\). Aux bords du camion, le tunnel ne fait qu'environ <b>3,72 m</b> \(&lt;3{,}8\) m : <b>le camion ne passe pas</b> (ses coins supérieurs touchent).</li>
+<li>(2,5 pts) \(-0{,}5x^2+3x=3{,}8\iff x^2-6x+7{,}6=0\) (en multipliant par \(-2\)). \(\Delta=36-30{,}4=5{,}6\), \(x=\frac{6\pm\sqrt{5{,}6}}{2}=3\pm\frac{\sqrt{5{,}6}}{2}=3\pm\sqrt{1{,}4}\). La largeur à 3,8 m est \(2\sqrt{1{,}4}\approx\)<b>2,37 m</b>. Comme \(2{,}37&lt;2{,}5\), on confirme que le camion ne peut pas passer.</li>
+</ol>`}
+      ]},
+    { titre: "DS n°10 — Synthèse : calculer et démontrer", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Droites parallèles et perpendiculaires", points: 5,
+          enonce: R`Soit \(d\) la droite d'équation \(3x-y+10=0\) et \(A(2;-1)\).
+<ol><li>Donne un vecteur normal et un vecteur directeur de \(d\).</li><li>Détermine une équation de la droite \(d'\) parallèle à \(d\) passant par \(A\).</li><li>Détermine une équation de la droite \(\delta\) perpendiculaire à \(d\) passant par l'origine \(O\).</li><li>Détermine le point d'intersection \(H\) de \(d\) et \(\delta\), puis la distance de \(O\) à \(d\).</li><li>\(\delta\) coupe \(d'\) en \(H'\). Calcule \(HH'\) : c'est la distance entre les deux droites parallèles.</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) \(\vec n\begin{pmatrix}3\\-1\end{pmatrix}\) est normal, \(\vec u\begin{pmatrix}1\\3\end{pmatrix}\) est directeur (\(\vec u\cdot\vec n=3-3=0\) ✓).</li>
+<li>(1 pt) \(d'\) a le même vecteur normal : \(3x-y+c=0\), avec \(A\) : \(6+1+c=0\), \(c=-7\). <b>\(d' : 3x-y-7=0\)</b>.</li>
+<li>(1 pt) \(\vec u\begin{pmatrix}1\\3\end{pmatrix}\) est normal à \(\delta\) : \(x+3y+c=0\), avec \(O\) : \(c=0\). <b>\(\delta : x+3y=0\)</b>.</li>
+<li>(1 pt) De \(\delta\) : \(x=-3y\). Dans \(d\) : \(-9y-y+10=0\), \(y=1\), \(x=-3\). <b>\(H(-3;1)\)</b>. \(OH=\sqrt{9+1}=\)<b>\(\sqrt{10}\)</b>.</li>
+<li>(1 pt) Dans \(d'\) : \(-9y-y-7=0\), \(y=-\frac{7}{10}\), \(x=\frac{21}{10}\), donc \(H'\left(\frac{21}{10};-\frac{7}{10}\right)\). \(HH'^2=\left(\frac{51}{10}\right)^2+\left(\frac{17}{10}\right)^2=\frac{2601+289}{100}=\frac{2890}{100}=\frac{289}{10}\), donc <b>\(HH'=\frac{17}{\sqrt{10}}=\frac{17\sqrt{10}}{10}\)</b>.</li>
+</ol>`},
+        { titre: "Exercice 2 — Une équation à paramètre", points: 5,
+          enonce: R`Pour un réel \(k\), on note \(\mathcal E_k\) l'ensemble des points \(M(x;y)\) tels que \(x^2+y^2+2x-6y+k=0\).
+<ol><li>Montre que \(M\in\mathcal E_k\iff(x+1)^2+(y-3)^2=10-k\).</li><li>Donne la nature de \(\mathcal E_k\) pour \(k=1\), \(k=10\) et \(k=14\).</li><li>Pour \(k=1\), détermine les points d'intersection de \(\mathcal E_1\) avec l'axe des abscisses. Interprète géométriquement le résultat.</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) \(x^2+2x=(x+1)^2-1\) et \(y^2-6y=(y-3)^2-9\). L'équation devient \((x+1)^2-1+(y-3)^2-9+k=0\iff(x+1)^2+(y-3)^2=10-k\).</li>
+<li>(1,5 pt) \(k=1\) : \((x+1)^2+(y-3)^2=9\), <b>cercle de centre \((-1;3)\) et de rayon 3</b>.<br>\(k=10\) : \((x+1)^2+(y-3)^2=0\), <b>un seul point \((-1;3)\)</b>.<br>\(k=14\) : \((x+1)^2+(y-3)^2=-4&lt;0\), <b>ensemble vide</b>.</li>
+<li>(2 pts) \(y=0\) : \(x^2+2x+1=0\iff(x+1)^2=0\iff x=-1\). Un <b>seul point : \((-1;0)\)</b>. Le cercle \(\mathcal E_1\) a un unique point commun avec l'axe des abscisses : il est <b>tangent</b> à cet axe en \((-1;0)\). C'est cohérent : la distance du centre \((-1;3)\) à l'axe des abscisses vaut 3, égale au rayon.</li>
+</ol>`},
+        { titre: "Exercice 3 — Démonstration dans un carré", points: 5,
+          enonce: R`\(ABCD\) est un carré de côté 4. \(E\) est le milieu de \([BC]\) et \(F\) le point de \([CD]\) tel que \(DF=3\). On se place dans le repère orthonormé d'origine \(A\) dans lequel \(B(4;0)\) et \(D(0;4)\).
+<ol><li>Donne les coordonnées de \(C\), \(E\) et \(F\).</li><li>Démontre que le triangle \(AEF\) est rectangle en \(E\).</li><li>Déduis-en une équation du cercle \(\mathcal C\) passant par \(A\), \(E\) et \(F\).</li><li>Démontre que \(D\) appartient aussi à \(\mathcal C\). Pouvait-on le prévoir ?</li></ol>`,
+          correction: R`<ol>
+<li>(1 pt) <b>\(C(4;4)\)</b>, \(E\) milieu de \([BC]\) : <b>\(E(4;2)\)</b>. \(F\) est sur \([CD]\) (ordonnée 4) à 3 de \(D\) : <b>\(F(3;4)\)</b>.</li>
+<li>(1,5 pt) \(\overrightarrow{EA}\begin{pmatrix}-4\\-2\end{pmatrix}\), \(\overrightarrow{EF}\begin{pmatrix}-1\\2\end{pmatrix}\). \(\overrightarrow{EA}\cdot\overrightarrow{EF}=4-4=0\) : <b>\(AEF\) est rectangle en \(E\)</b>.</li>
+<li>(1,5 pt) Le cercle circonscrit à un triangle rectangle a pour diamètre l'hypoténuse \([AF]\). Centre : milieu \(\left(\frac32;2\right)\) ; \(AF=\sqrt{9+16}=5\), rayon \(\frac52\). <b>\(\mathcal C : \left(x-\frac32\right)^2+(y-2)^2=\frac{25}{4}\)</b>. Vérification avec \(E\) : \(\left(\frac52\right)^2+0=\frac{25}{4}\) ✓.</li>
+<li>(1 pt) \(\left(0-\frac32\right)^2+(4-2)^2=\frac94+\frac{16}{4}=\frac{25}{4}\) ✓ : \(D\in\mathcal C\). C'était prévisible : l'angle \(\widehat{ADF}\) est droit (\(F\) est sur \([CD]\) et \(ABCD\) est un carré), donc \(D\) est sur le cercle de diamètre \([AF]\).</li>
+</ol>`},
+        { titre: "Exercice 4 — Parabole et tangente", points: 5,
+          enonce: R`Une parabole \(\mathcal P\) a pour sommet \(S(-1;4)\) et passe par le point \(B(1;0)\).
+<ol><li>Détermine une équation de \(\mathcal P\) sous la forme \(y=a(x-\alpha)^2+\beta\), puis sous forme développée.</li><li>Détermine les points d'intersection de \(\mathcal P\) avec les axes du repère.</li><li>Montre que la droite \(d : y=-4x+4\) n'a qu'un seul point commun avec \(\mathcal P\).</li><li>Étudie la position relative de \(\mathcal P\) et \(d\).</li></ol>`,
+          correction: R`<ol>
+<li>(1,5 pt) Le sommet est \((-1;4)\), donc \(y=a(x+1)^2+4\). Avec \(B\) : \(0=4a+4\), \(a=-1\). <b>\(y=-(x+1)^2+4=-x^2-2x+3\)</b>.</li>
+<li>(1 pt) \(x=0\) : \(y=3\), point <b>\((0;3)\)</b>. \(y=0\) : \((x+1)^2=4\iff x+1=2\) ou \(x+1=-2\), soit <b>\((1;0)\) et \((-3;0)\)</b>.</li>
+<li>(1,5 pt) \(-x^2-2x+3=-4x+4\iff-x^2+2x-1=0\iff-(x-1)^2=0\iff x=1\). Un <b>seul point commun : \(B(1;0)\)</b> (\(-4+4=0\) ✓). La droite \(d\) est tangente à \(\mathcal P\) en \(B\).</li>
+<li>(1 pt) \((-x^2-2x+3)-(-4x+4)=-(x-1)^2\leq0\) pour tout \(x\) : <b>\(\mathcal P\) est en dessous de \(d\)</b>, et les deux se touchent uniquement en \(B\).</li>
+</ol>`}
       ]}
   ]
 });
