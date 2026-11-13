@@ -2,8 +2,11 @@
    Routage par hash : #accueil, #ch3, #ch3-cours, #ch3-quiz, #ch3-exos, #ch3-ds, #ch3-ds2, #bac, #bac2 */
 (function () {
   'use strict';
-  const CH = (window.CHAPTERS || []).slice().sort((a, b) => a.id - b.id);
-  const BAC = window.BAC || [];
+  // Mode statique (fichiers data/*.js chargés, ex. Artifact) ou mode connecté (API + comptes).
+  const STATIC = Array.isArray(window.CHAPTERS);
+  let CH = STATIC ? window.CHAPTERS.slice().sort((a, b) => a.id - b.id) : [];
+  let BAC = STATIC ? (window.BAC || []) : [];
+  let ME = null;
   const PARTIES = ['Algorithmique et programmation', 'Algèbre', 'Analyse', 'Géométrie', 'Probabilités et statistiques'];
   const LVL = { 1: '★ Facile', 2: '★★ Moyen', 3: '★★★ Difficile' };
   const $ = (s, el = document) => el.querySelector(s);
@@ -11,17 +14,46 @@
 
   /* ---------- progression (localStorage, facultatif) ---------- */
   const KEY = 'revmaths1-progress';
-  let P = { exos: {}, quiz: {}, ds: {}, bac: {} };
-  try { const raw = localStorage.getItem(KEY); if (raw) P = Object.assign(P, JSON.parse(raw)); } catch (e) { /* stockage indisponible */ }
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) { /* ignore */ } };
+  const emptyP = () => ({ exos: {}, quiz: {}, ds: {}, bac: {} });
+  let P = emptyP();
+  if (STATIC) {
+    try { const raw = localStorage.getItem(KEY); if (raw) P = Object.assign(P, JSON.parse(raw)); } catch (e) { /* stockage indisponible */ }
+  }
+  let saveTimer = null;
+  const save = () => {
+    if (STATIC) { try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) { /* ignore */ } return; }
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => api('PUT', '/progress', { data: P }).catch(e => toast('Progression non enregistrée : ' + e.message)), 800);
+  };
 
-  function chapterProgress(ch) {
+  /* ---------- API ---------- */
+  async function api(method, path, body) {
+    const r = await fetch('/api' + path, {
+      method, credentials: 'same-origin',
+      headers: body !== undefined ? { 'Content-Type': 'application/json' } : {},
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+    let data = {};
+    try { data = await r.json(); } catch (e) { /* réponse vide */ }
+    if (!r.ok) { const err = new Error(data.error || 'Erreur ' + r.status); err.status = r.status; throw err; }
+    return data;
+  }
+  function toast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 3500);
+  }
+
+  function chapterProgress(ch, p = P) {
+    p = Object.assign(emptyP(), p || {});
     const nEx = ch.exercices.length;
-    const done = ch.exercices.filter((_, i) => P.exos[`${ch.id}-${i}`]).length;
-    const quizOk = P.quiz[ch.id] != null ? 1 : 0;
-    const dsDone = (ch.ds || []).filter((_, i) => P.ds[`${ch.id}-${i}`] != null).length;
+    const done = ch.exercices.filter((_, i) => p.exos[`${ch.id}-${i}`]).length;
+    const quizOk = p.quiz[ch.id] != null ? 1 : 0;
+    const dsDone = (ch.ds || []).filter((_, i) => p.ds[`${ch.id}-${i}`] != null).length;
     const total = nEx + 1 + (ch.ds || []).length;
-    return { done, nEx, pct: Math.round(100 * (done + quizOk + dsDone) / total) };
+    return { done, nEx, quiz: p.quiz[ch.id], dsDone, nDs: (ch.ds || []).length,
+             dsNotes: (ch.ds || []).map((_, i) => p.ds[`${ch.id}-${i}`]), pct: total ? Math.round(100 * (done + quizOk + dsDone) / total) : 0 };
   }
 
   /* ---------- rendu maths ---------- */
@@ -55,7 +87,20 @@
       }
     }
     html += `<h4>Révision finale</h4><a href="#bac" class="bac-link ${route.view === 'bac' ? 'active' : ''}"><span class="num">★</span><span>Sujets type bac</span><span class="pct">${BAC.length || ''}</span></a>`;
+    if (ME && ME.role === 'admin') {
+      const a = route.view === 'admin' ? route.page : '';
+      html += `<h4>Backoffice</h4>
+        <a href="#admin" class="${a === 'eleves' ? 'active' : ''}"><span class="num">◔</span><span>Suivi des élèves</span><span></span></a>
+        <a href="#admin-acces" class="${a === 'acces' ? 'active' : ''}"><span class="num">⚿</span><span>Gestion des accès</span><span></span></a>
+        <a href="#admin-contenu" class="${a === 'contenu' ? 'active' : ''}"><span class="num">✎</span><span>Gestion des cours</span><span></span></a>`;
+    }
     nav.innerHTML = html;
+    const ub = $('#userbox');
+    if (ub) {
+      ub.hidden = !ME;
+      if (ME) ub.innerHTML = `<div class="who"><b>${esc(ME.nom || ME.username)}</b><small>${ME.role === 'admin' ? 'Administrateur' : 'Élève'} · ${esc(ME.username)}</small></div>
+        <div class="userlinks"><a href="#compte">Mot de passe</a><button id="logout" class="linkbtn">Se déconnecter</button></div>`;
+    }
   }
 
   /* ---------- routage ---------- */
@@ -67,6 +112,12 @@
       if (ch) return { view: 'ch', ch, tab: m[2] || 'videos', n: m[3] ? +m[3] : 1 };
     }
     if ((m = h.match(/^bac(\d+)?$/))) return { view: 'bac', n: m[1] ? +m[1] : 0 };
+    if (h === 'compte' && ME) return { view: 'compte' };
+    if (ME && ME.role === 'admin' && (m = h.match(/^admin(?:-(eleve|acces|contenu|ch|bac|nouveau)(?:-(\d+|chapitre|sujet))?)?$/))) {
+      const kind = m[1] || 'eleves';
+      const page = kind === 'eleve' ? 'eleves' : (kind === 'ch' || kind === 'bac' || kind === 'nouveau') ? 'contenu' : kind;
+      return { view: 'admin', page, kind, arg: m[2] };
+    }
     return { view: 'home' };
   }
 
@@ -78,9 +129,80 @@
     $('#side').classList.remove('open');
     if (r.view === 'ch') renderChapter(r);
     else if (r.view === 'bac') r.n ? renderBacSubject(r.n) : renderBacList();
+    else if (r.view === 'compte') renderCompte();
+    else if (r.view === 'admin' && window.Admin) window.Admin.render(main, r);
     else renderHome();
     math(main);
     window.scrollTo(0, 0);
+    track(r);
+  }
+
+  let lastView = '';
+  function track(r) {
+    if (STATIC || !ME) return;
+    let page = r.view === 'ch' ? `ch${r.ch.id}-${r.tab}` : r.view === 'bac' ? (r.n ? `bac${r.n}` : 'bac') : r.view === 'home' ? 'accueil' : '';
+    if (!page || page === lastView) return;
+    lastView = page;
+    api('POST', '/view', { page }).catch(() => {});
+  }
+
+  function renderCompte() {
+    main.innerHTML = `<div class="wrap"><section class="hero"><div class="eyebrow">Mon compte</div><h1>Changer mon mot de passe</h1></section>
+      <form class="sheet form" id="pwform">
+        <label for="pw-old">Mot de passe actuel</label><input type="password" id="pw-old" autocomplete="current-password" required>
+        <label for="pw-new">Nouveau mot de passe (6 caractères minimum)</label><input type="password" id="pw-new" autocomplete="new-password" minlength="6" required>
+        <div class="actions"><button class="btn primary" type="submit">Enregistrer</button></div>
+        <p class="form-msg" id="pw-msg"></p>
+      </form></div>`;
+    $('#pwform').addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = $('#pw-msg');
+      try { await api('PUT', '/password', { ancien: $('#pw-old').value, nouveau: $('#pw-new').value }); msg.textContent = 'Mot de passe modifié.'; msg.className = 'form-msg ok'; e.target.reset(); }
+      catch (err) { msg.textContent = err.message; msg.className = 'form-msg ko'; }
+    });
+  }
+
+  /* ---------- connexion ---------- */
+  function renderLogin(error) {
+    document.body.classList.add('logged-out');
+    main.innerHTML = `<div class="login-wrap"><form class="sheet form login" id="login">
+        <div class="brand-mark big">∫</div>
+        <h1>Maths Première</h1>
+        <p class="lead">Connecte-toi avec l'identifiant donné par ton professeur.</p>
+        <label for="lg-user">Identifiant</label><input id="lg-user" autocomplete="username" autocapitalize="none" required>
+        <label for="lg-pass">Mot de passe</label><input id="lg-pass" type="password" autocomplete="current-password" required>
+        <div class="actions"><button class="btn primary" type="submit">Se connecter</button></div>
+        <p class="form-msg ko" id="lg-msg">${error ? esc(error) : ''}</p>
+      </form></div>`;
+    $('#login').addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button'); btn.disabled = true;
+      try {
+        const r = await api('POST', '/login', { username: $('#lg-user').value, password: $('#lg-pass').value });
+        ME = r.user; await loadAll(); document.body.classList.remove('logged-out'); route();
+      } catch (err) { $('#lg-msg').textContent = err.message; btn.disabled = false; }
+    });
+  }
+
+  async function loadAll() {
+    const [c, p] = await Promise.all([api('GET', '/content'), api('GET', '/progress')]);
+    CH = c.chapters.slice().sort((a, b) => a.id - b.id);
+    BAC = c.bac;
+    P = Object.assign(emptyP(), p.data || {});
+  }
+
+  async function boot() {
+    if (STATIC) { route(); return; }
+    main.innerHTML = '<div class="wrap"><p class="lead">Chargement…</p></div>';
+    try {
+      ME = (await api('GET', '/me')).user;
+      await loadAll();
+      route();
+    } catch (e) {
+      ME = null;
+      renderNav({ view: 'login' });
+      renderLogin(e.status === 401 ? '' : e.message);
+    }
   }
 
   /* ---------- accueil ---------- */
@@ -134,10 +256,12 @@
       <div id="tab"></div></div>`;
     main.innerHTML = html;
     const tab = $('#tab');
+    const list = { videos: c.videos, quiz: c.quiz, exos: c.exercices, ds: c.ds, cours: c.cours }[r.tab];
+    if (!list || !list.length) { tab.innerHTML = `<div class="sheet"><h2>Bientôt disponible</h2><p class="lead">Cette rubrique n'a pas encore de contenu.</p></div>`; return; }
     ({ videos: tabVideos, cours: tabCours, quiz: tabQuiz, exos: tabExos, ds: tabDs })[r.tab](tab, c, r);
   }
 
-  function ytUrl(q) { return 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q); }
+  function ytUrl(q) { return /^https:\/\//.test(q) ? q : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q); }
 
   function tabVideos(el, c) {
     el.innerHTML = `<p class="lead">Commence par là : regarde les vidéos dans l'ordre, puis passe à la fiche de cours.</p>
@@ -297,13 +421,13 @@
   function renderBacList() {
     main.innerHTML = `<div class="wrap"><section class="hero"><div class="eyebrow">Révision finale</div><h1>Sujets type bac</h1>
       <p>Chaque sujet dure 2 h et suit le format de l'épreuve anticipée de mathématiques : une partie automatismes (QCM sans calculatrice, 6 points) puis des exercices sur 14 points qui mélangent les chapitres.</p></section>
-      <div class="grid">${BAC.map((b, i) => `<a class="card" href="#bac${i + 1}"><div class="top"><span class="emoji">📝</span><div><div class="chnum">${esc(b.duree)}${P.bac[i] != null ? ` · ma note ${P.bac[i]}/20` : ''}</div><h3>${esc(b.titre)}</h3></div></div>
+      <div class="grid">${BAC.map((b, i) => `<a class="card" href="#bac${i + 1}"><div class="top"><span class="emoji">📝</span><div><div class="chnum">${esc(b.duree)}${P.bac[b._id != null ? b._id - 1 : i] != null ? ` · ma note ${P.bac[b._id != null ? b._id - 1 : i]}/20` : ''}</div><h3>${esc(b.titre)}</h3></div></div>
         <p>Chapitres : ${(b.chapitres || []).map(n => { const ch = CH.find(c => c.id === n); return ch ? esc(ch.titre) : n; }).join(', ')}</p></a>`).join('')}</div></div>`;
   }
 
   function renderBacSubject(n) {
     const b = BAC[n - 1]; if (!b) return renderBacList();
-    const key = n - 1;
+    const key = b._id != null ? b._id - 1 : n - 1;
     main.innerHTML = `<div class="wrap"><div class="eyebrow"><a href="#bac">← Tous les sujets</a></div>
       <div class="ds-bar" style="margin-top:10px"><h2>${esc(b.titre)}</h2><span class="tag">${esc(b.duree)}</span><span class="timer"></span><button class="btn primary timer-btn">Démarrer le chrono</button></div>
       <h2 class="section-title">Partie 1 · Automatismes (6 points, sans calculatrice)</h2>
@@ -348,6 +472,20 @@
   });
   try { const t = localStorage.getItem('revmaths1-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { /* ignore */ }
 
-  window.addEventListener('hashchange', route);
-  route();
+  document.addEventListener('click', async e => {
+    if (e.target.id !== 'logout') return;
+    try { await api('POST', '/logout', {}); } catch (err) { /* ignore */ }
+    ME = null; CH = []; BAC = []; P = emptyP(); location.hash = '';
+    renderNav({ view: 'login' }); renderLogin();
+  });
+
+  window.App = {
+    api, toast, math, esc, chapterProgress, ytUrl, LVL, PARTIES,
+    get CH() { return CH; }, get BAC() { return BAC; }, get ME() { return ME; },
+    async reload() { await loadAll(); },
+    refreshNav() { renderNav(parse()); },
+  };
+
+  window.addEventListener('hashchange', () => { if (STATIC || ME) route(); });
+  boot();
 })();
