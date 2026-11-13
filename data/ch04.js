@@ -362,6 +362,427 @@ Quand \(h\) tend vers 0, ce taux ne se rapproche pas d'un unique réel : \(f\) n
 <li>\(M'(q)=1+0+400\times\left(-\dfrac1{q^2}\right)=1-\dfrac{400}{q^2}=\dfrac{q^2-400}{q^2}\). <b>(1 pt)</b></li>
 <li>Tangente horizontale : \(M'(q)=0\iff q^2=400\iff q=20\) (car \(q&gt;0\)). <b>(1 pt)</b><br>
 \(M(20)=20+10+\dfrac{400}{20}=50\) €. C'est exactement le coût marginal \(C'(20)=50\) € : au minimum du coût moyen, coût moyen et coût marginal sont égaux. <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°3 — Nombre dérivé, lecture graphique et approximation", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Du taux de variation à la tangente", points: 5,
+          enonce: R`Soit \(f\) la fonction définie sur \(\mathbb R\) par \(f(x)=2x^2+x-1\), de courbe \(\mathcal C_f\).
+<ol><li>Pour \(h\neq0\), calcule \(\dfrac{f(-1+h)-f(-1)}{h}\). Déduis-en que \(f\) est dérivable en \(-1\) et donne \(f'(-1)\).</li>
+<li>Donne une équation de la tangente à \(\mathcal C_f\) au point d'abscisse \(-1\).</li>
+<li>Soit \(a\) un réel. Pour \(h\neq0\), montre que \(\dfrac{f(a+h)-f(a)}{h}=4a+1+2h\). Déduis-en \(f'(a)\).</li>
+<li>En quel point de \(\mathcal C_f\) la tangente est-elle horizontale ?</li></ol>`,
+          correction: R`<ol><li>\(f(-1)=2-1-1=0\) et \(f(-1+h)=2(1-2h+h^2)+(-1+h)-1=2-4h+2h^2-1+h-1=-3h+2h^2\).<br>
+Donc \(\dfrac{f(-1+h)-f(-1)}{h}=\dfrac{-3h+2h^2}{h}=-3+2h\). Quand \(h\) tend vers 0, ce taux tend vers \(-3\) : \(f\) est dérivable en \(-1\) et \(f'(-1)=-3\). <b>(1,5 pt)</b></li>
+<li>\(y=f'(-1)(x+1)+f(-1)=-3(x+1)+0\), soit \(y=-3x-3\). <b>(1 pt)</b></li>
+<li>\(f(a+h)-f(a)=2(a+h)^2+(a+h)-1-(2a^2+a-1)=2(2ah+h^2)+h=h(4a+1+2h)\).<br>
+Donc pour \(h\neq0\), \(\dfrac{f(a+h)-f(a)}{h}=4a+1+2h\), qui tend vers \(4a+1\) quand \(h\to0\) : \(f'(a)=4a+1\). <b>(1,5 pt)</b><br>
+(Vérification : \(f'(-1)=-4+1=-3\) ✓.)</li>
+<li>La tangente est horizontale quand \(f'(a)=0\iff4a+1=0\iff a=-\dfrac14\).<br>
+\(f\left(-\dfrac14\right)=2\times\dfrac1{16}-\dfrac14-1=\dfrac18-\dfrac28-\dfrac88=-\dfrac98\). C'est le point \(\left(-\dfrac14\,;-\dfrac98\right)\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Retrouver une fonction à partir de ses tangentes", points: 5,
+          enonce: R`Une fonction \(f\) dérivable sur \(\mathbb R\) a une courbe \(\mathcal C_f\) qui vérifie les informations suivantes, lues sur un graphique :
+<ul><li>\(\mathcal C_f\) passe par \(A(0\,;1)\) et la tangente en \(A\) passe par le point \(B(1\,;4)\) ;</li>
+<li>\(\mathcal C_f\) passe par \(C(1\,;3)\) et la tangente en \(C\) est parallèle à l'axe des abscisses ;</li>
+<li>\(\mathcal C_f\) passe par \(D(2\,;-1)\) et la tangente en \(D\) passe par le point \(E(1\,;8)\).</li></ul>
+<ol><li>Donne \(f(0)\), \(f(1)\), \(f(2)\), puis \(f'(0)\), \(f'(1)\) et \(f'(2)\) en justifiant.</li>
+<li>Donne une équation de la tangente en \(A\) et de la tangente en \(D\).</li>
+<li>On admet que \(f(x)=ax^3+bx+c\), avec \(a\), \(b\), \(c\) réels. Calcule \(f'(x)\), puis détermine \(a\), \(b\) et \(c\) à l'aide de \(f(0)\), \(f'(0)\) et \(f'(1)\).</li>
+<li>Vérifie que la fonction obtenue est cohérente avec les informations données au point \(D\).</li></ol>`,
+          correction: R`<ol><li>Les points sont sur la courbe : \(f(0)=1\), \(f(1)=3\), \(f(2)=-1\). <b>(0,5 pt)</b><br>
+\(f'(0)\) est le coefficient directeur de \((AB)\) : \(\dfrac{4-1}{1-0}=3\). La tangente en \(C\) est horizontale : \(f'(1)=0\). \(f'(2)\) est le coefficient directeur de \((DE)\) : \(\dfrac{8-(-1)}{1-2}=-9\). <b>(1,5 pt)</b></li>
+<li>En \(A\) : \(y=3(x-0)+1=3x+1\). En \(D\) : \(y=-9(x-2)-1=-9x+17\). <b>(1 pt)</b></li>
+<li>\(f'(x)=3ax^2+b\). <b>(0,5 pt)</b><br>
+\(f(0)=c=1\) ; \(f'(0)=b=3\) ; \(f'(1)=3a+b=0\) donc \(3a=-3\) et \(a=-1\). Ainsi \(f(x)=-x^3+3x+1\). <b>(1 pt)</b></li>
+<li>\(f(2)=-8+6+1=-1\) ✓ et \(f'(2)=-3\times4+3=-9\) ✓ : c'est cohérent avec le point \(D\) et sa tangente. (Et \(f(1)=-1+3+1=3\) ✓.) <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Calculs de dérivées", points: 6,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué (on admet qu'elle y est dérivable), et simplifie.
+<ol><li>\(f_1(x)=\dfrac{x^5}{5}-2x^3+7x\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=(2x-3)\sqrt x\) sur \(]0\,;+\infty[\)</li>
+<li>\(f_3(x)=\dfrac{4x-1}{2x+3}\) sur \(\left]-\dfrac32\,;+\infty\right[\)</li>
+<li>\(f_4(x)=-\dfrac{2}{3x-1}\) sur \(\left]\dfrac13\,;+\infty\right[\)</li>
+<li>\(f_5(x)=(1-3x)^5\) sur \(\mathbb R\)</li>
+<li>\(f_6(x)=\sqrt{8-2x}\) sur \(]-\infty\,;4[\)</li></ol>`,
+          correction: R`<b>1 pt par question</b> (0,5 pt pour la formule utilisée, 0,5 pt pour le résultat simplifié).
+<ol><li>\(f_1'(x)=\dfrac{5x^4}{5}-6x^2+7=x^4-6x^2+7\).</li>
+<li>Produit : \(u=2x-3\), \(u'=2\), \(v=\sqrt x\), \(v'=\dfrac1{2\sqrt x}\).<br>
+\(f_2'(x)=2\sqrt x+\dfrac{2x-3}{2\sqrt x}=\dfrac{4x+2x-3}{2\sqrt x}=\dfrac{6x-3}{2\sqrt x}\) (car \(2\sqrt x\times2\sqrt x=4x\)).</li>
+<li>Quotient : \(u=4x-1\), \(u'=4\), \(v=2x+3\), \(v'=2\).<br>
+\(f_3'(x)=\dfrac{4(2x+3)-2(4x-1)}{(2x+3)^2}=\dfrac{8x+12-8x+2}{(2x+3)^2}=\dfrac{14}{(2x+3)^2}\).</li>
+<li>\(f_4=-2\times\dfrac1v\) avec \(v=3x-1\), \(v'=3\) : \(f_4'(x)=-2\times\left(-\dfrac{3}{(3x-1)^2}\right)=\dfrac{6}{(3x-1)^2}\).</li>
+<li>\(g(X)=X^5\), \(g'(X)=5X^4\), \(a=-3\) : \(f_5'(x)=-3\times5(1-3x)^4=-15(1-3x)^4\).</li>
+<li>\(g(X)=\sqrt X\), \(a=-2\) : \(f_6'(x)=-2\times\dfrac{1}{2\sqrt{8-2x}}=-\dfrac{1}{\sqrt{8-2x}}\).</li></ol>` },
+        { titre: "Exercice 4 — Calculer une racine sans calculatrice", points: 4,
+          enonce: R`Soit \(f(x)=\sqrt x\) sur \(]0\,;+\infty[\), de courbe \(\mathcal C\).
+<ol><li>Détermine une équation de la tangente \(T\) à \(\mathcal C\) au point d'abscisse 9.</li>
+<li>En utilisant l'approximation \(f(9+h)\approx f(9)+f'(9)\,h\) pour \(h\) proche de 0, donne une valeur approchée de \(\sqrt{9{,}12}\) et de \(\sqrt{8{,}94}\).</li>
+<li>Montre que pour tout \(x&gt;0\), \(\sqrt x-\left(\dfrac x6+\dfrac32\right)=-\dfrac{(\sqrt x-3)^2}{6}\). Déduis-en la position de \(\mathcal C\) par rapport à \(T\). Les valeurs approchées de la question 2 sont-elles des valeurs par excès ou par défaut ?</li></ol>`,
+          correction: R`<ol><li>\(f(9)=3\), \(f'(x)=\dfrac1{2\sqrt x}\) donc \(f'(9)=\dfrac16\). \(T : y=\dfrac16(x-9)+3=\dfrac x6+\dfrac32\). <b>(1 pt)</b></li>
+<li>\(\sqrt{9{,}12}=f(9+0{,}12)\approx3+\dfrac{0{,}12}{6}=3+0{,}02=3{,}02\). <b>(0,5 pt)</b><br>
+\(\sqrt{8{,}94}=f(9-0{,}06)\approx3-\dfrac{0{,}06}{6}=3-0{,}01=2{,}99\). <b>(0,5 pt)</b></li>
+<li>\(-\dfrac{(\sqrt x-3)^2}{6}=-\dfrac{x-6\sqrt x+9}{6}=-\dfrac x6+\sqrt x-\dfrac32\), qui est bien égal à \(\sqrt x-\left(\dfrac x6+\dfrac32\right)\). <b>(1 pt)</b><br>
+Un carré est positif, donc cette différence est négative ou nulle : \(\mathcal C\) est <b>en dessous</b> de \(T\) (elle la touche seulement en \(x=9\)). Les valeurs lues sur la tangente sont donc des valeurs approchées <b>par excès</b> : \(\sqrt{9{,}12}&lt;3{,}02\) et \(\sqrt{8{,}94}&lt;2{,}99\). <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°4 — Démonstrations du cours et fonctions dérivées", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Nombre dérivé d'une fonction rationnelle", points: 5,
+          enonce: R`Soit \(f\) la fonction définie sur \(]-2\,;+\infty[\) par \(f(x)=\dfrac{1}{x+2}\).
+<ol><li>Pour \(h\neq0\) (avec \(h&gt;-2\)), montre que \(\dfrac{f(h)-f(0)}{h}=\dfrac{-1}{2(h+2)}\). Déduis-en \(f'(0)\).</li>
+<li>Soit \(a&gt;-2\). En procédant de même, montre que \(f'(a)=-\dfrac{1}{(a+2)^2}\).</li>
+<li>Retrouve ce résultat avec la formule de dérivation de \(x\mapsto g(ax+b)\).</li>
+<li>Donne une équation de la tangente à la courbe de \(f\) au point d'abscisse 0.</li></ol>`,
+          correction: R`<ol><li>\(f(h)-f(0)=\dfrac1{h+2}-\dfrac12=\dfrac{2-(h+2)}{2(h+2)}=\dfrac{-h}{2(h+2)}\). En divisant par \(h\neq0\) : \(\dfrac{f(h)-f(0)}{h}=\dfrac{-1}{2(h+2)}\). <b>(1 pt)</b><br>
+Quand \(h\to0\), ce taux tend vers \(\dfrac{-1}{2\times2}=-\dfrac14\) : \(f'(0)=-\dfrac14\). <b>(0,5 pt)</b></li>
+<li>\(f(a+h)-f(a)=\dfrac1{a+h+2}-\dfrac1{a+2}=\dfrac{(a+2)-(a+h+2)}{(a+h+2)(a+2)}=\dfrac{-h}{(a+h+2)(a+2)}\).<br>
+Donc \(\dfrac{f(a+h)-f(a)}{h}=\dfrac{-1}{(a+h+2)(a+2)}\), qui tend vers \(\dfrac{-1}{(a+2)^2}\) quand \(h\to0\). <b>(1,5 pt)</b></li>
+<li>\(f(x)=g(x+2)\) avec \(g(X)=\dfrac1X\), \(g'(X)=-\dfrac1{X^2}\) et \(a=1\) : \(f'(x)=1\times\left(-\dfrac1{(x+2)^2}\right)=-\dfrac1{(x+2)^2}\). C'est bien le même résultat. <b>(1 pt)</b></li>
+<li>\(f(0)=\dfrac12\), \(f'(0)=-\dfrac14\) : \(y=-\dfrac14x+\dfrac12\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Racine carrée : dérivable ou pas en 0 ?", points: 5,
+          enonce: R`<ol><li>On considère la fonction racine carrée \(r(x)=\sqrt x\) sur \([0\,;+\infty[\). Pour \(h&gt;0\), calcule \(\dfrac{r(h)-r(0)}{h}\) et explique pourquoi \(r\) n'est pas dérivable en 0. Que peut-on dire de la tangente à sa courbe à l'origine ?</li>
+<li>Soit \(f(x)=x\sqrt x\) sur \([0\,;+\infty[\). Pour \(h&gt;0\), calcule \(\dfrac{f(h)-f(0)}{h}\). La fonction \(f\) est-elle dérivable en 0 ? Si oui, donne \(f'(0)\).</li>
+<li>Calcule \(f'(x)\) pour \(x&gt;0\).</li>
+<li>Détermine une équation de la tangente à la courbe de \(f\) au point d'abscisse 4.</li></ol>`,
+          correction: R`<ol><li>\(\dfrac{\sqrt h-0}{h}=\dfrac{\sqrt h}{h}=\dfrac{1}{\sqrt h}\). Quand \(h\) tend vers 0, \(\sqrt h\) tend vers 0 et \(\dfrac1{\sqrt h}\) devient aussi grand que l'on veut : le taux n'a pas de limite finie, donc \(r\) n'est pas dérivable en 0. La courbe admet en l'origine une tangente <b>verticale</b>. <b>(1,5 pt)</b></li>
+<li>\(\dfrac{h\sqrt h-0}{h}=\sqrt h\), qui tend vers 0 quand \(h\to0\). Donc \(f\) <b>est</b> dérivable en 0 et \(f'(0)=0\) : tangente horizontale à l'origine. <b>(1,5 pt)</b></li>
+<li>Produit : \(u=x\), \(u'=1\), \(v=\sqrt x\), \(v'=\dfrac1{2\sqrt x}\). \(f'(x)=\sqrt x+\dfrac{x}{2\sqrt x}=\sqrt x+\dfrac{\sqrt x}{2}=\dfrac32\sqrt x\). <b>(1 pt)</b></li>
+<li>\(f(4)=4\times2=8\), \(f'(4)=\dfrac32\times2=3\). Tangente : \(y=3(x-4)+8=3x-4\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Dériver et simplifier", points: 6,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué, et simplifie.
+<ol><li>\(f_1(x)=-4x^3+6x^2-x+10\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=x^2-\dfrac3x+2\sqrt x\) sur \(]0\,;+\infty[\)</li>
+<li>\(f_3(x)=(x^2-4x)(x+5)\) sur \(\mathbb R\)</li>
+<li>\(f_4(x)=\dfrac{x^2+1}{x-1}\) sur \(]1\,;+\infty[\)</li>
+<li>\(f_5(x)=(3x+2)^3\) sur \(\mathbb R\)</li>
+<li>\(f_6(x)=\dfrac{1}{\sqrt x}\) sur \(]0\,;+\infty[\)</li></ol>`,
+          correction: R`<b>1 pt par question.</b>
+<ol><li>\(f_1'(x)=-12x^2+12x-1\).</li>
+<li>\(f_2'(x)=2x-3\times\left(-\dfrac1{x^2}\right)+2\times\dfrac1{2\sqrt x}=2x+\dfrac3{x^2}+\dfrac1{\sqrt x}\).</li>
+<li>Produit : \(u=x^2-4x\), \(u'=2x-4\), \(v=x+5\), \(v'=1\).<br>
+\(f_3'(x)=(2x-4)(x+5)+(x^2-4x)=2x^2+10x-4x-20+x^2-4x=3x^2+2x-20\).<br>
+(Vérification : \(f_3(x)=x^3+x^2-20x\), de dérivée \(3x^2+2x-20\) ✓.)</li>
+<li>Quotient : \(u=x^2+1\), \(u'=2x\), \(v=x-1\), \(v'=1\).<br>
+\(f_4'(x)=\dfrac{2x(x-1)-(x^2+1)}{(x-1)^2}=\dfrac{x^2-2x-1}{(x-1)^2}\).</li>
+<li>\(g(X)=X^3\), \(a=3\) : \(f_5'(x)=3\times3(3x+2)^2=9(3x+2)^2\).</li>
+<li>\(f_6=\dfrac1v\) avec \(v=\sqrt x\), \(v'=\dfrac1{2\sqrt x}\) : \(f_6'(x)=-\dfrac{\frac1{2\sqrt x}}{(\sqrt x)^2}=-\dfrac{1}{2x\sqrt x}\).</li></ol>` },
+        { titre: "Exercice 4 — Un ballon lancé vers le haut", points: 4,
+          enonce: R`Un ballon est lancé verticalement. Sa hauteur (en m) au bout de \(t\) secondes est \(h(t)=-5t^2+12t+1{,}6\), pour \(t\in[0\,;2{,}5]\).
+<ol><li>Calcule la vitesse moyenne du ballon entre \(t=0\) et \(t=2\).</li>
+<li>La vitesse instantanée est \(v(t)=h'(t)\). Calcule \(v(t)\) et la vitesse de lancement \(v(0)\).</li>
+<li>Le ballon atteint sa hauteur maximale lorsque sa vitesse s'annule. À quel instant ? Quelle est cette hauteur maximale ?</li></ol>`,
+          correction: R`<ol><li>\(h(0)=1{,}6\) et \(h(2)=-20+24+1{,}6=5{,}6\). Vitesse moyenne : \(\dfrac{5{,}6-1{,}6}{2-0}=2\) m/s. <b>(1 pt)</b></li>
+<li>\(v(t)=-10t+12\) <b>(0,5 pt)</b>, donc \(v(0)=12\) m/s. <b>(0,5 pt)</b></li>
+<li>\(v(t)=0\iff-10t+12=0\iff t=1{,}2\) s. <b>(1 pt)</b><br>
+\(h(1{,}2)=-5\times1{,}44+12\times1{,}2+1{,}6=-7{,}2+14{,}4+1{,}6=8{,}8\) m. <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°5 — Tangentes : équations, intersections et paramètres", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Tangentes à une parabole", points: 6,
+          enonce: R`Soit \(f(x)=x^2-4x+1\) sur \(\mathbb R\), de courbe \(\mathcal P\).
+<ol><li>Calcule \(f'(x)\) et donne une équation de la tangente \(T_0\) à \(\mathcal P\) au point d'abscisse 0.</li>
+<li>Donne une équation de la tangente \(T_4\) au point d'abscisse 4.</li>
+<li>Détermine les coordonnées du point d'intersection \(I\) de \(T_0\) et \(T_4\). Que remarques-tu pour son abscisse ?</li>
+<li>Existe-t-il un point de \(\mathcal P\) où la tangente est parallèle à la droite \(d : y=2x+5\) ? Si oui, donne une équation de cette tangente.</li></ol>`,
+          correction: R`<ol><li>\(f'(x)=2x-4\). \(f(0)=1\), \(f'(0)=-4\) : \(T_0 : y=-4x+1\). <b>(1 pt)</b></li>
+<li>\(f(4)=16-16+1=1\), \(f'(4)=4\) : \(T_4 : y=4(x-4)+1=4x-15\). <b>(1,5 pt)</b></li>
+<li>\(-4x+1=4x-15\iff-8x=-16\iff x=2\), puis \(y=-8+1=-7\). Donc \(I(2\,;-7)\). <b>(1 pt)</b><br>
+L'abscisse de \(I\) est 2, le milieu des abscisses 0 et 4 des deux points de contact. <b>(0,5 pt)</b></li>
+<li>Deux droites sont parallèles si elles ont le même coefficient directeur : \(f'(x)=2\iff2x-4=2\iff x=3\). <b>(1 pt)</b><br>
+\(f(3)=9-12+1=-2\) : la tangente au point \((3\,;-2)\) a pour équation \(y=2(x-3)-2=2x-8\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Une fonction homographique", points: 5,
+          enonce: R`Soit \(f(x)=\dfrac{2x-1}{x+1}\) sur \(]-1\,;+\infty[\), de courbe \(\mathcal H\).
+<ol><li>Montre que \(f'(x)=\dfrac{3}{(x+1)^2}\).</li>
+<li>Donne une équation de la tangente à \(\mathcal H\) au point d'abscisse 0, puis au point d'abscisse 2.</li>
+<li>Détermine le point de \(\mathcal H\) en lequel la tangente a pour coefficient directeur \(\dfrac34\), et donne une équation de cette tangente.</li>
+<li>Peut-on trouver un point de \(\mathcal H\) où la tangente est horizontale ? Justifie.</li></ol>`,
+          correction: R`<ol><li>\(u=2x-1\), \(u'=2\), \(v=x+1\), \(v'=1\) : \(f'(x)=\dfrac{2(x+1)-(2x-1)}{(x+1)^2}=\dfrac{3}{(x+1)^2}\). <b>(1 pt)</b></li>
+<li>\(f(0)=-1\), \(f'(0)=3\) : \(y=3x-1\). <b>(0,5 pt)</b><br>
+\(f(2)=\dfrac33=1\), \(f'(2)=\dfrac39=\dfrac13\) : \(y=\dfrac13(x-2)+1=\dfrac13x+\dfrac13\). <b>(1 pt)</b></li>
+<li>\(\dfrac{3}{(x+1)^2}=\dfrac34\iff(x+1)^2=4\iff x+1=2\) ou \(x+1=-2\). Comme \(x&gt;-1\), \(x+1&gt;0\), donc \(x=1\). <b>(1 pt)</b><br>
+\(f(1)=\dfrac12\) : tangente \(y=\dfrac34(x-1)+\dfrac12=\dfrac34x-\dfrac14\). <b>(0,5 pt)</b></li>
+<li>Pour tout \(x&gt;-1\), \(f'(x)=\dfrac{3}{(x+1)^2}&gt;0\) : \(f'(x)\) ne s'annule jamais, donc aucune tangente n'est horizontale (elles « montent » toutes). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Une tangente qui recoupe la courbe", points: 5,
+          enonce: R`Soit \(f(x)=x^3-2x^2+1\) sur \(\mathbb R\), de courbe \(\mathcal C\).
+<ol><li>Calcule \(f'(x)\), puis montre que la tangente \(T\) à \(\mathcal C\) au point d'abscisse 1 a pour équation \(y=-x+1\).</li>
+<li>Montre que pour tout réel \(x\), \(f(x)-(-x+1)=x(x-1)^2\).</li>
+<li>Étudie le signe de \(x(x-1)^2\) et déduis-en la position relative de \(\mathcal C\) et \(T\).</li>
+<li>Donne les coordonnées des points communs à \(\mathcal C\) et \(T\).</li></ol>`,
+          correction: R`<ol><li>\(f'(x)=3x^2-4x\). \(f(1)=1-2+1=0\) et \(f'(1)=3-4=-1\). \(T : y=-1(x-1)+0=-x+1\). <b>(1,5 pt)</b></li>
+<li>\(f(x)-(-x+1)=x^3-2x^2+1+x-1=x^3-2x^2+x=x(x^2-2x+1)=x(x-1)^2\). <b>(1 pt)</b></li>
+<li>\((x-1)^2\geqslant0\), donc \(x(x-1)^2\) a le signe de \(x\) et s'annule en 0 et en 1.
+<ul><li>Pour \(x&lt;0\) : \(f(x)-(-x+1)&lt;0\), \(\mathcal C\) est <b>en dessous</b> de \(T\).</li>
+<li>Pour \(x&gt;0\) (\(x\neq1\)) : \(\mathcal C\) est <b>au-dessus</b> de \(T\).</li></ul> <b>(1,5 pt)</b></li>
+<li>Les points communs correspondent à \(x=0\) et \(x=1\) : \((0\,;1)\) (la tangente recoupe la courbe) et \((1\,;0)\) (point de contact). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Une parabole sur mesure", points: 4,
+          enonce: R`On cherche une fonction \(f(x)=ax^2+bx+c\) (\(a\), \(b\), \(c\) réels) dont la courbe passe par \(A(0\,;1)\) et est tangente en \(B(2\,;3)\) à la droite \(\Delta : y=-x+5\).
+<ol><li>Vérifie que \(B\) appartient à \(\Delta\).</li>
+<li>Traduis les informations de l'énoncé par trois équations d'inconnues \(a\), \(b\), \(c\).</li>
+<li>Résous ce système et donne \(f(x)\). Vérifie le résultat.</li></ol>`,
+          correction: R`<ol><li>\(-2+5=3\) : \(B\in\Delta\). <b>(0,5 pt)</b></li>
+<li>\(A\) sur la courbe : \(f(0)=c=1\). \(B\) sur la courbe : \(f(2)=4a+2b+c=3\). La tangente en \(B\) est \(\Delta\), de coefficient directeur \(-1\) : \(f'(x)=2ax+b\), donc \(f'(2)=4a+b=-1\). <b>(1,5 pt)</b></li>
+<li>Avec \(c=1\) : \(4a+2b=2\) et \(4a+b=-1\). Par soustraction, \(b=3\), puis \(4a=-1-3=-4\), \(a=-1\). Donc \(f(x)=-x^2+3x+1\). <b>(1,5 pt)</b><br>
+Vérification : \(f(0)=1\) ✓, \(f(2)=-4+6+1=3\) ✓, \(f'(2)=-4+3=-1\) ✓. <b>(0,5 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°6 — Fonctions composées, quotients et tangentes", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Dérivées avec g(ax+b)", points: 6,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué, et simplifie.
+<ol><li>\(f_1(x)=(4x+3)^6\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=\sqrt{2x+5}\) sur \(\left]-\dfrac52\,;+\infty\right[\)</li>
+<li>\(f_3(x)=\dfrac{1}{3-x}\) sur \(]-\infty\,;3[\)</li>
+<li>\(f_4(x)=(x-2)^2(x+1)\) sur \(\mathbb R\) (donne le résultat factorisé)</li>
+<li>\(f_5(x)=x\sqrt{1-x}\) sur \(]-\infty\,;1[\)</li>
+<li>\(f_6(x)=\dfrac{5}{(2x+1)^3}\) sur \(\left]-\dfrac12\,;+\infty\right[\)</li></ol>`,
+          correction: R`<b>1 pt par question.</b>
+<ol><li>\(g(X)=X^6\), \(a=4\) : \(f_1'(x)=4\times6(4x+3)^5=24(4x+3)^5\).</li>
+<li>\(g(X)=\sqrt X\), \(a=2\) : \(f_2'(x)=2\times\dfrac{1}{2\sqrt{2x+5}}=\dfrac{1}{\sqrt{2x+5}}\).</li>
+<li>\(g(X)=\dfrac1X\), \(g'(X)=-\dfrac1{X^2}\), \(a=-1\) : \(f_3'(x)=-1\times\left(-\dfrac1{(3-x)^2}\right)=\dfrac1{(3-x)^2}\).</li>
+<li>Produit : \(u=(x-2)^2\), \(u'=2(x-2)\) (formule avec \(a=1\)), \(v=x+1\), \(v'=1\).<br>
+\(f_4'(x)=2(x-2)(x+1)+(x-2)^2=(x-2)\big(2(x+1)+(x-2)\big)=(x-2)(3x)=3x(x-2)\).</li>
+<li>Produit : \(u=x\), \(u'=1\), \(v=\sqrt{1-x}\), \(v'=-1\times\dfrac{1}{2\sqrt{1-x}}=-\dfrac1{2\sqrt{1-x}}\).<br>
+\(f_5'(x)=\sqrt{1-x}-\dfrac{x}{2\sqrt{1-x}}=\dfrac{2(1-x)-x}{2\sqrt{1-x}}=\dfrac{2-3x}{2\sqrt{1-x}}\).</li>
+<li>\(f_6(x)=5(2x+1)^{-3}\) ; avec \(g(X)=X^{-3}\), \(g'(X)=-3X^{-4}\), \(a=2\) : \(f_6'(x)=5\times2\times(-3)(2x+1)^{-4}=-\dfrac{30}{(2x+1)^4}\).</li></ol>` },
+        { titre: "Exercice 2 — La fonction x ↦ √(4x+1)", points: 5,
+          enonce: R`Soit \(f(x)=\sqrt{4x+1}\), définie sur \(\left[-\dfrac14\,;+\infty\right[\).
+<ol><li>Justifie que \(f\) est dérivable sur \(\left]-\dfrac14\,;+\infty\right[\) et montre que \(f'(x)=\dfrac{2}{\sqrt{4x+1}}\).</li>
+<li>Détermine une équation de la tangente à la courbe de \(f\) au point d'abscisse 2.</li>
+<li>Déduis-en une valeur approchée de \(\sqrt{9{,}4}\) (on pourra remarquer que \(9{,}4=4\times2{,}1+1\)).</li>
+<li>Pour \(h&gt;0\), calcule \(\dfrac{f\left(-\frac14+h\right)-f\left(-\frac14\right)}{h}\). La fonction \(f\) est-elle dérivable en \(-\dfrac14\) ?</li></ol>`,
+          correction: R`<ol><li>\(f(x)=g(4x+1)\) avec \(g(X)=\sqrt X\), dérivable sur \(]0\,;+\infty[\). Or \(4x+1&gt;0\iff x&gt;-\dfrac14\), donc \(f\) est dérivable sur \(\left]-\dfrac14\,;+\infty\right[\) et \(f'(x)=4\times\dfrac{1}{2\sqrt{4x+1}}=\dfrac{2}{\sqrt{4x+1}}\). <b>(1,5 pt)</b></li>
+<li>\(f(2)=\sqrt9=3\), \(f'(2)=\dfrac23\). Tangente : \(y=\dfrac23(x-2)+3=\dfrac23x+\dfrac53\). <b>(1 pt)</b></li>
+<li>\(\sqrt{9{,}4}=f(2{,}1)\approx3+\dfrac23\times0{,}1=\dfrac{46}{15}\approx3{,}07\). <b>(1 pt)</b></li>
+<li>\(f\left(-\frac14+h\right)=\sqrt{4h}=2\sqrt h\) et \(f\left(-\frac14\right)=0\). Le taux vaut \(\dfrac{2\sqrt h}{h}=\dfrac{2}{\sqrt h}\), qui devient aussi grand que l'on veut quand \(h\) tend vers 0 : pas de limite finie, \(f\) n'est <b>pas</b> dérivable en \(-\dfrac14\) (tangente verticale). <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Étude d'un quotient", points: 5,
+          enonce: R`Soit \(f(x)=\dfrac{x^2+3}{x+1}\) sur \(]-1\,;+\infty[\), de courbe \(\mathcal C\).
+<ol><li>Montre que \(f'(x)=\dfrac{x^2+2x-3}{(x+1)^2}\), puis factorise le numérateur.</li>
+<li>Déduis-en le point de \(\mathcal C\) où la tangente est horizontale.</li>
+<li>Donne une équation de la tangente à \(\mathcal C\) au point d'abscisse 0.</li>
+<li>Vérifie que pour tout \(x&gt;-1\), \(f(x)=x-1+\dfrac{4}{x+1}\), puis retrouve \(f'(x)\) à partir de cette écriture.</li></ol>`,
+          correction: R`<ol><li>\(u=x^2+3\), \(u'=2x\), \(v=x+1\), \(v'=1\) : \(f'(x)=\dfrac{2x(x+1)-(x^2+3)}{(x+1)^2}=\dfrac{x^2+2x-3}{(x+1)^2}\). <b>(1 pt)</b><br>
+\(x^2+2x-3\) a pour racine évidente 1 ; le produit des racines vaut \(-3\), donc l'autre est \(-3\) : \(x^2+2x-3=(x-1)(x+3)\). <b>(0,5 pt)</b></li>
+<li>\(f'(x)=0\iff x=1\) ou \(x=-3\) ; seule \(x=1\) est dans \(]-1\,;+\infty[\). \(f(1)=\dfrac42=2\) : tangente horizontale au point \((1\,;2)\). <b>(1 pt)</b></li>
+<li>\(f(0)=3\), \(f'(0)=\dfrac{-3}{1}=-3\) : \(y=-3x+3\). <b>(1 pt)</b></li>
+<li>\(x-1+\dfrac4{x+1}=\dfrac{(x-1)(x+1)+4}{x+1}=\dfrac{x^2-1+4}{x+1}=\dfrac{x^2+3}{x+1}\) ✓. <b>(0,5 pt)</b><br>
+Alors \(f'(x)=1-\dfrac{4}{(x+1)^2}=\dfrac{(x+1)^2-4}{(x+1)^2}=\dfrac{x^2+2x-3}{(x+1)^2}\) : on retrouve le même résultat. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Tangentes parallèles à une droite donnée", points: 4,
+          enonce: R`Soit \(f(x)=(2x-1)^3\) sur \(\mathbb R\), de courbe \(\mathcal C\).
+<ol><li>Calcule \(f'(x)\).</li>
+<li>Montre que la tangente à \(\mathcal C\) au point d'abscisse \(\dfrac12\) est horizontale.</li>
+<li>Détermine les points de \(\mathcal C\) où la tangente est parallèle à la droite \(d : y=24x\), et donne une équation de chacune de ces tangentes.</li></ol>`,
+          correction: R`<ol><li>\(g(X)=X^3\), \(a=2\) : \(f'(x)=2\times3(2x-1)^2=6(2x-1)^2\). <b>(1 pt)</b></li>
+<li>\(f'\left(\dfrac12\right)=6\times0^2=0\) : la tangente au point \(\left(\dfrac12\,;0\right)\) est horizontale (c'est l'axe des abscisses). <b>(0,5 pt)</b></li>
+<li>\(f'(x)=24\iff(2x-1)^2=4\iff2x-1=2\) ou \(2x-1=-2\iff x=\dfrac32\) ou \(x=-\dfrac12\). <b>(1 pt)</b><br>
+\(f\left(\dfrac32\right)=2^3=8\) : tangente \(y=24\left(x-\dfrac32\right)+8=24x-28\). <b>(0,75 pt)</b><br>
+\(f\left(-\dfrac12\right)=(-2)^3=-8\) : tangente \(y=24\left(x+\dfrac12\right)-8=24x+4\). <b>(0,75 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°7 — Vitesse, coût marginal et approximation affine", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Freinage d'une voiture", points: 5,
+          enonce: R`Une voiture freine. La distance (en m) parcourue depuis le début du freinage au bout de \(t\) secondes est \(d(t)=20t-2t^2\), pour \(t\in[0\,;5]\).
+<ol><li>Calcule la vitesse moyenne de la voiture entre \(t=1\) et \(t=3\).</li>
+<li>Pour \(h\neq0\), montre que \(\dfrac{d(2+h)-d(2)}{h}=12-2h\). Déduis-en la vitesse instantanée à \(t=2\). Compare avec la question 1.</li>
+<li>Calcule \(d'(t)\). Quelle était la vitesse au début du freinage, en m/s puis en km/h ?</li>
+<li>À quel instant la voiture s'arrête-t-elle ? Quelle est alors la distance de freinage ?</li></ol>`,
+          correction: R`<ol><li>\(d(1)=20-2=18\) et \(d(3)=60-18=42\). Vitesse moyenne : \(\dfrac{42-18}{3-1}=12\) m/s. <b>(1 pt)</b></li>
+<li>\(d(2)=40-8=32\) ; \(d(2+h)=20(2+h)-2(4+4h+h^2)=40+20h-8-8h-2h^2=32+12h-2h^2\).<br>
+Donc \(\dfrac{d(2+h)-d(2)}{h}=\dfrac{12h-2h^2}{h}=12-2h\), qui tend vers 12 quand \(h\to0\) : \(d'(2)=12\) m/s. C'est la même valeur que la vitesse moyenne entre 1 et 3. <b>(1,5 pt)</b></li>
+<li>\(d'(t)=20-4t\). Au début du freinage, \(d'(0)=20\) m/s, soit \(20\times3{,}6=72\) km/h. <b>(1 pt)</b></li>
+<li>\(d'(t)=0\iff20-4t=0\iff t=5\) s. Distance de freinage : \(d(5)=100-50=50\) m. <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Une petite brasserie", points: 5,
+          enonce: R`Une brasserie produit \(q\) hectolitres de bière par mois, avec \(q\in[0\,;150]\). Le coût total de production, en euros, est
+\[C(q)=0{,}002q^3-0{,}3q^2+20q+500.\]
+<ol><li>Calcule \(C(10)\), \(C(11)\), puis le coût de production du 11e hectolitre.</li>
+<li>Calcule le coût marginal \(C'(q)\), puis \(C'(10)\). Compare avec la question 1.</li>
+<li>Pour quelle production le coût marginal est-il minimal ? Que vaut-il ?</li>
+<li>Chaque hectolitre est vendu 20 €. Le bénéfice est \(B(q)=20q-C(q)\). Montre que \(B'(q)=-0{,}006q(q-100)\). On admet que le bénéfice est maximal lorsque \(B'(q)=0\) avec \(q&gt;0\) : donne cette production et le bénéfice correspondant.</li></ol>`,
+          correction: R`<ol><li>\(C(10)=2-30+200+500=672\) € ; \(C(11)=2{,}662-36{,}3+220+500=686{,}362\) €. Le 11e hectolitre coûte \(686{,}362-672\approx14{,}36\) €. <b>(1 pt)</b></li>
+<li>\(C'(q)=0{,}006q^2-0{,}6q+20\). \(C'(10)=0{,}6-6+20=14{,}6\) €, proche du coût réel du 11e hectolitre (14,36 €). <b>(1 pt)</b></li>
+<li>\(C'\) est un trinôme avec \(a=0{,}006&gt;0\) : son minimum est atteint en \(q=-\dfrac{-0{,}6}{2\times0{,}006}=50\). \(C'(50)=15-30+20=5\) €. <b>(1 pt)</b></li>
+<li>\(B'(q)=20-C'(q)=20-0{,}006q^2+0{,}6q-20=-0{,}006q^2+0{,}6q=-0{,}006q(q-100)\). <b>(1 pt)</b><br>
+\(B'(q)=0\) avec \(q&gt;0\) donne \(q=100\) hL. \(C(100)=2000-3000+2000+500=1500\), donc \(B(100)=2000-1500=500\) €. (On remarque qu'en \(q=100\), le coût marginal \(C'(100)=20\) € est égal au prix de vente.) <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Approximation affine de l'inverse", points: 5,
+          enonce: R`Soit \(f(x)=\dfrac{1}{1+x}\) sur \(]-1\,;+\infty[\), de courbe \(\mathcal C\).
+<ol><li>Calcule \(f'(x)\) et montre que la tangente \(T\) à \(\mathcal C\) au point d'abscisse 0 a pour équation \(y=1-x\).</li>
+<li>Montre que pour tout \(x&gt;-1\), \(f(x)-(1-x)=\dfrac{x^2}{1+x}\). Déduis-en la position de \(\mathcal C\) par rapport à \(T\).</li>
+<li>Utilise l'approximation \(\dfrac1{1+x}\approx1-x\) pour donner des valeurs approchées de \(\dfrac1{1{,}02}\) et \(\dfrac1{0{,}97}\). À l'aide de la calculatrice, donne l'erreur commise dans chaque cas (arrondie à \(10^{-4}\)).</li>
+<li>Application : un prix augmente de 5 %. Par quel pourcentage environ faut-il le baisser pour revenir au prix initial ? Compare avec la valeur exacte.</li></ol>`,
+          correction: R`<ol><li>\(f=\dfrac1v\) avec \(v=1+x\), \(v'=1\) : \(f'(x)=-\dfrac{1}{(1+x)^2}\). \(f(0)=1\), \(f'(0)=-1\), donc \(T : y=-1(x-0)+1=1-x\). <b>(1 pt)</b></li>
+<li>\(\dfrac1{1+x}-(1-x)=\dfrac{1-(1-x)(1+x)}{1+x}=\dfrac{1-(1-x^2)}{1+x}=\dfrac{x^2}{1+x}\). <b>(1 pt)</b><br>
+Pour \(x&gt;-1\), \(1+x&gt;0\) et \(x^2\geqslant0\) : la différence est positive, donc \(\mathcal C\) est <b>au-dessus</b> de \(T\) (contact en \(x=0\)). <b>(0,5 pt)</b></li>
+<li>\(\dfrac1{1{,}02}\approx1-0{,}02=0{,}98\) ; la calculatrice donne \(0{,}98039\ldots\), erreur \(\approx0{,}0004\). <b>(0,75 pt)</b><br>
+\(\dfrac1{0{,}97}=f(-0{,}03)\approx1+0{,}03=1{,}03\) ; la calculatrice donne \(1{,}03093\ldots\), erreur \(\approx0{,}0009\). <b>(0,75 pt)</b><br>
+Dans les deux cas l'approximation est par défaut, conformément à la question 2.</li>
+<li>Le nouveau prix est \(1{,}05P\) ; pour revenir à \(P\), on multiplie par \(\dfrac{1}{1{,}05}\approx1-0{,}05=0{,}95\) : il faut baisser d'environ 5 %. En réalité \(\dfrac1{1{,}05}\approx0{,}9524\), soit une baisse d'environ 4,76 %. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Calculs de dérivées", points: 5,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué, et simplifie.
+<ol><li>\(f_1(x)=\dfrac12x^4-\dfrac{x^3}{3}+2\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=\dfrac{x+1}{\sqrt x}\) sur \(]0\,;+\infty[\)</li>
+<li>\(f_3(x)=(2-5x)^3\) sur \(\mathbb R\)</li>
+<li>\(f_4(x)=\dfrac{3x-1}{x^2+1}\) sur \(\mathbb R\)</li>
+<li>\(f_5(x)=x^2\sqrt x\) sur \(]0\,;+\infty[\)</li></ol>`,
+          correction: R`<b>1 pt par question.</b>
+<ol><li>\(f_1'(x)=\dfrac12\times4x^3-\dfrac{3x^2}{3}=2x^3-x^2\).</li>
+<li>Quotient : \(u=x+1\), \(u'=1\), \(v=\sqrt x\), \(v'=\dfrac1{2\sqrt x}\).<br>
+\(f_2'(x)=\dfrac{\sqrt x-\frac{x+1}{2\sqrt x}}{x}=\dfrac{\frac{2x-(x+1)}{2\sqrt x}}{x}=\dfrac{x-1}{2x\sqrt x}\).</li>
+<li>\(g(X)=X^3\), \(a=-5\) : \(f_3'(x)=-5\times3(2-5x)^2=-15(2-5x)^2\).</li>
+<li>Quotient : \(u=3x-1\), \(u'=3\), \(v=x^2+1\), \(v'=2x\).<br>
+\(f_4'(x)=\dfrac{3(x^2+1)-2x(3x-1)}{(x^2+1)^2}=\dfrac{3x^2+3-6x^2+2x}{(x^2+1)^2}=\dfrac{-3x^2+2x+3}{(x^2+1)^2}\).</li>
+<li>Produit : \(u=x^2\), \(v=\sqrt x\) : \(f_5'(x)=2x\sqrt x+\dfrac{x^2}{2\sqrt x}=2x\sqrt x+\dfrac{x\sqrt x}{2}=\dfrac52x\sqrt x\) (car \(\dfrac{x^2}{\sqrt x}=x\sqrt x\)).</li></ol>` }
+      ] },
+    { titre: "DS n°8 — Vrai-faux, démonstration et modélisation", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Vrai ou faux ?", points: 4,
+          enonce: R`Pour chaque affirmation, dis si elle est vraie ou fausse, et justifie.
+<ol><li>La dérivée de \(f(x)=(2x+1)^2\) est \(f'(x)=2(2x+1)\).</li>
+<li>La fonction \(x\mapsto|x-3|\) est dérivable en 3.</li>
+<li>Si la tangente à \(\mathcal C_f\) au point d'abscisse 1 a pour équation \(y=2x-5\), alors \(f(1)=-3\) et \(f'(1)=2\).</li>
+<li>La fonction racine carrée est dérivable sur \([0\,;+\infty[\).</li></ol>`,
+          correction: R`<b>1 pt par affirmation</b> (0,25 pt pour la réponse, 0,75 pt pour la justification).
+<ol><li><b>Faux.</b> Avec \(g(X)=X^2\) et \(a=2\) : \(f'(x)=2\times2(2x+1)=4(2x+1)\). (On a oublié le facteur \(a\).)</li>
+<li><b>Faux.</b> Le taux \(\dfrac{|3+h-3|-0}{h}=\dfrac{|h|}{h}\) vaut 1 si \(h&gt;0\) et \(-1\) si \(h&lt;0\) : il ne tend pas vers un unique réel. Point anguleux en 3.</li>
+<li><b>Vrai.</b> Le coefficient directeur de la tangente est \(f'(1)=2\), et le point de contact est sur la tangente : \(f(1)=2\times1-5=-3\).</li>
+<li><b>Faux.</b> Elle est définie sur \([0\,;+\infty[\) mais n'est pas dérivable en 0 : \(\dfrac{\sqrt h}{h}=\dfrac1{\sqrt h}\) n'a pas de limite finie quand \(h\) tend vers 0. Elle est dérivable seulement sur \(]0\,;+\infty[\).</li></ol>` },
+        { titre: "Exercice 2 — La fonction cube", points: 6,
+          enonce: R`Soit \(f(x)=x^3\) sur \(\mathbb R\), de courbe \(\mathcal C\).
+<ol><li>Soit \(a\) un réel et \(h\neq0\). Développe \((a+h)^3\), puis montre que \(\dfrac{f(a+h)-f(a)}{h}=3a^2+3ah+h^2\). Déduis-en \(f'(a)\).</li>
+<li>Donne une équation de la tangente \(T\) à \(\mathcal C\) au point d'abscisse 1.</li>
+<li>Montre que pour tout réel \(x\), \(x^3-3x+2=(x-1)^2(x+2)\).</li>
+<li>Déduis-en la position relative de \(\mathcal C\) et \(T\), et les coordonnées du second point d'intersection de \(T\) avec \(\mathcal C\).</li></ol>`,
+          correction: R`<ol><li>\((a+h)^3=(a+h)(a^2+2ah+h^2)=a^3+3a^2h+3ah^2+h^3\). <b>(0,5 pt)</b><br>
+Donc \(f(a+h)-f(a)=3a^2h+3ah^2+h^3=h(3a^2+3ah+h^2)\) et, pour \(h\neq0\), \(\dfrac{f(a+h)-f(a)}{h}=3a^2+3ah+h^2\). <b>(1 pt)</b><br>
+Quand \(h\to0\), \(3ah\) et \(h^2\) tendent vers 0 : \(f'(a)=3a^2\). <b>(0,5 pt)</b></li>
+<li>\(f(1)=1\), \(f'(1)=3\) : \(T : y=3(x-1)+1=3x-2\). <b>(1 pt)</b></li>
+<li>\((x-1)^2(x+2)=(x^2-2x+1)(x+2)=x^3+2x^2-2x^2-4x+x+2=x^3-3x+2\). <b>(1 pt)</b></li>
+<li>\(f(x)-(3x-2)=x^3-3x+2=(x-1)^2(x+2)\). Comme \((x-1)^2\geqslant0\), cette différence a le signe de \(x+2\) :
+<ul><li>pour \(x&lt;-2\), \(\mathcal C\) est en dessous de \(T\) ;</li>
+<li>pour \(x&gt;-2\), \(\mathcal C\) est au-dessus de \(T\) (contact en \(x=1\)).</li></ul> <b>(1 pt)</b>
+La différence s'annule aussi en \(x=-2\) : \(f(-2)=-8\) et \(3\times(-2)-2=-8\). Le second point d'intersection est \((-2\,;-8)\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Retrouver des paramètres", points: 5,
+          enonce: R`Soit \(f(x)=\dfrac{ax+b}{x+1}\) sur \(]-1\,;+\infty[\), où \(a\) et \(b\) sont deux réels. On sait que sa courbe \(\mathcal C\) passe par \(A(0\,;3)\) et que la tangente en \(A\) a pour coefficient directeur \(-5\).
+<ol><li>Montre que \(f'(x)=\dfrac{a-b}{(x+1)^2}\).</li>
+<li>Détermine \(a\) et \(b\).</li>
+<li>Donne une équation de la tangente en \(A\).</li>
+<li>Détermine le point de \(\mathcal C\) où la tangente est parallèle à la droite \(y=-\dfrac54x\).</li></ol>`,
+          correction: R`<ol><li>\(u=ax+b\), \(u'=a\), \(v=x+1\), \(v'=1\) : \(f'(x)=\dfrac{a(x+1)-(ax+b)}{(x+1)^2}=\dfrac{a-b}{(x+1)^2}\). <b>(1 pt)</b></li>
+<li>\(f(0)=\dfrac b1=b=3\) ; \(f'(0)=a-b=-5\), donc \(a=-2\). Ainsi \(f(x)=\dfrac{-2x+3}{x+1}\) et \(f'(x)=-\dfrac{5}{(x+1)^2}\). <b>(1,5 pt)</b></li>
+<li>\(y=-5x+3\). <b>(0,5 pt)</b></li>
+<li>\(-\dfrac{5}{(x+1)^2}=-\dfrac54\iff(x+1)^2=4\iff x+1=2\) (car \(x+1&gt;0\)) \(\iff x=1\). \(f(1)=\dfrac{1}{2}\) : c'est le point \(\left(1\,;\dfrac12\right)\). <b>(2 pts)</b></li></ol>` },
+        { titre: "Exercice 4 — Le profil d'un toboggan", points: 5,
+          enonce: R`Dans un repère (unité : le mètre), on modélise le profil d'un toboggan par la courbe de \(f(x)=ax^3+bx^2+c\), pour \(x\in[0\,;4]\). Le haut du toboggan est le point \(H(0\,;4)\), le bas est le point \(B(4\,;0)\), et pour la sécurité, les tangentes en \(H\) et en \(B\) doivent être horizontales.
+<ol><li>Calcule \(f'(x)\) et vérifie que la tangente en \(H\) est horizontale quelles que soient les valeurs de \(a\), \(b\), \(c\).</li>
+<li>Traduis les autres conditions par des équations et montre que \(a=\dfrac18\), \(b=-\dfrac34\), \(c=4\).</li>
+<li>Calcule \(f'(2)\) et donne une équation de la tangente au point d'abscisse 2.</li>
+<li>\(f'\) est un trinôme du second degré. Justifie que la pente est la plus forte (en valeur absolue) en \(x=2\).</li></ol>`,
+          correction: R`<ol><li>\(f'(x)=3ax^2+2bx\), donc \(f'(0)=0\) dans tous les cas : tangente horizontale en \(H\). <b>(1 pt)</b></li>
+<li>\(f(0)=c=4\). \(f(4)=64a+16b+4=0\) et \(f'(4)=48a+8b=0\). La dernière donne \(b=-6a\) ; en remplaçant : \(64a-96a+4=0\iff-32a=-4\iff a=\dfrac18\), puis \(b=-\dfrac68=-\dfrac34\). <b>(1,5 pt)</b></li>
+<li>\(f'(x)=\dfrac38x^2-\dfrac32x\), donc \(f'(2)=\dfrac{12}8-3=-\dfrac32\). \(f(2)=1-3+4=2\). Tangente : \(y=-\dfrac32(x-2)+2=-\dfrac32x+5\). <b>(1,5 pt)</b></li>
+<li>\(f'(x)=\dfrac38x^2-\dfrac32x\) avec \(\dfrac38&gt;0\) : son minimum est atteint en \(x=-\dfrac{-3/2}{2\times3/8}=\dfrac{3/2}{3/4}=2\). Sur \([0\,;4]\), \(f'(x)\) est négative (car \(f'(x)=\dfrac38x(x-4)\)) et minimale en 2 : c'est là que la descente est la plus raide, avec une pente de \(-1{,}5\). <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°9 — Modélisation, algorithme et calculs de dérivées", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Concentration d'un médicament", points: 5,
+          enonce: R`La concentration d'un médicament dans le sang (en mg/L), \(t\) heures après l'injection, est modélisée par \(C(t)=\dfrac{10t}{t^2+4}\), pour \(t\geqslant0\).
+<ol><li>Montre que \(C'(t)=\dfrac{10(4-t^2)}{(t^2+4)^2}\).</li>
+<li>La vitesse d'évolution de la concentration à l'instant \(t\) est \(C'(t)\). Calcule \(C'(1)\) et \(C'(3)\) (valeur arrondie au centième pour \(C'(3)\)) et interprète.</li>
+<li>On admet que la concentration est maximale à l'instant où la tangente est horizontale. Détermine cet instant et la concentration maximale.</li></ol>`,
+          correction: R`<ol><li>\(u=10t\), \(u'=10\), \(v=t^2+4\), \(v'=2t\) : \(C'(t)=\dfrac{10(t^2+4)-10t\times2t}{(t^2+4)^2}=\dfrac{40-10t^2}{(t^2+4)^2}=\dfrac{10(4-t^2)}{(t^2+4)^2}\). <b>(1,5 pt)</b></li>
+<li>\(C'(1)=\dfrac{10\times3}{25}=1{,}2\) : au bout d'1 h, la concentration augmente à la vitesse de 1,2 mg/L par heure. <b>(1 pt)</b><br>
+\(C'(3)=\dfrac{10\times(-5)}{169}=-\dfrac{50}{169}\approx-0{,}30\) : au bout de 3 h, la concentration diminue d'environ 0,30 mg/L par heure. <b>(1 pt)</b></li>
+<li>\(C'(t)=0\iff4-t^2=0\iff t=2\) (car \(t\geqslant0\)). \(C(2)=\dfrac{20}{8}=2{,}5\) mg/L, atteinte 2 h après l'injection. <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Tangentes à une parabole", points: 5,
+          enonce: R`Soit \(f(x)=\dfrac{x^2}{4}\) sur \(\mathbb R\), de courbe \(\mathcal P\), et \(a\) un réel.
+<ol><li>Montre que la tangente \(T_a\) à \(\mathcal P\) au point d'abscisse \(a\) a pour équation \(y=\dfrac a2x-\dfrac{a^2}{4}\).</li>
+<li>Pour quelles valeurs de \(a\) la tangente \(T_a\) passe-t-elle par le point \(S(0\,;-4)\) ? Donne les équations des tangentes correspondantes.</li>
+<li>Donne les équations de \(T_2\) et \(T_{-2}\), et les coordonnées de leur point d'intersection.</li>
+<li>Montre que, pour \(a\neq0\), \(T_a\) coupe l'axe des abscisses au point d'abscisse \(\dfrac a2\).</li></ol>`,
+          correction: R`<ol><li>\(f'(x)=\dfrac{2x}{4}=\dfrac x2\), donc \(f'(a)=\dfrac a2\) et \(f(a)=\dfrac{a^2}{4}\).<br>
+\(T_a : y=\dfrac a2(x-a)+\dfrac{a^2}4=\dfrac a2x-\dfrac{a^2}{2}+\dfrac{a^2}{4}=\dfrac a2x-\dfrac{a^2}4\). <b>(1,5 pt)</b></li>
+<li>\(S\in T_a\iff-4=\dfrac a2\times0-\dfrac{a^2}4\iff a^2=16\iff a=4\) ou \(a=-4\). <b>(1 pt)</b><br>
+\(T_4 : y=2x-4\) et \(T_{-4} : y=-2x-4\). <b>(0,5 pt)</b></li>
+<li>\(T_2 : y=x-1\) et \(T_{-2} : y=-x-1\). \(x-1=-x-1\iff x=0\), puis \(y=-1\) : elles se coupent en \((0\,;-1)\). <b>(1 pt)</b></li>
+<li>\(\dfrac a2x-\dfrac{a^2}4=0\iff\dfrac a2x=\dfrac{a^2}{4}\iff x=\dfrac{a^2}{4}\times\dfrac2a=\dfrac a2\) (on peut diviser car \(a\neq0\)). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Dérivées", points: 6,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué, et simplifie.
+<ol><li>\(f_1(x)=-\dfrac{x^4}{2}+3x^2-5\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=3x-4\sqrt x\) sur \(]0\,;+\infty[\)</li>
+<li>\(f_3(x)=(2x+1)(x^2-x+3)\) sur \(\mathbb R\)</li>
+<li>\(f_4(x)=\dfrac{x-3}{x+3}\) sur \(]-3\,;+\infty[\)</li>
+<li>\(f_5(x)=\sqrt{6-3x}\) sur \(]-\infty\,;2[\)</li>
+<li>\(f_6(x)=\dfrac{2}{(x-1)^2}\) sur \(]1\,;+\infty[\)</li></ol>`,
+          correction: R`<b>1 pt par question.</b>
+<ol><li>\(f_1'(x)=-\dfrac{4x^3}{2}+6x=-2x^3+6x\).</li>
+<li>\(f_2'(x)=3-4\times\dfrac1{2\sqrt x}=3-\dfrac{2}{\sqrt x}\).</li>
+<li>Produit : \(u=2x+1\), \(u'=2\), \(v=x^2-x+3\), \(v'=2x-1\).<br>
+\(f_3'(x)=2(x^2-x+3)+(2x+1)(2x-1)=2x^2-2x+6+4x^2-1=6x^2-2x+5\).</li>
+<li>Quotient : \(f_4'(x)=\dfrac{1\times(x+3)-(x-3)\times1}{(x+3)^2}=\dfrac{6}{(x+3)^2}\).</li>
+<li>\(g(X)=\sqrt X\), \(a=-3\) : \(f_5'(x)=-3\times\dfrac{1}{2\sqrt{6-3x}}=-\dfrac{3}{2\sqrt{6-3x}}\).</li>
+<li>\(f_6(x)=2(x-1)^{-2}\) ; avec \(g(X)=X^{-2}\), \(g'(X)=-2X^{-3}\), \(a=1\) : \(f_6'(x)=2\times(-2)(x-1)^{-3}=-\dfrac{4}{(x-1)^3}\).</li></ol>` },
+        { titre: "Exercice 4 — Conjecturer un nombre dérivé avec Python", points: 4,
+          enonce: R`On considère \(f(x)=x^3\) et le programme Python suivant :
+<pre><code>def taux(a, h):
+    return ((a + h)**3 - a**3) / h
+
+for k in range(1, 5):
+    print(taux(2, 10**(-k)))</code></pre>
+<ol><li>Quelles valeurs de \(h\) le programme utilise-t-il ? Que représente le nombre renvoyé par <b>taux(2, h)</b> ?</li>
+<li>Le programme affiche (aux erreurs d'arrondi près) 12.61 ; 12.0601 ; 12.006001 ; 12.00060001. Quelle conjecture peut-on faire ?</li>
+<li>Démontre cette conjecture en calculant \(\dfrac{f(2+h)-f(2)}{h}\) pour \(h\neq0\).</li>
+<li>Quelle(s) modification(s) faut-il apporter au programme pour conjecturer le nombre dérivé de la fonction racine carrée en 4 ? (On écrira <b>from math import sqrt</b> en première ligne.)</li></ol>`,
+          correction: R`<ol><li>\(k\) prend les valeurs 1, 2, 3, 4, donc \(h\) vaut \(0{,}1\) ; \(0{,}01\) ; \(0{,}001\) ; \(0{,}0001\). <b>taux(2, h)</b> est le taux de variation de \(f\) entre 2 et \(2+h\), c'est-à-dire le coefficient directeur de la sécante passant par les points d'abscisses 2 et \(2+h\). <b>(1 pt)</b></li>
+<li>Quand \(h\) se rapproche de 0, le taux se rapproche de 12 : on conjecture que \(f'(2)=12\). <b>(0,5 pt)</b></li>
+<li>\((2+h)^3=8+12h+6h^2+h^3\), donc \(\dfrac{f(2+h)-f(2)}{h}=\dfrac{12h+6h^2+h^3}{h}=12+6h+h^2\), qui tend vers 12 quand \(h\to0\). Donc \(f'(2)=12\). (On retrouve d'ailleurs les valeurs affichées : pour \(h=0{,}1\), \(12+0{,}6+0{,}01=12{,}61\).) <b>(1,5 pt)</b></li>
+<li>On remplace la ligne du <b>return</b> par <b>return (sqrt(a + h) - sqrt(a)) / h</b> et l'appel par <b>taux(4, 10**(-k))</b>. Les valeurs affichées se rapprochent alors de \(\dfrac{1}{2\sqrt4}=0{,}25\). <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°10 — Bilan : tout le chapitre", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Nombre dérivé par la quantité conjuguée", points: 5,
+          enonce: R`Soit \(f(x)=\sqrt{x+3}\) sur \([-3\,;+\infty[\).
+<ol><li>Pour \(h\neq0\) (avec \(h&gt;-4\)), montre que \(\dfrac{f(1+h)-f(1)}{h}=\dfrac{1}{\sqrt{4+h}+2}\). Déduis-en \(f'(1)\).</li>
+<li>Retrouve ce résultat à l'aide de la formule de dérivation de \(x\mapsto g(ax+b)\).</li>
+<li>Donne une équation de la tangente à la courbe de \(f\) au point d'abscisse 1.</li>
+<li>Déduis-en une valeur approchée de \(\sqrt{4{,}2}\).</li></ol>`,
+          correction: R`<ol><li>\(f(1)=\sqrt4=2\) et \(f(1+h)=\sqrt{4+h}\). On multiplie par la quantité conjuguée :
+\[\frac{\sqrt{4+h}-2}{h}=\frac{(\sqrt{4+h}-2)(\sqrt{4+h}+2)}{h(\sqrt{4+h}+2)}=\frac{4+h-4}{h(\sqrt{4+h}+2)}=\frac{1}{\sqrt{4+h}+2}.\]
+<b>(1,5 pt)</b> Quand \(h\to0\), ce taux tend vers \(\dfrac1{2+2}=\dfrac14\) : \(f'(1)=\dfrac14\). <b>(0,5 pt)</b></li>
+<li>\(g(X)=\sqrt X\), \(a=1\) : \(f'(x)=\dfrac{1}{2\sqrt{x+3}}\) pour \(x&gt;-3\), donc \(f'(1)=\dfrac1{2\times2}=\dfrac14\) ✓. <b>(1 pt)</b></li>
+<li>\(y=\dfrac14(x-1)+2=\dfrac14x+\dfrac74\). <b>(1 pt)</b></li>
+<li>\(\sqrt{4{,}2}=f(1{,}2)\approx\dfrac14\times1{,}2+\dfrac74=0{,}3+1{,}75=2{,}05\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Six dérivées", points: 6,
+          enonce: R`Calcule la dérivée de chaque fonction sur l'intervalle indiqué, et simplifie.
+<ol><li>\(f_1(x)=x^6-4x^5+x\) sur \(\mathbb R\)</li>
+<li>\(f_2(x)=\dfrac{7}{x^3}\) sur \(]0\,;+\infty[\)</li>
+<li>\(f_3(x)=(x^2+2)(1-4x)\) sur \(\mathbb R\)</li>
+<li>\(f_4(x)=\dfrac{x+2}{x^2+1}\) sur \(\mathbb R\)</li>
+<li>\(f_5(x)=\left(1-\dfrac x2\right)^4\) sur \(\mathbb R\)</li>
+<li>\(f_6(x)=\sqrt x\,(x-4)\) sur \(]0\,;+\infty[\)</li></ol>`,
+          correction: R`<b>1 pt par question.</b>
+<ol><li>\(f_1'(x)=6x^5-20x^4+1\).</li>
+<li>\(f_2(x)=7x^{-3}\), donc \(f_2'(x)=7\times(-3)x^{-4}=-\dfrac{21}{x^4}\).</li>
+<li>Produit : \(f_3'(x)=2x(1-4x)+(x^2+2)\times(-4)=2x-8x^2-4x^2-8=-12x^2+2x-8\).</li>
+<li>Quotient : \(u=x+2\), \(u'=1\), \(v=x^2+1\), \(v'=2x\).<br>
+\(f_4'(x)=\dfrac{(x^2+1)-2x(x+2)}{(x^2+1)^2}=\dfrac{x^2+1-2x^2-4x}{(x^2+1)^2}=\dfrac{-x^2-4x+1}{(x^2+1)^2}\).</li>
+<li>\(g(X)=X^4\), \(a=-\dfrac12\) : \(f_5'(x)=-\dfrac12\times4\left(1-\dfrac x2\right)^3=-2\left(1-\dfrac x2\right)^3\).</li>
+<li>Produit : \(u=\sqrt x\), \(u'=\dfrac1{2\sqrt x}\), \(v=x-4\), \(v'=1\).<br>
+\(f_6'(x)=\dfrac{x-4}{2\sqrt x}+\sqrt x=\dfrac{x-4+2x}{2\sqrt x}=\dfrac{3x-4}{2\sqrt x}\).</li></ol>` },
+        { titre: "Exercice 3 — Une courbe en « W »", points: 5,
+          enonce: R`Soit \(f(x)=x^2-2|x|\) définie sur \(\mathbb R\).
+<ol><li>Écris \(f(x)\) sans valeur absolue sur \([0\,;+\infty[\) puis sur \(]-\infty\,;0[\).</li>
+<li>Pour \(h\neq0\), calcule \(\dfrac{f(h)-f(0)}{h}\) en distinguant \(h&gt;0\) et \(h&lt;0\). La fonction \(f\) est-elle dérivable en 0 ?</li>
+<li>Calcule \(f'(x)\) sur \(]0\,;+\infty[\) puis sur \(]-\infty\,;0[\). Déduis-en les points de la courbe où la tangente est horizontale.</li>
+<li>Donne une équation de la tangente au point d'abscisse 3.</li></ol>`,
+          correction: R`<ol><li>Si \(x\geqslant0\) : \(f(x)=x^2-2x\). Si \(x&lt;0\) : \(|x|=-x\) donc \(f(x)=x^2+2x\). <b>(1 pt)</b></li>
+<li>\(\dfrac{f(h)-f(0)}{h}=\dfrac{h^2-2|h|}{h}=h-\dfrac{2|h|}{h}\). Si \(h&gt;0\), il vaut \(h-2\), qui tend vers \(-2\) ; si \(h&lt;0\), il vaut \(h+2\), qui tend vers \(2\). <b>(1 pt)</b><br>
+Le taux ne se rapproche pas d'un unique réel : \(f\) n'est pas dérivable en 0 (point anguleux en l'origine). <b>(0,5 pt)</b></li>
+<li>Sur \(]0\,;+\infty[\) : \(f'(x)=2x-2\), nul pour \(x=1\) ; \(f(1)=1-2=-1\). Sur \(]-\infty\,;0[\) : \(f'(x)=2x+2\), nul pour \(x=-1\) ; \(f(-1)=1-2=-1\). Tangentes horizontales aux points \((1\,;-1)\) et \((-1\,;-1)\). <b>(1,5 pt)</b></li>
+<li>\(f(3)=9-6=3\) et \(f'(3)=6-2=4\) : \(y=4(x-3)+3=4x-9\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Tangentes communes à deux paraboles", points: 4,
+          enonce: R`Soit \(f(x)=x^2\) et \(g(x)=-x^2+4x-4\), de courbes \(\mathcal C_f\) et \(\mathcal C_g\). On cherche les droites tangentes à la fois à \(\mathcal C_f\) et à \(\mathcal C_g\).
+<ol><li>Montre que la tangente à \(\mathcal C_f\) au point d'abscisse \(a\) a pour équation \(y=2ax-a^2\).</li>
+<li>Montre que la tangente à \(\mathcal C_g\) au point d'abscisse \(b\) a pour équation \(y=(4-2b)x+b^2-4\).</li>
+<li>Deux droites sont confondues si elles ont même coefficient directeur et même ordonnée à l'origine. Déduis-en les tangentes communes à \(\mathcal C_f\) et \(\mathcal C_g\).</li></ol>`,
+          correction: R`<ol><li>\(f'(a)=2a\), \(f(a)=a^2\) : \(y=2a(x-a)+a^2=2ax-a^2\). <b>(1 pt)</b></li>
+<li>\(g'(x)=-2x+4\), donc \(g'(b)=4-2b\) et \(g(b)=-b^2+4b-4\).<br>
+\(y=(4-2b)(x-b)-b^2+4b-4=(4-2b)x-4b+2b^2-b^2+4b-4=(4-2b)x+b^2-4\). <b>(1 pt)</b></li>
+<li>On résout \(2a=4-2b\) et \(-a^2=b^2-4\). La première donne \(a=2-b\) ; en remplaçant : \(-(2-b)^2=b^2-4\iff-4+4b-b^2=b^2-4\iff2b^2-4b=0\iff2b(b-2)=0\). <b>(1 pt)</b><br>
+Si \(b=0\) : \(a=2\), tangente commune \(y=4x-4\). Si \(b=2\) : \(a=0\), tangente commune \(y=0\) (l'axe des abscisses). Il y a donc deux tangentes communes : \(y=4x-4\) et \(y=0\). <b>(1 pt)</b></li></ol>` }
       ] }
   ]
 });
