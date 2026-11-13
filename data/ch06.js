@@ -360,6 +360,339 @@ while x &lt; 1:
 </table></li>
 <li><b>(1,5 pt)</b> Le maximum de \(f\) sur \(\mathbb{R}\) est \(\dfrac1e\), donc \(xe^{-x}\leqslant\dfrac1e\). En multipliant par \(e^x\gt 0\) : \(x\leqslant\dfrac{e^x}{e}=e^{x-1}\).</li>
 <li><b>(0,5 pt)</b> \(f(0)=0\), \(f'(0)=1\) : tangente \(y=x\).</li></ol>` }
+      ] },
+    { titre: "DS n°3 — Règles de calcul, équations et premier sujet d'étude", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Calcul algébrique", points: 5,
+          enonce: R`<ol><li>Écrire sous la forme \(e^{k}\) (\(k\) entier) le nombre \(A=\dfrac{e^{2}\times\left(e^{-1}\right)^{3}}{e^{-4}}\).</li>
+<li>Pour tout réel \(x\), simplifier \(B=\left(e^{x}+1\right)^2-\left(e^{x}-1\right)^2\) et \(C=\dfrac{e^{3x+1}}{e^{x-2}\times e^{x}}\).</li>
+<li>Montrer que pour tout réel \(x\) : \(\dfrac{e^{2x}-1}{e^{2x}+1}=\dfrac{e^{x}-e^{-x}}{e^{x}+e^{-x}}\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(\left(e^{-1}\right)^3=e^{-3}\), donc \(A=\dfrac{e^{2-3}}{e^{-4}}=\dfrac{e^{-1}}{e^{-4}}=e^{-1-(-4)}=e^{3}\).</li>
+<li><b>(2 pts : 1 pt chacun)</b> Avec \((a+b)^2-(a-b)^2=4ab\) (ou en développant) : \(B=\left(e^{2x}+2e^x+1\right)-\left(e^{2x}-2e^x+1\right)=4e^{x}\).<br>
+\(e^{x-2}\times e^x=e^{2x-2}\), donc \(C=e^{3x+1-(2x-2)}=e^{x+3}\).</li>
+<li><b>(2 pts)</b> On part du membre de droite et on multiplie numérateur et dénominateur par \(e^{x}\neq 0\) :
+\[\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}=\frac{e^{x}\left(e^{x}-e^{-x}\right)}{e^{x}\left(e^{x}+e^{-x}\right)}=\frac{e^{2x}-e^{0}}{e^{2x}+e^{0}}=\frac{e^{2x}-1}{e^{2x}+1}.\]
+(Le dénominateur \(e^{x}+e^{-x}\) est strictement positif, donc non nul.)</li></ol>` },
+        { titre: "Exercice 2 — Équations et inéquations", points: 6,
+          enonce: R`<p>Résoudre dans \(\mathbb{R}\) :</p><ol><li>\(e^{x^2+1}=e^{3x+5}\)</li><li>\(e^{2x}+e^{x}-2=0\) (on pourra poser \(X=e^{x}\))</li><li>\(e^{x^2}\leqslant e^{x}\times e^{6}\)</li><li>\(e^{1-x}\gt\dfrac1e\)</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(\exp\) est strictement croissante, donc \(e^{x^2+1}=e^{3x+5}\iff x^2+1=3x+5\iff x^2-3x-4=0\). \(\Delta=9+16=25\), racines \(\dfrac{3-5}{2}=-1\) et \(\dfrac{3+5}{2}=4\). \(\mathcal{S}=\{-1\,;4\}\).</li>
+<li><b>(2 pts)</b> On pose \(X=e^x\) ; comme \(e^{2x}=\left(e^x\right)^2\), l'équation devient \(X^2+X-2=0\). \(\Delta=1+8=9\), racines \(X=\dfrac{-1-3}{2}=-2\) et \(X=\dfrac{-1+3}{2}=1\).<br>
+\(e^x=-2\) est impossible car \(e^x\gt 0\) ; \(e^x=1=e^0\iff x=0\). \(\mathcal{S}=\{0\}\).</li>
+<li><b>(1,5 pt)</b> \(e^{x}\times e^{6}=e^{x+6}\), donc l'inéquation équivaut à \(x^2\leqslant x+6\iff x^2-x-6\leqslant 0\). \(\Delta=1+24=25\), racines \(-2\) et \(3\) ; le trinôme (coefficient \(1\gt 0\)) est négatif ou nul entre ses racines. \(\mathcal{S}=[-2\,;3]\).</li>
+<li><b>(1 pt)</b> \(\dfrac1e=e^{-1}\) : \(e^{1-x}\gt e^{-1}\iff 1-x\gt -1\iff x\lt 2\). \(\mathcal{S}=]-\infty\,;2[\).</li></ol>` },
+        { titre: "Exercice 3 — Étude de (3 − x)eˣ", points: 6,
+          enonce: R`<p>Soit \(f\) la fonction définie sur \(\mathbb{R}\) par \(f(x)=(3-x)e^{x}\), de courbe \(\mathcal{C}\).</p><ol><li>Étudier le signe de \(f(x)\) selon les valeurs de \(x\).</li><li>Montrer que \(f'(x)=(2-x)e^{x}\).</li><li>Dresser le tableau de variations de \(f\). En déduire que pour tout réel \(x\), \((3-x)e^x\leqslant e^2\).</li><li>Déterminer une équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(0\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(e^x\gt 0\), donc \(f(x)\) a le signe de \(3-x\) : \(f(x)\gt 0\) sur \(]-\infty\,;3[\), \(f(3)=0\), \(f(x)\lt 0\) sur \(]3\,;+\infty[\).</li>
+<li><b>(1,5 pt)</b> \(f=uv\) avec \(u(x)=3-x\), \(u'(x)=-1\), \(v(x)=e^x\), \(v'(x)=e^x\) : \(f'(x)=-e^x+(3-x)e^x=(2-x)e^x\).</li>
+<li><b>(2,5 pts : tableau 1,5 pt, inégalité 1 pt)</b> \(e^x\gt 0\), donc \(f'(x)\) a le signe de \(2-x\) : positif avant \(2\), négatif après. \(f(2)=(3-2)e^2=e^2\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(2\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↗</td><td>\(e^2\)</td><td>↘</td><td></td></tr>
+</table>
+\(f\) admet un maximum égal à \(e^2\) en \(x=2\) : pour tout réel \(x\), \(f(x)\leqslant e^2\), c'est-à-dire \((3-x)e^x\leqslant e^2\).</li>
+<li><b>(1 pt)</b> \(f(0)=3e^0=3\) et \(f'(0)=2e^0=2\). \(T : y=f'(0)(x-0)+f(0)\), soit \(y=2x+3\).</li></ol>` },
+        { titre: "Exercice 4 — Dérivées", points: 3,
+          enonce: R`<ol><li>Dériver \(g_1(x)=5e^{2x}-e^{-x}\) sur \(\mathbb{R}\).</li><li>Soit \(g_2(x)=\left(x^2+1\right)e^{-x}\) sur \(\mathbb{R}\). Montrer que \(g_2'(x)=-(x-1)^2e^{-x}\) et en déduire le sens de variation de \(g_2\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(\left(e^{2x}\right)'=2e^{2x}\) et \(\left(e^{-x}\right)'=-e^{-x}\), donc \(g_1'(x)=10e^{2x}+e^{-x}\).</li>
+<li><b>(2 pts)</b> \(u(x)=x^2+1\), \(u'(x)=2x\), \(v(x)=e^{-x}\), \(v'(x)=-e^{-x}\) :
+\(g_2'(x)=2xe^{-x}-\left(x^2+1\right)e^{-x}=\left(-x^2+2x-1\right)e^{-x}=-(x-1)^2e^{-x}\).<br>
+Un carré est positif et \(e^{-x}\gt 0\), donc \(g_2'(x)\leqslant 0\) (nul seulement en \(x=1\)) : \(g_2\) est décroissante sur \(\mathbb{R}\).</li></ol>` }
+      ] },
+    { titre: "DS n°4 — Décote d'une voiture, suites et Euler", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — La valeur d'une voiture", points: 6,
+          enonce: R`<p>Une voiture neuve est achetée \(25\,000\) €. Sa valeur, en euros, \(t\) années après l'achat, est modélisée par \(V(t)=25\,000\,e^{-0{,}12t}\) pour \(t\geqslant 0\).</p><ol><li>Calculer \(V(0)\) et une valeur approchée à l'euro près de \(V(5)\).</li><li>Calculer \(V'(t)\) et en déduire le sens de variation de \(V\).</li><li>Montrer que pour tout \(t\geqslant 0\), \(V(t+1)=e^{-0{,}12}\,V(t)\). En déduire le pourcentage de perte de valeur chaque année (à \(0{,}1\,\%\) près). Quelle est la nature de la suite \(\left(V(n)\right)\) ?</li><li>Écrire un programme Python qui affiche le nombre entier d'années à partir duquel la voiture vaut moins de \(10\,000\) €. Donner ce nombre en justifiant par deux valeurs.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(V(0)=25\,000e^0=25\,000\) €. \(V(5)=25\,000e^{-0{,}6}\approx 13\,720\) €.</li>
+<li><b>(1 pt)</b> \(V'(t)=25\,000\times(-0{,}12)e^{-0{,}12t}=-3\,000e^{-0{,}12t}\lt 0\) car une exponentielle est strictement positive. \(V\) est strictement décroissante : la voiture perd de la valeur.</li>
+<li><b>(2 pts)</b> \(V(t+1)=25\,000e^{-0{,}12t-0{,}12}=25\,000e^{-0{,}12t}\times e^{-0{,}12}=e^{-0{,}12}V(t)\).<br>
+\(e^{-0{,}12}\approx 0{,}8869=1-0{,}1131\) : chaque année, la valeur baisse d'environ \(11{,}3\,\%\).<br>
+La suite \(\left(V(n)\right)\) est géométrique de premier terme \(25\,000\) et de raison \(e^{-0{,}12}\).</li>
+<li><b>(2 pts : programme 1 pt, réponse justifiée 1 pt)</b>
+<pre><code>from math import exp
+t = 0
+while 25000 * exp(-0.12 * t) &gt;= 10000:
+    t = t + 1
+print(t)</code></pre>
+\(V(7)=25\,000e^{-0{,}84}\approx 10\,793\) € \(\geqslant 10\,000\) et \(V(8)=25\,000e^{-0{,}96}\approx 9\,572\) € \(\lt 10\,000\). Comme \(V\) est décroissante, la voiture vaut moins de \(10\,000\) € à partir de \(8\) ans.</li></ol>` },
+        { titre: "Exercice 2 — Une suite géométrique", points: 5,
+          enonce: R`<p>Pour tout entier naturel \(n\), on pose \(w_n=e^{1-2n}\).</p><ol><li>Calculer \(w_0\) et \(w_1\) (valeurs exactes).</li><li>Montrer que \((w_n)\) est géométrique ; préciser sa raison.</li><li>Déterminer le sens de variation de \((w_n)\).</li><li>Calculer la valeur exacte puis une valeur approchée à \(10^{-3}\) près de \(S=w_0+w_1+\dots+w_9\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(w_0=e^1=e\) ; \(w_1=e^{1-2}=e^{-1}=\dfrac1e\).</li>
+<li><b>(1,5 pt)</b> \(w_{n+1}=e^{1-2(n+1)}=e^{1-2n-2}=e^{1-2n}\times e^{-2}=w_n\times e^{-2}\). \((w_n)\) est géométrique de raison \(q=e^{-2}\) et de premier terme \(w_0=e\).</li>
+<li><b>(1 pt)</b> \(w_0=e\gt 0\) et \(0\lt e^{-2}\lt 1\) (car \(-2\lt 0\) donc \(e^{-2}\lt e^0\)) : la suite est strictement décroissante.</li>
+<li><b>(1,5 pt)</b> Somme de \(10\) termes d'une suite géométrique :
+\[S=w_0\times\frac{1-q^{10}}{1-q}=e\times\frac{1-e^{-20}}{1-e^{-2}}\approx 3{,}144.\]</li></ol>` },
+        { titre: "Exercice 3 — Vrai ou faux", points: 5,
+          enonce: R`<p>Pour chaque affirmation, dire si elle est vraie ou fausse en justifiant.</p><ol><li>Pour tout réel \(x\), \(e^{2x}\geqslant e^{x}\).</li><li>\(\dfrac{e^{-3}\times e^{5}}{e^{2}}=1\).</li><li>Si \(f(x)=e^{3x-1}\), alors \(f'\left(\dfrac13\right)=1\).</li><li>L'équation \(e^{x}=1-x\) admet \(0\) pour unique solution.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt) Faux.</b> Contre-exemple : pour \(x=-1\), \(e^{-2}\lt e^{-1}\) car \(-2\lt -1\) et \(\exp\) est strictement croissante. (En fait \(e^{2x}\geqslant e^x\iff 2x\geqslant x\iff x\geqslant 0\).)</li>
+<li><b>(1 pt) Vrai.</b> \(\dfrac{e^{-3+5}}{e^2}=\dfrac{e^2}{e^2}=1\).</li>
+<li><b>(1 pt) Faux.</b> \(f'(x)=3e^{3x-1}\), donc \(f'\left(\dfrac13\right)=3e^{0}=3\neq 1\).</li>
+<li><b>(2 pts) Vrai.</b> Soit \(g(x)=e^x+x-1\) sur \(\mathbb{R}\). \(g'(x)=e^x+1\gt 0\), donc \(g\) est strictement croissante sur \(\mathbb{R}\). Or \(g(0)=1+0-1=0\). Une fonction strictement croissante prend au plus une fois la valeur \(0\) : \(0\) est l'unique solution de \(g(x)=0\), c'est-à-dire de \(e^x=1-x\).</li></ol>` },
+        { titre: "Exercice 4 — Euler pour une fonction décroissante", points: 4,
+          enonce: R`<p>On s'intéresse à la fonction \(g\) définie sur \(\mathbb{R}\) par \(g(x)=e^{-x}\).</p><ol><li>Vérifier que \(g'=-g\) et \(g(0)=1\).</li><li>Justifier que, pour \(h\) petit, \(g(x+h)\approx(1-h)g(x)\).</li><li>On pose \(h=0{,}2\), \(y_0=1\) et \(y_{k+1}=(1-h)y_k\). Calculer \(y_1,\dots,y_5\). Comparer \(y_5\) à \(g(1)\) (valeur approchée à \(10^{-4}\) près).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(g'(x)=-e^{-x}=-g(x)\) et \(g(0)=e^0=1\).</li>
+<li><b>(1 pt)</b> Approximation affine : \(g(x+h)\approx g(x)+hg'(x)=g(x)-hg(x)=(1-h)g(x)\).</li>
+<li><b>(2 pts)</b> \(y_1=0{,}8\) ; \(y_2=0{,}64\) ; \(y_3=0{,}512\) ; \(y_4=0{,}4096\) ; \(y_5=0{,}32768\).<br>
+\(y_5\) approche \(g(5\times 0{,}2)=g(1)=e^{-1}\approx 0{,}3679\). L'écart est d'environ \(0{,}04\) : l'approximation est grossière car le pas est grand.</li></ol>` }
+      ] },
+    { titre: "DS n°5 — Étude de fonctions et inégalités", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Résolutions", points: 4,
+          enonce: R`<p>Résoudre dans \(\mathbb{R}\) :</p><ol><li>\(\left(2x^2-x-1\right)e^{-x}=0\)</li><li>\(e^{3x}\leqslant e^{x+4}\)</li><li>\(e^{x}\left(e^{x}-e^{2}\right)\gt 0\)</li><li>\(e^{2x-1}\times e^{x}=\sqrt{e}\)</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(e^{-x}\neq 0\), donc l'équation équivaut à \(2x^2-x-1=0\). \(\Delta=1+8=9\), racines \(\dfrac{1-3}{4}=-\dfrac12\) et \(\dfrac{1+3}{4}=1\). \(\mathcal{S}=\left\{-\dfrac12\,;1\right\}\).</li>
+<li><b>(1 pt)</b> \(\exp\) strictement croissante : \(3x\leqslant x+4\iff x\leqslant 2\). \(\mathcal{S}=]-\infty\,;2]\).</li>
+<li><b>(1 pt)</b> \(e^x\gt 0\), donc l'inéquation équivaut à \(e^x-e^2\gt 0\iff e^x\gt e^2\iff x\gt 2\). \(\mathcal{S}=]2\,;+\infty[\).</li>
+<li><b>(1 pt)</b> \(e^{2x-1}\times e^x=e^{3x-1}\) et \(\sqrt e=e^{1/2}\) : \(3x-1=\dfrac12\iff x=\dfrac12\). \(\mathcal{S}=\left\{\dfrac12\right\}\).</li></ol>` },
+        { titre: "Exercice 2 — Étude de (x² − 3)eˣ", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=\left(x^2-3\right)e^{x}\), de courbe \(\mathcal{C}\).</p><ol><li>Résoudre \(f(x)=0\), puis dresser le tableau de signes de \(f\).</li><li>Montrer que \(f'(x)=(x+3)(x-1)e^{x}\).</li><li>Dresser le tableau de variations de \(f\) avec les valeurs exactes des extremums locaux.</li><li>En quels points \(\mathcal{C}\) admet-elle une tangente horizontale ?</li><li>Déterminer une équation de la tangente à \(\mathcal{C}\) au point d'abscisse \(0\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(e^x\neq 0\), donc \(f(x)=0\iff x^2=3\iff x=-\sqrt3\) ou \(x=\sqrt3\). Comme \(e^x\gt 0\), \(f(x)\) a le signe du trinôme \(x^2-3\), positif à l'extérieur des racines :
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-\sqrt3\)</td><td></td><td>\(\sqrt3\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(u(x)=x^2-3\), \(u'(x)=2x\), \(v(x)=v'(x)=e^x\) : \(f'(x)=2xe^x+\left(x^2-3\right)e^x=\left(x^2+2x-3\right)e^x\). Or \((x+3)(x-1)=x^2-x+3x-3=x^2+2x-3\). D'où \(f'(x)=(x+3)(x-1)e^x\).</li>
+<li><b>(3 pts)</b> \(e^x\gt 0\), donc \(f'(x)\) a le signe de \((x+3)(x-1)\), trinôme positif à l'extérieur de ses racines \(-3\) et \(1\).<br>
+\(f(-3)=(9-3)e^{-3}=6e^{-3}\) ; \(f(1)=(1-3)e^1=-2e\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-3\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↗</td><td>\(6e^{-3}\)</td><td>↘</td><td>\(-2e\)</td><td>↗</td><td></td></tr>
+</table>
+\(f\) admet un maximum local \(6e^{-3}\) en \(-3\) et un minimum local \(-2e\) en \(1\).</li>
+<li><b>(1 pt)</b> Tangente horizontale \(\iff f'(x)=0\iff x=-3\) ou \(x=1\) : aux points \(\left(-3\,;6e^{-3}\right)\) et \((1\,;-2e)\).</li>
+<li><b>(1 pt)</b> \(f(0)=-3\) et \(f'(0)=3\times(-1)\times 1=-3\). Tangente : \(y=-3x-3\).</li></ol>` },
+        { titre: "Exercice 3 — Une fonction avec e²ˣ", points: 5,
+          enonce: R`<p>Soit \(g\) définie sur \(\mathbb{R}\) par \(g(x)=e^{2x}-2e\,e^{x}\) (où \(e=\exp(1)\)).</p><ol><li>Calculer \(g(0)\) et \(g(1)\).</li><li>Montrer que \(g'(x)=2e^{x}\left(e^{x}-e\right)\).</li><li>Étudier le signe de \(g'(x)\) et dresser le tableau de variations de \(g\).</li><li>En déduire que pour tout réel \(x\), \(e^{2x}+e^2\geqslant 2e^{x+1}\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(g(0)=1-2e\) ; \(g(1)=e^2-2e\times e=e^2-2e^2=-e^2\).</li>
+<li><b>(1 pt)</b> \(\left(e^{2x}\right)'=2e^{2x}\), donc \(g'(x)=2e^{2x}-2e\,e^x=2e^x\times e^x-2e^x\times e=2e^x\left(e^x-e\right)\).</li>
+<li><b>(2 pts)</b> \(2e^x\gt 0\), donc \(g'(x)\) a le signe de \(e^x-e\). Or \(e^x\gt e=e^1\iff x\gt 1\) (stricte croissance de \(\exp\)). Donc \(g'(x)\lt 0\) sur \(]-\infty\,;1[\), \(g'(1)=0\), \(g'(x)\gt 0\) sur \(]1\,;+\infty[\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(1\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(g'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(g\)</td><td></td><td>↘</td><td>\(-e^2\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> \(g\) a pour minimum \(-e^2\), donc pour tout \(x\), \(e^{2x}-2e\,e^x\geqslant -e^2\), soit \(e^{2x}+e^2\geqslant 2e\,e^x=2e^{x+1}\).</li></ol>` },
+        { titre: "Exercice 4 — Courbe et tangente en 1", points: 3,
+          enonce: R`<ol><li>Montrer que la tangente à la courbe de \(\exp\) au point d'abscisse \(1\) a pour équation \(y=ex\).</li><li>Soit \(k(x)=e^{x}-ex\). Étudier les variations de \(k\) et en déduire la position de la courbe de \(\exp\) par rapport à cette tangente.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(\exp(1)=e\) et \(\exp'(1)=e\). Tangente : \(y=e(x-1)+e=ex\).</li>
+<li><b>(2 pts)</b> \(k'(x)=e^x-e\), négatif si \(x\lt 1\), nul en \(1\), positif si \(x\gt 1\) (car \(\exp\) est strictement croissante et \(e^1=e\)). \(k\) est décroissante sur \(]-\infty\,;1]\), croissante sur \([1\,;+\infty[\), de minimum \(k(1)=e-e=0\).<br>
+Donc \(k(x)\geqslant 0\), soit \(e^x\geqslant ex\) pour tout réel \(x\) : la courbe de \(\exp\) est au-dessus de sa tangente au point d'abscisse \(1\) (elles se touchent seulement en \((1\,;e)\)).</li></ol>` }
+      ] },
+    { titre: "DS n°6 — Batterie, bénéfice et méthode d'Euler", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Charge d'une batterie", points: 7,
+          enonce: R`<p>On branche un téléphone dont la batterie est vide. Le niveau de charge, en pourcentage, \(t\) minutes après le branchement, est modélisé par \(Q(t)=100\left(1-e^{-0{,}04t}\right)\) pour \(t\geqslant 0\).</p><ol><li>Calculer \(Q(0)\), puis \(Q(10)\) et \(Q(30)\) à \(0{,}1\) près.</li><li>Calculer \(Q'(t)\). En déduire le sens de variation de \(Q\).</li><li>Que vaut \(Q'(0)\) ? Comment évolue \(Q'(t)\) quand \(t\) augmente ? Interpréter concrètement.</li><li>Montrer que pour tout \(t\geqslant 0\), \(Q(t)\lt 100\).</li><li>Compléter le programme Python ci-dessous pour qu'il affiche le nombre entier de minutes nécessaire pour atteindre au moins \(80\,\%\) de charge, puis donner ce nombre en justifiant.
+<pre><code>from math import exp
+t = 0
+while ..........:
+    t = t + 1
+print(t)</code></pre></li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(Q(0)=100(1-1)=0\). \(Q(10)=100\left(1-e^{-0{,}4}\right)\approx 33{,}0\) ; \(Q(30)=100\left(1-e^{-1{,}2}\right)\approx 69{,}9\).</li>
+<li><b>(1,5 pt)</b> \(Q(t)=100-100e^{-0{,}04t}\), donc \(Q'(t)=-100\times(-0{,}04)e^{-0{,}04t}=4e^{-0{,}04t}\gt 0\). \(Q\) est strictement croissante : la batterie se charge.</li>
+<li><b>(1,5 pt)</b> \(Q'(0)=4\) : au départ, la charge progresse d'environ \(4\) points de pourcentage par minute. \(t\mapsto e^{-0{,}04t}\) est décroissante (sa dérivée \(-0{,}04e^{-0{,}04t}\) est négative), donc \(Q'(t)\) diminue : la charge ralentit au fil du temps.</li>
+<li><b>(1 pt)</b> \(e^{-0{,}04t}\gt 0\), donc \(1-e^{-0{,}04t}\lt 1\) et \(Q(t)\lt 100\) : la batterie n'atteint jamais exactement \(100\,\%\) dans ce modèle.</li>
+<li><b>(2 pts : condition 1 pt, réponse 1 pt)</b> <code>while 100 * (1 - exp(-0.04 * t)) &lt; 80:</code><br>
+\(Q(40)=100\left(1-e^{-1{,}6}\right)\approx 79{,}8\lt 80\) et \(Q(41)=100\left(1-e^{-1{,}64}\right)\approx 80{,}6\geqslant 80\). Comme \(Q\) est croissante, il faut \(41\) minutes.</li></ol>` },
+        { titre: "Exercice 2 — Bénéfice d'une entreprise", points: 8,
+          enonce: R`<p>Une entreprise fabrique entre \(0\) et \(800\) objets par jour. Le bénéfice, en milliers d'euros, pour \(x\) centaines d'objets, est \(B(x)=(4x-2)e^{-0{,}5x}\) pour \(x\in[0\,;8]\).</p><ol><li>Calculer \(B(0)\) et interpréter.</li><li>Étudier le signe de \(B(x)\) sur \([0\,;8]\). À partir de combien d'objets l'entreprise est-elle rentable ?</li><li>Montrer que \(B'(x)=(5-2x)e^{-0{,}5x}\).</li><li>Dresser le tableau de variations de \(B\) sur \([0\,;8]\) (valeurs exactes puis approchées à \(10^{-3}\) près).</li><li>Combien d'objets faut-il fabriquer pour un bénéfice maximal ? Quel est ce bénéfice, à l'euro près ?</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(B(0)=-2e^0=-2\) : sans production, l'entreprise perd \(2\,000\) € (charges fixes).</li>
+<li><b>(1,5 pt)</b> \(e^{-0{,}5x}\gt 0\), donc \(B(x)\) a le signe de \(4x-2\), qui s'annule en \(x=0{,}5\). \(B(x)\lt 0\) sur \([0\,;0{,}5[\), \(B(0{,}5)=0\), \(B(x)\gt 0\) sur \(]0{,}5\,;8]\). L'entreprise est rentable au-delà de \(50\) objets.</li>
+<li><b>(2 pts)</b> \(u(x)=4x-2\), \(u'(x)=4\), \(v(x)=e^{-0{,}5x}\), \(v'(x)=-0{,}5e^{-0{,}5x}\) :
+\(B'(x)=4e^{-0{,}5x}-0{,}5(4x-2)e^{-0{,}5x}=(4-2x+1)e^{-0{,}5x}=(5-2x)e^{-0{,}5x}\).</li>
+<li><b>(2 pts)</b> \(B'(x)\) a le signe de \(5-2x\), qui s'annule en \(2{,}5\). \(B(2{,}5)=8e^{-1{,}25}\approx 2{,}292\) ; \(B(8)=30e^{-4}\approx 0{,}549\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(0\)</td><td></td><td>\(2{,}5\)</td><td></td><td>\(8\)</td></tr>
+<tr><td>signe de \(B'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(B\)</td><td>\(-2\)</td><td>↗</td><td>\(8e^{-1{,}25}\approx 2{,}292\)</td><td>↘</td><td>\(30e^{-4}\approx 0{,}549\)</td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> Le bénéfice est maximal pour \(x=2{,}5\), soit \(250\) objets ; il vaut \(8e^{-1{,}25}\) milliers d'euros, soit environ \(2\,292\) €.</li></ol>` },
+        { titre: "Exercice 3 — Euler pour f′ = 2f", points: 5,
+          enonce: R`<p>On cherche une fonction \(f\) dérivable sur \(\mathbb{R}\) telle que \(f'=2f\) et \(f(0)=1\).</p><ol><li>Vérifier que \(f(x)=e^{2x}\) convient.</li><li>Montrer que pour \(h\) petit, \(f(x+h)\approx(1+2h)f(x)\).</li><li>Avec \(h=0{,}1\), on pose \(y_0=1\) et \(y_{k+1}=(1+2h)y_k\). Calculer \(y_1,\dots,y_5\) et comparer \(y_5\) à la valeur exacte qu'il approche.</li><li>Écrire une fonction Python <code>approx(n)</code> qui renvoie \(y_n\) pour le pas \(h=0{,}1\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f'(x)=2e^{2x}=2f(x)\) et \(f(0)=e^0=1\).</li>
+<li><b>(1 pt)</b> \(f(x+h)\approx f(x)+hf'(x)=f(x)+2hf(x)=(1+2h)f(x)\).</li>
+<li><b>(2 pts)</b> \(1+2h=1{,}2\) : \(y_1=1{,}2\) ; \(y_2=1{,}44\) ; \(y_3=1{,}728\) ; \(y_4=2{,}0736\) ; \(y_5=2{,}48832\).<br>
+\(y_5\) approche \(f(5\times 0{,}1)=f(0{,}5)=e^{1}\approx 2{,}718\) : l'écart est d'environ \(0{,}23\), la méthode sous-estime la valeur.</li>
+<li><b>(1 pt)</b>
+<pre><code>def approx(n):
+    h = 0.1
+    y = 1
+    for k in range(n):
+        y = (1 + 2*h) * y
+    return y</code></pre></li></ol>` }
+      ] },
+    { titre: "DS n°7 — QCM, fonction paire et inégalités", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — QCM", points: 5,
+          enonce: R`<p>Une seule réponse est exacte par question. Justifier chaque choix.</p><ol>
+<li>\(\left(e^{x}\right)^2\times e^{-2x+1}=\) a) \(e^{x^2-2x+1}\) ; b) \(e\) ; c) \(e^{4x+1}\).</li>
+<li>L'ensemble des solutions de \(e^{x^2}\geqslant e^{4}\) est : a) \([2\,;+\infty[\) ; b) \([-2\,;2]\) ; c) \(]-\infty\,;-2]\cup[2\,;+\infty[\).</li>
+<li>La dérivée de \(x\mapsto xe^{2x}\) est : a) \(2e^{2x}\) ; b) \((1+2x)e^{2x}\) ; c) \((x+2)e^{2x}\).</li>
+<li>L'équation \(e^{2x}=e^{x}\) a : a) aucune solution ; b) une seule solution ; c) deux solutions.</li>
+<li>La suite \(v_n=\dfrac{e^{-n}}{2}\) est : a) géométrique croissante ; b) géométrique décroissante ; c) arithmétique de raison \(-1\).</li></ol>`,
+          correction: R`<p><b>1 pt par question (0,5 réponse + 0,5 justification).</b></p><ol>
+<li><b>b)</b> \(e^{2x}\times e^{-2x+1}=e^{2x-2x+1}=e^1=e\).</li>
+<li><b>c)</b> \(x^2\geqslant 4\iff x^2-4\geqslant 0\iff (x-2)(x+2)\geqslant 0\iff x\leqslant -2\) ou \(x\geqslant 2\).</li>
+<li><b>b)</b> \(1\times e^{2x}+x\times 2e^{2x}=(1+2x)e^{2x}\).</li>
+<li><b>b)</b> \(e^{2x}=e^x\iff 2x=x\iff x=0\).</li>
+<li><b>b)</b> \(v_{n+1}=\dfrac{e^{-n-1}}2=v_n\times e^{-1}\) : géométrique de raison \(\dfrac1e\in]0\,;1[\) et \(v_0=\dfrac12\gt 0\), donc décroissante.</li></ol>` },
+        { titre: "Exercice 2 — La fonction « chaînette »", points: 6,
+          enonce: R`<p>Soit \(f\) et \(g\) définies sur \(\mathbb{R}\) par \(f(x)=\dfrac{e^{x}+e^{-x}}{2}\) et \(g(x)=\dfrac{e^{x}-e^{-x}}{2}\). (La courbe de \(f\) a la forme d'une chaîne suspendue par ses extrémités.)</p><ol><li>Montrer que pour tout réel \(x\), \(f(-x)=f(x)\). Que peut-on en déduire pour la courbe de \(f\) ?</li><li>Montrer que \(f'=g\).</li><li>Résoudre \(g(x)\gt 0\). En déduire le tableau de variations de \(f\).</li><li>En déduire que pour tout réel \(x\), \(e^{x}+e^{-x}\geqslant 2\).</li><li>Montrer que pour tout réel \(x\), \(f(x)^2-g(x)^2=1\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f(-x)=\dfrac{e^{-x}+e^{x}}{2}=f(x)\). La courbe de \(f\) est symétrique par rapport à l'axe des ordonnées.</li>
+<li><b>(1 pt)</b> \(\left(e^{-x}\right)'=-e^{-x}\), donc \(f'(x)=\dfrac{e^x-e^{-x}}2=g(x)\).</li>
+<li><b>(2 pts)</b> \(g(x)\gt 0\iff e^x\gt e^{-x}\iff x\gt -x\iff x\gt 0\) (stricte croissance de \(\exp\)). De même \(g(x)\lt 0\iff x\lt 0\), et \(g(0)=0\). \(f(0)=\dfrac{1+1}2=1\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(0\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)=g(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↘</td><td>\(1\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> Le minimum de \(f\) est \(1\), donc \(\dfrac{e^x+e^{-x}}2\geqslant 1\), soit \(e^x+e^{-x}\geqslant 2\).</li>
+<li><b>(1 pt)</b> Avec \(e^xe^{-x}=1\) : \(f(x)^2=\dfrac{e^{2x}+2+e^{-2x}}4\) et \(g(x)^2=\dfrac{e^{2x}-2+e^{-2x}}4\). Donc \(f(x)^2-g(x)^2=\dfrac{2-(-2)}4=1\).</li></ol>` },
+        { titre: "Exercice 3 — Étude de (1 − 2x)e²ˣ", points: 5,
+          enonce: R`<p>Soit \(h(x)=(1-2x)e^{2x}\) sur \(\mathbb{R}\), de courbe \(\mathcal{C}\).</p><ol><li>Montrer que \(h'(x)=-4xe^{2x}\).</li><li>Dresser le tableau de variations de \(h\) et en déduire que pour tout réel \(x\), \((1-2x)e^{2x}\leqslant 1\).</li><li>Déterminer le point d'intersection de \(\mathcal{C}\) avec l'axe des abscisses, puis une équation de la tangente à \(\mathcal{C}\) en ce point.</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(u(x)=1-2x\), \(u'(x)=-2\), \(v(x)=e^{2x}\), \(v'(x)=2e^{2x}\) :
+\(h'(x)=-2e^{2x}+2(1-2x)e^{2x}=(-2+2-4x)e^{2x}=-4xe^{2x}\).</li>
+<li><b>(2 pts)</b> \(e^{2x}\gt 0\), donc \(h'(x)\) a le signe de \(-4x\) : positif sur \(]-\infty\,;0[\), négatif sur \(]0\,;+\infty[\). \(h(0)=1\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(0\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(h'(x)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(h\)</td><td></td><td>↗</td><td>\(1\)</td><td>↘</td><td></td></tr>
+</table>
+Le maximum de \(h\) sur \(\mathbb{R}\) vaut \(1\), donc \((1-2x)e^{2x}\leqslant 1\).</li>
+<li><b>(1,5 pt)</b> \(h(x)=0\iff 1-2x=0\) (car \(e^{2x}\neq 0\)) \(\iff x=\dfrac12\) : point \(\left(\dfrac12\,;0\right)\).<br>
+\(h'\left(\dfrac12\right)=-4\times\dfrac12\times e^{1}=-2e\). Tangente : \(y=-2e\left(x-\dfrac12\right)+0\), soit \(y=-2ex+e\).</li></ol>` },
+        { titre: "Exercice 4 — Inéquations", points: 4,
+          enonce: R`<p>Résoudre dans \(\mathbb{R}\) :</p><ol><li>\(e^{2x+1}\lt e^{-x}\times e^{4}\)</li><li>\((3-x)e^{x+1}\geqslant 0\)</li><li>\(\left(e^{x}-1\right)(x+2)\gt 0\) (à l'aide d'un tableau de signes)</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(e^{-x}\times e^4=e^{4-x}\) : \(2x+1\lt 4-x\iff 3x\lt 3\iff x\lt 1\). \(\mathcal{S}=]-\infty\,;1[\).</li>
+<li><b>(1 pt)</b> \(e^{x+1}\gt 0\), donc l'inéquation équivaut à \(3-x\geqslant 0\iff x\leqslant 3\). \(\mathcal{S}=]-\infty\,;3]\).</li>
+<li><b>(2 pts)</b> \(e^x-1\gt 0\iff e^x\gt e^0\iff x\gt 0\) ; \(x+2\gt 0\iff x\gt -2\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(-2\)</td><td></td><td>\(0\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>\(e^x-1\)</td><td></td><td>\(-\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>\(x+2\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td><td>\(+\)</td><td></td></tr>
+<tr><td>produit</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+</table>
+\(\mathcal{S}=]-\infty\,;-2[\,\cup\,]0\,;+\infty[\).</li></ol>` }
+      ] },
+    { titre: "DS n°8 — Radioactivité et étude de fonction", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — L'iode 131", points: 7,
+          enonce: R`<p>L'iode 131, utilisé en médecine nucléaire, est radioactif. Un échantillon contient \(1\,000\) milliards de noyaux à l'instant \(t=0\). Le nombre de noyaux restants, en milliards, au bout de \(t\) jours est \(N(t)=1\,000\,e^{-0{,}086t}\) pour \(t\geqslant 0\).</p><ol><li>Calculer \(N(8)\) à l'unité près. Que remarque-t-on ?</li><li>Étudier le sens de variation de \(N\).</li><li>Montrer que \(N(t+8)=e^{-0{,}688}N(t)\) pour tout \(t\geqslant 0\) et donner une valeur approchée à \(10^{-3}\) près de \(e^{-0{,}688}\). Interpréter.</li><li>De quel pourcentage le nombre de noyaux diminue-t-il chaque jour (à \(0{,}1\,\%\) près) ?</li><li>Écrire un programme Python qui détermine au bout de combien de jours entiers il reste moins de \(100\) milliards de noyaux. Donner la réponse en la justifiant par deux valeurs.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(N(8)=1\,000e^{-0{,}688}\approx 503\) : au bout de \(8\) jours, il reste environ la moitié des noyaux.</li>
+<li><b>(1 pt)</b> \(N'(t)=1\,000\times(-0{,}086)e^{-0{,}086t}=-86e^{-0{,}086t}\lt 0\) : \(N\) est strictement décroissante.</li>
+<li><b>(2 pts)</b> \(N(t+8)=1\,000e^{-0{,}086t-0{,}688}=1\,000e^{-0{,}086t}\times e^{-0{,}688}=e^{-0{,}688}N(t)\) car \(0{,}086\times 8=0{,}688\).<br>
+\(e^{-0{,}688}\approx 0{,}503\) : tous les \(8\) jours, le nombre de noyaux est (environ) divisé par \(2\), quel que soit l'instant de départ (c'est la « demi-vie » de l'iode 131, environ \(8\) jours).</li>
+<li><b>(1 pt)</b> \(N(t+1)=e^{-0{,}086}N(t)\) et \(e^{-0{,}086}\approx 0{,}9176=1-0{,}0824\) : baisse d'environ \(8{,}2\,\%\) par jour.</li>
+<li><b>(2 pts : programme 1 pt, réponse 1 pt)</b>
+<pre><code>from math import exp
+t = 0
+while 1000 * exp(-0.086 * t) &gt;= 100:
+    t = t + 1
+print(t)</code></pre>
+\(N(26)=1\,000e^{-2{,}236}\approx 106{,}9\geqslant 100\) et \(N(27)=1\,000e^{-2{,}322}\approx 98{,}1\lt 100\). \(N\) étant décroissante, il faut \(27\) jours.</li></ol>` },
+        { titre: "Exercice 2 — Étude de (x² − x − 1)e⁻ˣ", points: 8,
+          enonce: R`<p>Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=\left(x^2-x-1\right)e^{-x}\), de courbe \(\mathcal{C}\).</p><ol><li>Déterminer les abscisses des points d'intersection de \(\mathcal{C}\) avec l'axe des abscisses (valeurs exactes puis approchées à \(10^{-2}\)).</li><li>Montrer que \(f'(x)=x(3-x)e^{-x}\).</li><li>Dresser le tableau de variations de \(f\), avec les valeurs exactes des extremums locaux et une valeur approchée à \(10^{-3}\) près du maximum local.</li><li>Déterminer une équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(1\).</li></ol>`,
+          correction: R`<ol><li><b>(2 pts)</b> \(e^{-x}\neq 0\), donc \(f(x)=0\iff x^2-x-1=0\). \(\Delta=1+4=5\), racines \(x_1=\dfrac{1-\sqrt5}{2}\approx -0{,}62\) et \(x_2=\dfrac{1+\sqrt5}{2}\approx 1{,}62\).</li>
+<li><b>(2 pts)</b> \(u(x)=x^2-x-1\), \(u'(x)=2x-1\), \(v(x)=e^{-x}\), \(v'(x)=-e^{-x}\) :
+\(f'(x)=(2x-1)e^{-x}-\left(x^2-x-1\right)e^{-x}=\left(-x^2+3x\right)e^{-x}=x(3-x)e^{-x}\).</li>
+<li><b>(2,5 pts)</b> \(e^{-x}\gt 0\), donc \(f'(x)\) a le signe de \(x(3-x)=-x^2+3x\), trinôme de coefficient \(-1\lt 0\), positif entre ses racines \(0\) et \(3\).<br>
+\(f(0)=-1\) ; \(f(3)=(9-3-1)e^{-3}=5e^{-3}\approx 0{,}249\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(0\)</td><td></td><td>\(3\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(f'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(f\)</td><td></td><td>↘</td><td>\(-1\)</td><td>↗</td><td>\(5e^{-3}\)</td><td>↘</td><td></td></tr>
+</table></li>
+<li><b>(1,5 pt)</b> \(f(1)=(1-1-1)e^{-1}=-\dfrac1e\) et \(f'(1)=1\times 2\times e^{-1}=\dfrac2e\).
+\(T : y=\dfrac2e(x-1)-\dfrac1e\), soit \(y=\dfrac2e\,x-\dfrac3e\) (environ \(y=0{,}736x-1{,}104\)).</li></ol>` },
+        { titre: "Exercice 3 — Vrai ou faux", points: 5,
+          enonce: R`<p>Dire si chaque affirmation est vraie ou fausse, en justifiant.</p><ol><li>Pour tous réels \(a\) et \(b\), \(e^{a+b}=e^{a}+e^{b}\).</li><li>La fonction \(x\mapsto e^{-3x+2}\) est croissante sur \(\mathbb{R}\).</li><li>Pour tout réel \(x\), \(e^{x}+e^{-x}\geqslant 2\). (On pourra développer \(\left(e^{x/2}-e^{-x/2}\right)^2\).)</li><li>La suite \(u_n=2^{n}e^{-n}\) est géométrique et décroissante.</li><li>L'inéquation \(e^{x}\lt x+1\) n'a aucune solution réelle.</li></ol>`,
+          correction: R`<p><b>1 pt par affirmation.</b></p><ol><li><b>Faux.</b> Pour \(a=b=0\) : \(e^0=1\) alors que \(e^0+e^0=2\). (La bonne règle est \(e^{a+b}=e^a\times e^b\).)</li>
+<li><b>Faux.</b> Sa dérivée est \(-3e^{-3x+2}\lt 0\) : elle est strictement décroissante.</li>
+<li><b>Vrai.</b> \(\left(e^{x/2}-e^{-x/2}\right)^2=e^{x}-2e^{x/2}e^{-x/2}+e^{-x}=e^x-2+e^{-x}\). Un carré est positif, donc \(e^x+e^{-x}-2\geqslant 0\).</li>
+<li><b>Vrai.</b> \(u_n=\left(\dfrac2e\right)^n\) : géométrique de raison \(\dfrac2e\approx 0{,}736\in]0\,;1[\) et de premier terme \(u_0=1\gt 0\), donc décroissante.</li>
+<li><b>Vrai.</b> D'après le cours, \(e^x\geqslant x+1\) pour tout réel \(x\) (la courbe de \(\exp\) est au-dessus de sa tangente en \(0\)). Donc \(e^x\lt x+1\) n'est jamais vrai.</li></ol>` }
+      ] },
+    { titre: "DS n°9 — Positions de courbes et famille de fonctions", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Équations à changement de variable", points: 4,
+          enonce: R`<ol><li>Montrer que pour tout réel \(x\), \(\dfrac{e^{x}}{1+e^{x}}=\dfrac{1}{1+e^{-x}}\).</li><li>Résoudre dans \(\mathbb{R}\) : \(\left(e^{x}\right)^3=e^{x+8}\).</li><li>Développer \(\left(X-1\right)(X-e)\), puis résoudre dans \(\mathbb{R}\) : \(e^{2x}-(e+1)e^{x}+e=0\).</li><li>En déduire les solutions de \(e^{2x}-(e+1)e^{x}+e\lt 0\).</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> On divise numérateur et dénominateur par \(e^x\neq 0\) : \(\dfrac{e^x}{1+e^x}=\dfrac{1}{e^{-x}+1}\) car \(\dfrac{1}{e^x}=e^{-x}\).</li>
+<li><b>(1 pt)</b> \(\left(e^x\right)^3=e^{3x}\) : \(3x=x+8\iff x=4\). \(\mathcal{S}=\{4\}\).</li>
+<li><b>(1 pt)</b> \((X-1)(X-e)=X^2-(e+1)X+e\). Avec \(X=e^x\), l'équation s'écrit \(\left(e^x-1\right)\left(e^x-e\right)=0\iff e^x=1\) ou \(e^x=e\iff x=0\) ou \(x=1\). \(\mathcal{S}=\{0\,;1\}\).</li>
+<li><b>(1 pt)</b> \(\left(e^x-1\right)\left(e^x-e\right)\lt 0\) : les deux facteurs sont de signes contraires. Comme \(e\gt 1\), on a toujours \(e^x-e\lt e^x-1\) ; il faut donc \(e^x-e\lt 0\lt e^x-1\), soit \(1\lt e^x\lt e\iff 0\lt x\lt 1\). \(\mathcal{S}=]0\,;1[\).</li></ol>` },
+        { titre: "Exercice 2 — Position de deux courbes", points: 6,
+          enonce: R`<p>On note \(\mathcal{C}_f\) et \(\mathcal{C}_g\) les courbes des fonctions \(f(x)=xe^{x}\) et \(g(x)=e^{x}\) définies sur \(\mathbb{R}\). On pose \(d(x)=f(x)-g(x)\).</p><ol><li>Montrer que \(d(x)=(x-1)e^{x}\). Déterminer les coordonnées du point d'intersection de \(\mathcal{C}_f\) et \(\mathcal{C}_g\).</li><li>Étudier la position relative de \(\mathcal{C}_f\) et \(\mathcal{C}_g\).</li><li>Calculer \(d'(x)\) et dresser le tableau de variations de \(d\).</li><li>Pour \(x\leqslant 1\), on mesure l'écart vertical \(g(x)-f(x)\) entre les deux courbes. Pour quelle valeur de \(x\) est-il maximal ? Que vaut-il alors ?</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(d(x)=xe^x-e^x=(x-1)e^x\). \(d(x)=0\iff x=1\) (car \(e^x\neq 0\)) ; \(g(1)=e\). Point d'intersection : \((1\,;e)\).</li>
+<li><b>(1,5 pt)</b> \(d(x)\) a le signe de \(x-1\) : sur \(]-\infty\,;1[\), \(d(x)\lt 0\), \(\mathcal{C}_f\) est en dessous de \(\mathcal{C}_g\) ; sur \(]1\,;+\infty[\), \(\mathcal{C}_f\) est au-dessus de \(\mathcal{C}_g\).</li>
+<li><b>(2 pts)</b> \(d'(x)=e^x+(x-1)e^x=xe^x\), du signe de \(x\). \(d(0)=-1\).
+<table class="tv">
+<tr><td>\(x\)</td><td>\(-\infty\)</td><td></td><td>\(0\)</td><td></td><td>\(+\infty\)</td></tr>
+<tr><td>signe de \(d'(x)\)</td><td></td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td><td></td></tr>
+<tr><td>variations de \(d\)</td><td></td><td>↘</td><td>\(-1\)</td><td>↗</td><td></td></tr>
+</table></li>
+<li><b>(1 pt)</b> \(g(x)-f(x)=-d(x)\). Comme \(d\) a pour minimum \(-1\) atteint en \(0\), \(-d\) a pour maximum \(1\) en \(0\) : l'écart est maximal pour \(x=0\) et vaut \(1\) (entre les points \((0\,;0)\) et \((0\,;1)\)).</li></ol>` },
+        { titre: "Exercice 3 — Une famille de fonctions", points: 6,
+          enonce: R`<p>Pour tout réel \(m\), on considère la fonction \(f_m\) définie sur \(\mathbb{R}\) par \(f_m(x)=(x+m)e^{x}\), de courbe \(\mathcal{C}_m\).</p><ol><li>Montrer que \(f_m'(x)=(x+m+1)e^{x}\).</li><li>Montrer que \(f_m\) admet un minimum dont on donnera la valeur exacte en fonction de \(m\).</li><li>Déterminer \(m\) pour que ce minimum soit atteint en \(x=2\).</li><li>Montrer que la tangente à \(\mathcal{C}_m\) au point d'abscisse \(0\) a pour équation \(y=(m+1)x+m\). Déterminer \(m\) pour que cette tangente passe par le point \(A(-2\,;-3)\).</li><li>Montrer que deux courbes \(\mathcal{C}_m\) et \(\mathcal{C}_p\) avec \(m\neq p\) n'ont aucun point commun.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(f_m'(x)=1\times e^x+(x+m)e^x=(x+m+1)e^x\).</li>
+<li><b>(1,5 pt)</b> \(f_m'(x)\) a le signe de \(x+m+1\) : négatif pour \(x\lt -m-1\), positif pour \(x\gt -m-1\). \(f_m\) est décroissante puis croissante : elle admet un minimum en \(x=-m-1\), égal à \(f_m(-m-1)=(-m-1+m)e^{-m-1}=-e^{-m-1}\).</li>
+<li><b>(1 pt)</b> \(-m-1=2\iff m=-3\).</li>
+<li><b>(1,5 pt)</b> \(f_m(0)=m\) et \(f_m'(0)=m+1\), d'où \(y=(m+1)x+m\). Elle passe par \(A\) si \(-3=-2(m+1)+m=-m-2\iff m=1\).</li>
+<li><b>(1 pt)</b> \(f_m(x)=f_p(x)\iff (x+m)e^x=(x+p)e^x\iff x+m=x+p\) (car \(e^x\neq 0\)) \(\iff m=p\). Si \(m\neq p\), aucune abscisse ne convient : pas de point commun.</li></ol>` },
+        { titre: "Exercice 4 — Somme de termes", points: 4,
+          enonce: R`<p>Pour tout entier naturel \(n\), on pose \(u_n=e^{-n}\) et \(S_n=u_0+u_1+\dots+u_n\).</p><ol><li>Montrer que \((u_n)\) est géométrique et préciser sa raison et son sens de variation.</li><li>Montrer que \(S_n=\dfrac{e}{e-1}\left(1-e^{-(n+1)}\right)\).</li><li>En déduire que pour tout \(n\), \(S_n\lt\dfrac{e}{e-1}\).</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(u_{n+1}=e^{-n-1}=e^{-n}\times e^{-1}=u_n\times\dfrac1e\) : géométrique de raison \(\dfrac1e\) et de premier terme \(u_0=1\). Comme \(0\lt\dfrac1e\lt 1\) et \(u_0\gt 0\), elle est décroissante.</li>
+<li><b>(1,5 pt)</b> Somme de \(n+1\) termes : \(S_n=1\times\dfrac{1-e^{-(n+1)}}{1-e^{-1}}\). Or \(1-e^{-1}=1-\dfrac1e=\dfrac{e-1}{e}\), donc \(S_n=\dfrac{e}{e-1}\left(1-e^{-(n+1)}\right)\).</li>
+<li><b>(1 pt)</b> \(e^{-(n+1)}\gt 0\), donc \(1-e^{-(n+1)}\lt 1\) ; et \(\dfrac{e}{e-1}\gt 0\) car \(e\gt 1\). Donc \(S_n\lt\dfrac{e}{e-1}\).</li></ol>` }
+      ] },
+    { titre: "DS n°10 — Lancement d'un produit et approximation de 2e", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — QCM", points: 5,
+          enonce: R`<p>Une seule réponse est exacte. Justifier.</p><ol>
+<li>Une valeur approchée de \(e^{-0{,}5}\) à \(10^{-3}\) près est : a) \(-1{,}359\) ; b) \(0{,}607\) ; c) \(1{,}649\).</li>
+<li>Une quantité est modélisée par \(Q(t)=3e^{0{,}04t}\). Quand \(t\) augmente de \(1\), \(Q\) augmente d'environ : a) \(4\,\%\) exactement ; b) \(4{,}08\,\%\) ; c) \(0{,}04\,\%\).</li>
+<li>La dérivée de \(x\mapsto(2x+1)e^{-x}\) est : a) \((1-2x)e^{-x}\) ; b) \(-2e^{-x}\) ; c) \((2x+3)e^{-x}\).</li>
+<li>L'ensemble des solutions de \(e^{x^2-5x}\lt e^{-6}\) est : a) \(]2\,;3[\) ; b) \(]-\infty\,;2[\cup]3\,;+\infty[\) ; c) \(\varnothing\).</li>
+<li>La tangente à la courbe de \(\exp\) au point d'abscisse \(-1\) a pour équation : a) \(y=x+2\) ; b) \(y=e^{-1}x\) ; c) \(y=e^{-1}x+2e^{-1}\).</li></ol>`,
+          correction: R`<p><b>1 pt par question (0,5 réponse + 0,5 justification).</b></p><ol>
+<li><b>b)</b> Calculatrice : \(e^{-0{,}5}\approx 0{,}607\) (une exponentielle est positive, et \(e^{-0{,}5}\lt e^0=1\)).</li>
+<li><b>b)</b> \(Q(t+1)=Q(t)\times e^{0{,}04}\) et \(e^{0{,}04}\approx 1{,}0408\) : hausse d'environ \(4{,}08\,\%\).</li>
+<li><b>a)</b> \(2e^{-x}+(2x+1)\times\left(-e^{-x}\right)=(2-2x-1)e^{-x}=(1-2x)e^{-x}\).</li>
+<li><b>a)</b> \(x^2-5x\lt -6\iff x^2-5x+6\lt 0\iff(x-2)(x-3)\lt 0\iff 2\lt x\lt 3\).</li>
+<li><b>c)</b> \(y=e^{-1}(x+1)+e^{-1}=e^{-1}x+2e^{-1}\).</li></ol>` },
+        { titre: "Exercice 2 — Ventes d'un nouveau jeu", points: 8,
+          enonce: R`<p>Un nouveau jeu vidéo est mis en vente. Le nombre de ventes le jour \(t\) (\(t\) en jours, \(t\in[0\,;30]\)) est modélisé par \(v(t)=50t\,e^{-0{,}2t}\).</p><ol><li>Calculer \(v(0)\), \(v(10)\) et \(v(30)\) (arrondis à l'unité).</li><li>Montrer que \(v'(t)=10(5-t)e^{-0{,}2t}\).</li><li>Dresser le tableau de variations de \(v\) sur \([0\,;30]\). Quel jour les ventes sont-elles maximales ? Combien de ventes environ ce jour-là ?</li><li>Le magasin arrête la promotion du jeu dès que, après le pic, les ventes passent sous \(20\) par jour. Écrire un programme Python qui renvoie ce jour (premier entier \(t\geqslant 5\) tel que \(v(t)\lt 20\)), puis donner sa valeur en la justifiant.</li></ol>`,
+          correction: R`<ol><li><b>(1,5 pt)</b> \(v(0)=0\) ; \(v(10)=500e^{-2}\approx 68\) ; \(v(30)=1\,500e^{-6}\approx 4\).</li>
+<li><b>(2 pts)</b> \(u(t)=50t\), \(u'(t)=50\), \(w(t)=e^{-0{,}2t}\), \(w'(t)=-0{,}2e^{-0{,}2t}\) :
+\(v'(t)=50e^{-0{,}2t}-0{,}2\times 50t\,e^{-0{,}2t}=(50-10t)e^{-0{,}2t}=10(5-t)e^{-0{,}2t}\).</li>
+<li><b>(2,5 pts)</b> \(10e^{-0{,}2t}\gt 0\), donc \(v'(t)\) a le signe de \(5-t\). \(v(5)=250e^{-1}\approx 91{,}97\).
+<table class="tv">
+<tr><td>\(t\)</td><td>\(0\)</td><td></td><td>\(5\)</td><td></td><td>\(30\)</td></tr>
+<tr><td>signe de \(v'(t)\)</td><td></td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td><td></td></tr>
+<tr><td>variations de \(v\)</td><td>\(0\)</td><td>↗</td><td>\(250e^{-1}\)</td><td>↘</td><td>\(1\,500e^{-6}\)</td></tr>
+</table>
+Les ventes sont maximales le \(5\)<sup>e</sup> jour, avec environ \(92\) ventes.</li>
+<li><b>(2 pts : programme 1 pt, réponse 1 pt)</b>
+<pre><code>from math import exp
+def arret():
+    t = 5
+    while 50 * t * exp(-0.2 * t) &gt;= 20:
+        t = t + 1
+    return t</code></pre>
+\(v(19)=950e^{-3{,}8}\approx 21{,}3\geqslant 20\) et \(v(20)=1\,000e^{-4}\approx 18{,}3\lt 20\). \(v\) étant décroissante sur \([5\,;30]\), la promotion s'arrête le jour \(20\).</li></ol>` },
+        { titre: "Exercice 3 — Approcher 2e par la méthode d'Euler", points: 7,
+          enonce: R`<p>On considère une fonction \(f\) dérivable sur \(\mathbb{R}\) telle que \(f'=0{,}5f\) et \(f(0)=2\).</p><ol><li>Vérifier que \(g(x)=2e^{0{,}5x}\) vérifie ces deux conditions. Calculer la valeur exacte de \(g(2)\).</li><li>Justifier que, pour \(h\) petit, \(f(x+h)\approx(1+0{,}5h)f(x)\).</li><li>On choisit \(h=0{,}5\), \(y_0=2\) et \(y_{k+1}=(1+0{,}5h)y_k\). Calculer \(y_1\), \(y_2\), \(y_3\), \(y_4\). Quelle valeur approche \(y_4\) ? Calculer l'erreur relative commise, en pourcentage (à \(0{,}1\,\%\) près).</li><li>On découpe maintenant \([0\,;2]\) en \(n\) pas égaux, \(h=\dfrac2n\). Montrer qu'on obtient \(y_n=2\left(1+\dfrac1n\right)^n\).</li><li>Écrire une fonction Python <code>euler(n)</code> qui renvoie \(y_n\). Elle renvoie environ \(5{,}4096\) pour \(n=100\) : commenter.</li></ol>`,
+          correction: R`<ol><li><b>(1 pt)</b> \(g'(x)=2\times 0{,}5e^{0{,}5x}=e^{0{,}5x}=0{,}5\times g(x)\) et \(g(0)=2e^0=2\). \(g(2)=2e^1=2e\approx 5{,}437\).</li>
+<li><b>(1 pt)</b> \(f(x+h)\approx f(x)+hf'(x)=f(x)+0{,}5hf(x)=(1+0{,}5h)f(x)\).</li>
+<li><b>(2 pts)</b> \(1+0{,}5\times 0{,}5=1{,}25\) : \(y_1=2{,}5\) ; \(y_2=3{,}125\) ; \(y_3=3{,}906\,25\) ; \(y_4=4{,}882\,812\,5\).<br>
+\(y_4\) approche \(f(4\times 0{,}5)=f(2)=2e\approx 5{,}437\). Erreur relative : \(\dfrac{2e-y_4}{2e}\approx 0{,}102\), soit environ \(10{,}2\,\%\).</li>
+<li><b>(1,5 pt)</b> Avec \(h=\dfrac2n\) : \(1+0{,}5h=1+\dfrac1n\). La suite \((y_k)\) est géométrique de raison \(1+\dfrac1n\) et de premier terme \(2\), donc \(y_n=2\left(1+\dfrac1n\right)^n\).</li>
+<li><b>(1,5 pt)</b>
+<pre><code>def euler(n):
+    h = 2 / n
+    y = 2
+    for k in range(n):
+        y = (1 + 0.5*h) * y
+    return y</code></pre>
+Avec \(n=100\), \(y_{100}\approx 5{,}4096\), plus proche de \(2e\approx 5{,}4366\) (erreur d'environ \(0{,}5\,\%\)) : plus le pas est petit, meilleure est l'approximation (on retrouve que \(\left(1+\frac1n\right)^n\) se rapproche de \(e\)).</li></ol>` }
       ] }
   ]
 });
