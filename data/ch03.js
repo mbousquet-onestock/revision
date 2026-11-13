@@ -433,6 +433,482 @@ Comme \(q\neq1\), \(1-q\neq0\) et \(S=\dfrac{1-q^{n+1}}{1-q}\). <b>(0,5 pt)</b><
 <li>Avec \(q=0{,}5\) et \(n=10\) : \(D=\dfrac{1-0{,}5^{11}}{1-0{,}5}=2\left(1-0{,}5^{11}\right)=2-0{,}5^{10}=2-\dfrac1{1024}=\dfrac{2047}{1024}=1{,}9990234375\) km. <b>(1,5 pt)</b></li>
 <li>\(1+\dots+0{,}5^n=\dfrac{1-0{,}5^{n+1}}{0{,}5}=2-2\times0{,}5^{n+1}=2-0{,}5^n\). <b>(1 pt)</b><br>
 \(0{,}5^n\) tend vers 0, donc la somme tend vers 2 : en une infinité d'étapes, Achille parcourt bien exactement 2 km. <b>(0,5 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°3 — Généralités, variations et sommes (sans calculatrice)", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Calculer des termes", points: 5,
+          enonce: R`<ol><li>Soit \((u_n)\) définie pour tout \(n\in\mathbb N\) par \(u_n=\dfrac{n+2}{2n+1}\). Calcule \(u_0\) et \(u_4\), puis exprime \(u_{n+1}\) en fonction de \(n\) (forme simplifiée).</li>
+<li>Soit \((a_n)\) définie par \(a_0=-2\) et, pour tout \(n\in\mathbb N\), \(a_{n+1}=a_n^2-3\). Calcule \(a_1\), \(a_2\) et \(a_3\). Que vaut \(a_{2026}\) ? Justifie.</li>
+<li>\((w_n)\) est la suite géométrique de premier terme \(w_0=-3\) et de raison \(q=2\). Calcule \(w_6\) et donne, en justifiant, le sens de variation de \((w_n)\).</li></ol>`,
+          correction: R`<ol><li>\(u_0=\dfrac{0+2}{0+1}=2\) <b>(0,5 pt)</b> et \(u_4=\dfrac{6}{9}=\dfrac23\). <b>(0,5 pt)</b><br>
+On remplace chaque \(n\) par \(n+1\) : \(u_{n+1}=\dfrac{(n+1)+2}{2(n+1)+1}=\dfrac{n+3}{2n+3}\). <b>(1 pt)</b></li>
+<li>\(a_1=(-2)^2-3=1\), \(a_2=1^2-3=-2\), \(a_3=(-2)^2-3=1\). <b>(0,5 pt)</b><br>
+Comme \(a_2=a_0\) et que chaque terme ne dépend que du précédent, les termes se répètent : \(a_n=-2\) si \(n\) est pair et \(a_n=1\) si \(n\) est impair. <b>(0,5 pt)</b><br>
+2026 est pair, donc \(a_{2026}=-2\). <b>(0,5 pt)</b></li>
+<li>\(w_n=w_0\times q^n=-3\times2^n\), donc \(w_6=-3\times64=-192\). <b>(0,5 pt)</b><br>
+\(w_{n+1}-w_n=-3\times2^{n+1}+3\times2^n=-3\times2^n(2-1)=-3\times2^n&lt;0\) : la suite \((w_n)\) est strictement décroissante. (Ici \(q&gt;1\) mais \(w_0&lt;0\) : c'est l'inverse du cas habituel.) <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Démonstration de cours et applications", points: 5,
+          enonce: R`<ol><li><b>Restitution du cours.</b> Démontre que pour tout entier \(n\geqslant1\), \(1+2+\dots+n=\dfrac{n(n+1)}{2}\).</li>
+<li>En déduire la valeur de \(A=1+2+\dots+80\).</li>
+<li>Calcule \(B=21+22+\dots+80\).</li>
+<li>Calcule \(C=2+4+6+\dots+160\).</li></ol>`,
+          correction: R`<ol><li>On note \(S=1+2+\dots+n\) et on écrit la somme dans les deux sens :
+\[\begin{array}{rcccccc} S&amp;=&amp;1&amp;+&amp;2&amp;+\dots+&amp;n\\ S&amp;=&amp;n&amp;+&amp;(n-1)&amp;+\dots+&amp;1\end{array}\]
+En additionnant colonne par colonne, chacune des \(n\) colonnes vaut \(n+1\). <b>(1 pt)</b><br>
+Donc \(2S=n(n+1)\) et \(S=\dfrac{n(n+1)}{2}\). <b>(1 pt)</b></li>
+<li>Avec \(n=80\) : \(A=\dfrac{80\times81}{2}=40\times81=3240\). <b>(1 pt)</b></li>
+<li>\(B=(1+\dots+80)-(1+\dots+20)=3240-\dfrac{20\times21}{2}=3240-210=3030\). <b>(1 pt)</b><br>
+(Autre méthode : 60 termes consécutifs d'une suite arithmétique, \(B=60\times\dfrac{21+80}{2}=30\times101=3030\).)</li>
+<li>\(C=2\times(1+2+\dots+80)=2\times3240=6480\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Sens de variation", points: 5,
+          enonce: R`Étudie le sens de variation de chacune des suites suivantes.
+<ol><li>\(u_n=2n^2-9n+5\) pour \(n\in\mathbb N\) : calcule \(u_{n+1}-u_n\), conclus, puis donne le plus petit terme de la suite.</li>
+<li>\(v_n=\dfrac{3^n}{n+1}\) pour \(n\in\mathbb N\) : on utilisera le quotient \(\dfrac{v_{n+1}}{v_n}\).</li>
+<li>\((w_n)\) définie par \(w_0=5\) et \(w_{n+1}=w_n-w_n^2\).</li></ol>`,
+          correction: R`<ol><li>\(u_{n+1}-u_n=2(n+1)^2-9(n+1)+5-2n^2+9n-5=2n^2+4n+2-9n-9+5-2n^2+9n-5=4n-7\). <b>(1 pt)</b><br>
+\(4n-7\geqslant0\iff n\geqslant\dfrac74\), c'est-à-dire \(n\geqslant2\) pour un entier. Donc \(u_1&lt;u_0\) et \(u_2&lt;u_1\) : la suite décroît de \(u_0\) à \(u_2\), puis elle est croissante à partir du rang 2. <b>(1 pt)</b><br>
+Le plus petit terme est \(u_2=8-18+5=-5\). <b>(0,5 pt)</b></li>
+<li>Pour tout \(n\), \(v_n&gt;0\). \(\dfrac{v_{n+1}}{v_n}=\dfrac{3^{n+1}}{n+2}\times\dfrac{n+1}{3^n}=\dfrac{3(n+1)}{n+2}\). <b>(0,5 pt)</b><br>
+Or \(3(n+1)&gt;n+2\iff 2n+1&gt;0\), ce qui est vrai pour tout \(n\in\mathbb N\). Donc \(\dfrac{v_{n+1}}{v_n}&gt;1\) et, les termes étant positifs, \(v_{n+1}&gt;v_n\) : \((v_n)\) est strictement croissante. <b>(1 pt)</b></li>
+<li>\(w_{n+1}-w_n=-w_n^2\leqslant0\) pour tout \(n\) (un carré est positif) : \((w_n)\) est décroissante. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Préparer un semi-marathon", points: 5,
+          enonce: R`Élise prépare un semi-marathon (21 km). À sa 1re séance, elle court 4 km ; à chaque séance suivante, elle court 0,75 km de plus qu'à la précédente. On note \(d_n\) la distance (en km) parcourue à la \(n\)-ième séance, donc \(d_1=4\).
+<ol><li>Quelle est la nature de la suite \((d_n)\) ? Exprime \(d_n\) en fonction de \(n\).</li>
+<li>À quelle séance court-elle, pour la première fois, au moins 21 km ? Quelle distance court-elle alors ?</li>
+<li>Quelle distance totale a-t-elle parcourue sur l'ensemble de ces séances (de la 1re à celle trouvée en 2.) ?</li>
+<li>Complète la fonction Python suivante pour qu'elle renvoie le numéro de la séance trouvée à la question 2.
+<pre><code>def seance():
+    n = 1
+    d = 4
+    while ........ :
+        d = ........
+        n = n + 1
+    return n</code></pre></li></ol>`,
+          correction: R`<ol><li>On ajoute 0,75 à chaque séance : \((d_n)\) est arithmétique de raison \(r=0{,}75\) et de premier terme \(d_1=4\). <b>(0,5 pt)</b><br>
+\(d_n=d_1+(n-1)r=4+0{,}75(n-1)=0{,}75n+3{,}25\). <b>(1 pt)</b></li>
+<li>\(d_n\geqslant21\iff0{,}75n\geqslant17{,}75\iff n\geqslant\dfrac{17{,}75}{0{,}75}=\dfrac{71}{3}\approx23{,}7\). <b>(1 pt)</b><br>
+Le premier entier convenable est \(n=24\) : à la <b>24e séance</b> elle court \(d_{24}=0{,}75\times24+3{,}25=18+3{,}25=21{,}25\) km (et \(d_{23}=20{,}5\) km). <b>(0,5 pt)</b></li>
+<li>Somme de 24 termes consécutifs d'une suite arithmétique : \(S=24\times\dfrac{d_1+d_{24}}{2}=24\times\dfrac{4+21{,}25}{2}=12\times25{,}25=303\) km. <b>(1 pt)</b></li>
+<li><pre><code>def seance():
+    n = 1
+    d = 4
+    while d &lt; 21:
+        d = d + 0.75
+        n = n + 1
+    return n</code></pre>
+On boucle tant que la distance est strictement inférieure à 21 km. La fonction renvoie 24. <b>(1 pt : condition 0,5 ; mise à jour de d 0,5)</b></li></ol>` }
+      ] },
+    { titre: "DS n°4 — Suites géométriques et pourcentages", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Une raison négative", points: 4,
+          enonce: R`\((v_n)\) est une suite géométrique telle que \(v_2=12\) et \(v_5=-96\).
+<ol><li>Détermine la raison \(q\) et le premier terme \(v_0\). Exprime \(v_n\) en fonction de \(n\).</li>
+<li>La suite \((v_n)\) est-elle monotone ? Justifie.</li>
+<li>Calcule \(v_0+v_1+\dots+v_9\).</li></ol>`,
+          correction: R`<ol><li>\(v_5=v_2\times q^3\), donc \(q^3=\dfrac{-96}{12}=-8\), d'où \(q=-2\) (car \((-2)^3=-8\)). <b>(0,5 pt)</b><br>
+\(v_2=v_0\times q^2\), donc \(v_0=\dfrac{12}{4}=3\). <b>(0,5 pt)</b> Ainsi \(v_n=3\times(-2)^n\). <b>(0,5 pt)</b></li>
+<li>\(v_0=3\), \(v_1=-6\), \(v_2=12\) : on a \(v_1&lt;v_0\) mais \(v_2&gt;v_1\). La suite n'est ni croissante ni décroissante (les termes changent de signe car \(q&lt;0\)). <b>(1 pt)</b></li>
+<li>Il y a 10 termes : \(S=v_0\times\dfrac{1-q^{10}}{1-q}=3\times\dfrac{1-(-2)^{10}}{1-(-2)}=3\times\dfrac{1-1024}{3}=-1023\). <b>(1,5 pt : formule 0,5 ; nombre de termes 0,5 ; résultat 0,5)</b></li></ol>` },
+        { titre: "Exercice 2 — La fonte d'un glacier", points: 6,
+          enonce: R`En 2025, un glacier alpin couvre une surface de 18 km². Les glaciologues estiment qu'il perd 4 % de sa surface chaque année. On note \(g_n\) la surface (en km²) en l'année \(2025+n\).
+<ol><li>Justifie que \((g_n)\) est géométrique, précise sa raison et exprime \(g_n\) en fonction de \(n\).</li>
+<li>Calcule la surface prévue en 2035 (arrondie au centième). Quel pourcentage de sa surface le glacier aura-t-il perdu entre 2025 et 2035 (arrondi à 0,1 %) ?</li>
+<li>Donne le sens de variation de \((g_n)\) et conjecture sa limite.</li>
+<li>Écris une fonction Python <code>glacier()</code> qui renvoie l'année à partir de laquelle la surface sera inférieure ou égale à la moitié de celle de 2025. Quelle année obtient-on ?</li></ol>`,
+          correction: R`<ol><li>Perdre 4 %, c'est multiplier par \(1-\dfrac{4}{100}=0{,}96\) : \(g_{n+1}=0{,}96\,g_n\). La suite est géométrique de raison \(0{,}96\) et de premier terme \(g_0=18\). <b>(1 pt)</b><br>
+Donc \(g_n=18\times0{,}96^n\). <b>(0,5 pt)</b></li>
+<li>2035 correspond à \(n=10\) : \(g_{10}=18\times0{,}96^{10}\approx11{,}97\) km². <b>(0,5 pt)</b><br>
+La surface a été multipliée par \(0{,}96^{10}\approx0{,}6648\), donc elle a diminué d'environ \(1-0{,}6648=0{,}3352\), soit environ <b>33,5 %</b> (et non \(10\times4=40\,\%\) !). <b>(1 pt)</b></li>
+<li>\(g_0&gt;0\) et \(0&lt;0{,}96&lt;1\) : \((g_n)\) est décroissante. <b>(0,5 pt)</b> Comme \(0{,}96^n\) tend vers 0, on conjecture que \(g_n\) tend vers 0. <b>(0,5 pt)</b></li>
+<li><pre><code>def glacier():
+    n = 0
+    g = 18
+    while g &gt; 9:
+        g = 0.96*g
+        n = n + 1
+    return 2025 + n</code></pre>
+<b>(1 pt)</b><br>
+À la calculatrice : \(g_{16}=18\times0{,}96^{16}\approx9{,}37&gt;9\) et \(g_{17}\approx8{,}99\leqslant9\). La fonction renvoie <b>2042</b>. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — La balle qui rebondit", points: 5,
+          enonce: R`On lâche une balle d'une hauteur de 5 m. À chaque rebond, elle remonte à 60 % de la hauteur d'où elle est tombée. On note \(h_0=5\) et \(h_n\) la hauteur (en m) atteinte après le \(n\)-ième rebond.
+<ol><li>Calcule \(h_1\) et \(h_2\).</li>
+<li>Exprime \(h_n\) en fonction de \(n\).</li>
+<li>À partir de quel rebond la balle remonte-t-elle à moins de 10 cm ?</li>
+<li>Calcule la distance totale parcourue par la balle (montées et descentes) depuis son lâcher jusqu'au moment où elle touche le sol pour la 6e fois. Arrondis au cm.</li></ol>`,
+          correction: R`<ol><li>\(h_1=0{,}6\times5=3\) m et \(h_2=0{,}6\times3=1{,}8\) m. <b>(1 pt)</b></li>
+<li>On multiplie par 0,6 à chaque rebond : \((h_n)\) est géométrique de raison 0,6 et \(h_n=5\times0{,}6^n\). <b>(1 pt)</b></li>
+<li>On cherche le premier \(n\) tel que \(5\times0{,}6^n&lt;0{,}1\). À la calculatrice : \(h_7\approx0{,}140\) m et \(h_8\approx0{,}084\) m. C'est à partir du <b>8e rebond</b>. <b>(1 pt)</b></li>
+<li>La balle descend de 5 m (1er contact), puis pour chacun des rebonds 1 à 5 elle monte de \(h_k\) et redescend de \(h_k\) avant le contact suivant (le 6e contact suit le 5e rebond). <b>(0,5 pt)</b><br>
+\(D=5+2(h_1+h_2+h_3+h_4+h_5)\) avec \(h_1+\dots+h_5=3\times\dfrac{1-0{,}6^5}{1-0{,}6}=7{,}5\times(1-0{,}07776)=6{,}9168\). <b>(1 pt)</b><br>
+\(D=5+2\times6{,}9168=18{,}8336\), soit environ <b>18,83 m</b>. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Reconnaître une suite géométrique", points: 5,
+          enonce: R`<ol><li>Soit \(w_n=\dfrac{2^{2n+1}}{3^n}\) pour \(n\in\mathbb N\). Montre que \(w_n=2\times\left(\dfrac43\right)^n\) ; en déduire que \((w_n)\) est géométrique (raison et premier terme).</li>
+<li>Donne le sens de variation de \((w_n)\) et conjecture sa limite.</li>
+<li>Calcule la valeur exacte de \(S=w_0+w_1+\dots+w_5\), puis une valeur arrondie au centième.</li>
+<li>La suite \(t_n=n\times2^n\) est-elle géométrique ? Justifie.</li></ol>`,
+          correction: R`<ol><li>\(2^{2n+1}=2\times2^{2n}=2\times4^n\), donc \(w_n=\dfrac{2\times4^n}{3^n}=2\times\left(\dfrac43\right)^n\). <b>(0,5 pt)</b><br>
+Alors \(w_{n+1}=2\times\left(\dfrac43\right)^{n+1}=\dfrac43\,w_n\) : \((w_n)\) est géométrique de raison \(\dfrac43\) et de premier terme \(w_0=2\). <b>(1 pt)</b></li>
+<li>\(w_0&gt;0\) et \(q=\dfrac43&gt;1\) : \((w_n)\) est croissante. <b>(0,5 pt)</b> Comme \(\left(\dfrac43\right)^n\) tend vers \(+\infty\), on conjecture que \(w_n\) tend vers \(+\infty\). <b>(0,5 pt)</b></li>
+<li>6 termes : \(S=2\times\dfrac{1-\left(\frac43\right)^6}{1-\frac43}=2\times\dfrac{1-\frac{4096}{729}}{-\frac13}=6\left(\dfrac{4096}{729}-1\right)=6\times\dfrac{3367}{729}=\dfrac{6734}{243}\approx27{,}71\). <b>(1,5 pt)</b></li>
+<li>\(t_0=0\), \(t_1=2\), \(t_2=8\), \(t_3=24\). On a \(\dfrac{t_2}{t_1}=4\) mais \(\dfrac{t_3}{t_2}=3\) : le quotient n'est pas constant, \((t_n)\) n'est pas géométrique. <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°5 — Arithmético-géométrique, tableur et Python", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Les adhérents d'une salle de sport", points: 6,
+          enonce: R`En janvier 2025, une salle de sport compte 800 adhérents. On estime que chaque année, 25 % des adhérents ne renouvellent pas leur abonnement et que 300 nouvelles personnes s'inscrivent. On note \(a_n\) le nombre d'adhérents en janvier \(2025+n\), donc \(a_0=800\).
+<ol><li>Calcule \(a_1\) et \(a_2\).</li>
+<li>Justifie que pour tout \(n\), \(a_{n+1}=0{,}75\,a_n+300\).</li>
+<li>On pose \(b_n=a_n-1200\). Montre que \((b_n)\) est géométrique ; précise sa raison et son premier terme.</li>
+<li>En déduire \(a_n\) en fonction de \(n\).</li>
+<li>Étudie le sens de variation de \((a_n)\) et conjecture sa limite. Interprète.</li>
+<li>La salle ne peut pas accueillir plus de 1150 adhérents. En quelle année ce nombre sera-t-il atteint ou dépassé ?</li></ol>`,
+          correction: R`<ol><li>\(a_1=0{,}75\times800+300=900\) et \(a_2=0{,}75\times900+300=975\). <b>(1 pt)</b></li>
+<li>Garder 75 % des adhérents revient à multiplier par 0,75, puis on ajoute les 300 nouveaux : \(a_{n+1}=0{,}75\,a_n+300\). <b>(0,5 pt)</b></li>
+<li>\(b_{n+1}=a_{n+1}-1200=0{,}75\,a_n+300-1200=0{,}75\,a_n-900=0{,}75\,(a_n-1200)=0{,}75\,b_n\). <b>(1 pt)</b><br>
+\((b_n)\) est géométrique de raison 0,75 et de premier terme \(b_0=800-1200=-400\). <b>(0,5 pt)</b></li>
+<li>\(b_n=-400\times0{,}75^n\), donc \(a_n=b_n+1200=1200-400\times0{,}75^n\). <b>(1 pt)</b></li>
+<li>\(a_{n+1}-a_n=-400\times0{,}75^{n+1}+400\times0{,}75^n=400\times0{,}75^n(1-0{,}75)=100\times0{,}75^n&gt;0\) : \((a_n)\) est croissante. <b>(0,5 pt)</b><br>
+\(0{,}75^n\) tend vers 0, donc on conjecture que \(a_n\) tend vers 1200 : le nombre d'adhérents augmente et se stabilise autour de 1200. <b>(0,5 pt)</b></li>
+<li>\(a_n\geqslant1150\iff400\times0{,}75^n\leqslant50\iff0{,}75^n\leqslant0{,}125\). À la calculatrice, \(0{,}75^7\approx0{,}133\) et \(0{,}75^8\approx0{,}100\) (\(a_7\approx1146{,}6\), \(a_8\approx1160{,}0\)). C'est en <b>2033</b> (\(n=8\)). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Un programme mystère", points: 5,
+          enonce: R`On considère la fonction Python suivante :
+<pre><code>def f(n):
+    u = 1
+    s = 0
+    for k in range(n):
+        s = s + u
+        u = u + 2
+    return s</code></pre>
+<ol><li>Recopie et complète le tableau des valeurs de <code>u</code> et <code>s</code> à la fin de chaque passage dans la boucle lors de l'appel <code>f(4)</code>. Que renvoie <code>f(4)</code> ? et <code>f(5)</code> ?</li>
+<li>Quelle somme la fonction <code>f(n)</code> calcule-t-elle ? Conjecture une expression simple de <code>f(n)</code>.</li>
+<li>Démontre cette conjecture.</li>
+<li>Écris une fonction <code>premier()</code> qui renvoie le plus petit entier \(n\) tel que <code>f(n)</code> dépasse strictement 2026. Sans programmer, donne ce nombre.</li></ol>`,
+          correction: R`<ol><li><table class="tv"><tr><td>passage</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>s</td><td>1</td><td>4</td><td>9</td><td>16</td></tr><tr><td>u</td><td>3</td><td>5</td><td>7</td><td>9</td></tr></table>
+<code>f(4)</code> renvoie 16 et <code>f(5)</code> renvoie \(16+9=25\). <b>(1,5 pt)</b></li>
+<li><code>f(n)</code> calcule la somme des \(n\) premiers nombres impairs : \(1+3+5+\dots+(2n-1)\). <b>(0,5 pt)</b> On obtient 1, 4, 9, 16, 25 : on conjecture \(f(n)=n^2\). <b>(0,5 pt)</b></li>
+<li>Les nombres impairs \(1,3,5,\dots\) forment une suite arithmétique de raison 2 ; le \(n\)-ième est \(1+2(n-1)=2n-1\). <b>(0,5 pt)</b><br>
+\(f(n)=n\times\dfrac{1+(2n-1)}{2}=n\times\dfrac{2n}{2}=n^2\). <b>(1 pt)</b></li>
+<li><pre><code>def premier():
+    n = 0
+    s = 0
+    u = 1
+    while s &lt;= 2026:
+        s = s + u
+        u = u + 2
+        n = n + 1
+    return n</code></pre>
+On cherche le plus petit \(n\) tel que \(n^2&gt;2026\) : \(45^2=2025\leqslant2026\) et \(46^2=2116&gt;2026\). La fonction renvoie <b>46</b>. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Avec un tableur", points: 5,
+          enonce: R`On considère la suite définie par \(u_0=1\) et, pour tout \(n\in\mathbb N\), \(u_{n+1}=2u_n-n+1\). On utilise un tableur : la colonne A contient les valeurs de \(n\) (0 en A2, 1 en A3, etc.) et la colonne B les termes \(u_n\) (\(u_0=1\) en B2).
+<ol><li>Quelle formule, à recopier vers le bas, faut-il saisir en B3 ?</li>
+<li>Calcule \(u_1\), \(u_2\), \(u_3\) et \(u_4\).</li>
+<li>On pose \(v_n=u_n-n\). Montre que \((v_n)\) est géométrique.</li>
+<li>En déduire \(u_n\) en fonction de \(n\), puis la valeur exacte de \(u_{20}\).</li>
+<li>Étudie le sens de variation de \((u_n)\).</li></ol>`,
+          correction: R`<ol><li>En B3 : <code>=2*B2-A2+1</code> (le terme précédent est en B2 et son rang \(n\) en A2). <b>(1 pt)</b></li>
+<li>\(u_1=2\times1-0+1=3\) ; \(u_2=2\times3-1+1=6\) ; \(u_3=2\times6-2+1=11\) ; \(u_4=2\times11-3+1=20\). <b>(1 pt)</b></li>
+<li>\(v_{n+1}=u_{n+1}-(n+1)=2u_n-n+1-n-1=2u_n-2n=2(u_n-n)=2v_n\). <b>(1 pt)</b><br>
+\((v_n)\) est géométrique de raison 2 et de premier terme \(v_0=u_0-0=1\). <b>(0,5 pt)</b></li>
+<li>\(v_n=2^n\), donc \(u_n=v_n+n=2^n+n\). <b>(0,5 pt)</b> \(u_{20}=2^{20}+20=1\,048\,576+20=1\,048\,596\). <b>(0,5 pt)</b></li>
+<li>\(u_{n+1}-u_n=2^{n+1}+n+1-2^n-n=2^n+1&gt;0\) : \((u_n)\) est strictement croissante. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Conjecturer une limite", points: 4,
+          enonce: R`Soit \(u_n=\dfrac{3n+1}{n+2}\) pour \(n\in\mathbb N\).
+<ol><li>Calcule \(u_{10}\), \(u_{100}\) et \(u_{1000}\) (valeurs arrondies au millième). Conjecture la limite de \((u_n)\).</li>
+<li>Montre que pour tout \(n\), \(u_n=3-\dfrac{5}{n+2}\).</li>
+<li>En déduire le sens de variation de \((u_n)\).</li>
+<li>À partir de quel rang a-t-on \(u_n&gt;2{,}99\) ?</li></ol>`,
+          correction: R`<ol><li>\(u_{10}=\dfrac{31}{12}\approx2{,}583\) ; \(u_{100}=\dfrac{301}{102}\approx2{,}951\) ; \(u_{1000}=\dfrac{3001}{1002}\approx2{,}995\). On conjecture que \(u_n\) tend vers 3. <b>(1 pt)</b></li>
+<li>\(3-\dfrac{5}{n+2}=\dfrac{3(n+2)-5}{n+2}=\dfrac{3n+1}{n+2}=u_n\). <b>(1 pt)</b></li>
+<li>\(u_{n+1}-u_n=\dfrac{5}{n+2}-\dfrac{5}{n+3}=\dfrac{5(n+3)-5(n+2)}{(n+2)(n+3)}=\dfrac{5}{(n+2)(n+3)}&gt;0\) : \((u_n)\) est croissante. <b>(1 pt)</b></li>
+<li>\(u_n&gt;2{,}99\iff\dfrac{5}{n+2}&lt;0{,}01\iff n+2&gt;500\iff n&gt;498\). C'est vrai à partir du rang <b>499</b> (\(u_{498}=2{,}99\) exactement). <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°6 — Vrai/faux, épargne et variations", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Vrai ou faux ?", points: 5,
+          enonce: R`Pour chaque affirmation, dis si elle est vraie ou fausse et justifie. Une réponse non justifiée ne rapporte rien.
+<ol><li>Si \((u_n)\) est arithmétique avec \(u_3=7\) et \(u_8=22\), alors \(u_{100}=298\).</li>
+<li>La suite définie par \(u_n=n^2+1\) est arithmétique.</li>
+<li>Augmenter un prix de 20 % puis baisser le nouveau prix de 20 % le ramène à sa valeur initiale.</li>
+<li>\(1+2+3+\dots+50=1275\).</li>
+<li>Si \(u_0=0\) et \(u_{n+1}=u_n+n\) pour tout \(n\), alors \(u_n=\dfrac{n(n-1)}{2}\) pour tout \(n\).</li></ol>`,
+          correction: R`<ol><li><b>Vrai.</b> \(u_8=u_3+5r\) donne \(22=7+5r\), donc \(r=3\). Puis \(u_{100}=u_3+97r=7+291=298\). <b>(1 pt)</b></li>
+<li><b>Faux.</b> \(u_0=1\), \(u_1=2\), \(u_2=5\) : \(u_1-u_0=1\neq u_2-u_1=3\). <b>(1 pt)</b></li>
+<li><b>Faux.</b> On multiplie par \(1{,}2\times0{,}8=0{,}96\) : le prix a baissé de 4 %. <b>(1 pt)</b></li>
+<li><b>Vrai.</b> \(\dfrac{50\times51}{2}=25\times51=1275\). <b>(1 pt)</b></li>
+<li><b>Vrai.</b> \(u_1=u_0+0=0\), \(u_2=u_1+1\), \(u_3=u_2+2\)… donc pour \(n\geqslant1\), \(u_n=0+1+2+\dots+(n-1)=\dfrac{(n-1)n}{2}\) ; et la formule donne aussi \(u_0=0\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Un plan d'épargne", points: 6,
+          enonce: R`Le 1er janvier 2025, Noé place 3000 € sur un compte rémunéré à 2,5 % par an (intérêts composés). À la fin de chaque année, après le versement des intérêts, il ajoute 500 €. On note \(C_n\) le capital (en €) au bout de \(n\) années, donc \(C_0=3000\).
+<ol><li>Calcule \(C_1\) et \(C_2\).</li>
+<li>Exprime \(C_{n+1}\) en fonction de \(C_n\).</li>
+<li>On pose \(D_n=C_n+20\,000\). Montre que \((D_n)\) est géométrique ; précise sa raison et son premier terme.</li>
+<li>En déduire \(C_n\) en fonction de \(n\), puis le capital au bout de 10 ans (au centime près).</li>
+<li>Écris une fonction Python qui renvoie le nombre d'années nécessaires pour que le capital atteigne au moins 15 000 €. Quel résultat obtient-on ?</li></ol>`,
+          correction: R`<ol><li>\(C_1=3000\times1{,}025+500=3575\) € ; \(C_2=3575\times1{,}025+500=4164{,}375\), soit environ 4164,38 €. <b>(1 pt)</b></li>
+<li>Augmenter de 2,5 %, c'est multiplier par 1,025, puis on ajoute 500 : \(C_{n+1}=1{,}025\,C_n+500\). <b>(0,5 pt)</b></li>
+<li>\(D_{n+1}=C_{n+1}+20\,000=1{,}025\,C_n+20\,500=1{,}025\,(C_n+20\,000)=1{,}025\,D_n\) (car \(1{,}025\times20\,000=20\,500\)). <b>(1 pt)</b><br>
+\((D_n)\) est géométrique de raison 1,025 et de premier terme \(D_0=23\,000\). <b>(0,5 pt)</b></li>
+<li>\(D_n=23\,000\times1{,}025^n\), donc \(C_n=23\,000\times1{,}025^n-20\,000\). <b>(1 pt)</b><br>
+\(C_{10}=23\,000\times1{,}025^{10}-20\,000\approx9441{,}94\) €. <b>(0,5 pt)</b></li>
+<li><pre><code>def annees():
+    n = 0
+    C = 3000
+    while C &lt; 15000:
+        C = 1.025*C + 500
+        n = n + 1
+    return n</code></pre>
+<b>(1 pt)</b><br>
+\(C_{17}\approx14\,997{,}22\) € et \(C_{18}\approx15\,872{,}15\) € : la fonction renvoie <b>18</b>. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Le coût d'un loyer", points: 4,
+          enonce: R`En 2025, le loyer annuel d'un appartement est de 7200 €. Le bail prévoit une hausse de 1,5 % par an. On note \(L_n\) le loyer annuel de l'année \(2025+n\).
+<ol><li>Exprime \(L_n\) en fonction de \(n\).</li>
+<li>Quel sera le loyer annuel en 2033 ?</li>
+<li>Quelle somme totale le locataire aura-t-il payée de 2025 à 2033 inclus ?</li></ol>`,
+          correction: R`<ol><li>Chaque année on multiplie par 1,015 : \((L_n)\) est géométrique de raison 1,015 et \(L_n=7200\times1{,}015^n\). <b>(1 pt)</b></li>
+<li>2033 correspond à \(n=8\) : \(L_8=7200\times1{,}015^8\approx8110{,}75\) €. <b>(1 pt)</b></li>
+<li>De 2025 à 2033 inclus, il y a \(8-0+1=9\) années. <b>(0,5 pt)</b><br>
+\(L_0+\dots+L_8=7200\times\dfrac{1-1{,}015^9}{1-1{,}015}=7200\times\dfrac{1{,}015^9-1}{0{,}015}\approx68\,827{,}19\) €. <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Sens de variation", points: 5,
+          enonce: R`<ol><li>Soit \(u_n=5-\dfrac{3}{n+1}\) pour \(n\in\mathbb N\). En utilisant une fonction associée, étudie le sens de variation de \((u_n)\).</li>
+<li>Soit \(v_n=n\times0{,}9^n\) pour \(n\in\mathbb N\).
+<ol type="a"><li>Montre que \(v_{n+1}-v_n=0{,}9^n(0{,}9-0{,}1n)\).</li>
+<li>En déduire le sens de variation de \((v_n)\).</li>
+<li>Quel est le plus grand terme de la suite ? Donne sa valeur arrondie au millième.</li></ol></li></ol>`,
+          correction: R`<ol><li>\(u_n=f(n)\) avec \(f(x)=5-\dfrac{3}{x+1}\) sur \([0\,;+\infty[\). <b>(0,5 pt)</b><br>
+La fonction \(x\mapsto x+1\) est croissante et strictement positive sur \([0\,;+\infty[\), donc \(x\mapsto\dfrac1{x+1}\) est décroissante, \(x\mapsto-\dfrac3{x+1}\) est croissante, et \(f\) aussi. <b>(1 pt)</b><br>
+Donc \((u_n)\) est croissante. <b>(0,5 pt)</b></li>
+<li><ol type="a"><li>\(v_{n+1}-v_n=(n+1)\times0{,}9^{n+1}-n\times0{,}9^n=0{,}9^n\big(0{,}9(n+1)-n\big)=0{,}9^n(0{,}9-0{,}1n)\). <b>(1 pt)</b></li>
+<li>\(0{,}9^n&gt;0\), donc le signe est celui de \(0{,}9-0{,}1n\), positif pour \(n\leqslant9\), nul pour \(n=9\), négatif pour \(n\geqslant10\). La suite est croissante de \(v_0\) à \(v_9\), \(v_{10}=v_9\), puis décroissante à partir du rang 10. <b>(1 pt)</b></li>
+<li>Le plus grand terme est \(v_9=v_{10}=9\times0{,}9^9\approx3{,}487\). <b>(1 pt)</b></li></ol></li></ol>` }
+      ] },
+    { titre: "DS n°7 — Démonstrations et raisonnements (sans calculatrice)", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Restitution du cours", points: 4,
+          enonce: R`<ol><li>Soit \(q\) un réel différent de 1 et \(n\in\mathbb N\). Démontre que \(1+q+q^2+\dots+q^n=\dfrac{1-q^{n+1}}{1-q}\).</li>
+<li>Application : calcule la valeur exacte, sous forme de fraction irréductible, de \(S=1+\dfrac13+\dfrac19+\dfrac1{27}+\dfrac1{81}\).</li></ol>`,
+          correction: R`<ol><li>On note \(S=1+q+\dots+q^n\). En multipliant par \(q\) : \(qS=q+q^2+\dots+q^{n+1}\). <b>(1 pt)</b><br>
+En soustrayant, les termes \(q,q^2,\dots,q^n\) se simplifient : \(S-qS=1-q^{n+1}\), c'est-à-dire \((1-q)S=1-q^{n+1}\). <b>(1 pt)</b><br>
+Comme \(q\neq1\), \(1-q\neq0\) et on peut diviser : \(S=\dfrac{1-q^{n+1}}{1-q}\). <b>(0,5 pt)</b></li>
+<li>\(S=1+q+q^2+q^3+q^4\) avec \(q=\dfrac13\) : \(S=\dfrac{1-\left(\frac13\right)^5}{1-\frac13}=\dfrac{1-\frac1{243}}{\frac23}=\dfrac{242}{243}\times\dfrac32=\dfrac{121}{81}\). <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Une suite auxiliaire arithmétique", points: 5,
+          enonce: R`Soit \((u_n)\) définie par \(u_0=4\) et, pour tout \(n\in\mathbb N\), \(u_{n+1}=\dfrac{u_n}{1+u_n}\). On admet que \(u_n&gt;0\) pour tout \(n\).
+<ol><li>Calcule \(u_1\), \(u_2\) et \(u_3\).</li>
+<li>On pose \(w_n=\dfrac1{u_n}\). Montre que \((w_n)\) est arithmétique ; précise sa raison et son premier terme.</li>
+<li>En déduire \(w_n\), puis \(u_n\), en fonction de \(n\).</li>
+<li>Étudie le sens de variation de \((u_n)\) et conjecture sa limite.</li>
+<li>À partir de quel rang a-t-on \(u_n&lt;0{,}01\) ?</li></ol>`,
+          correction: R`<ol><li>\(u_1=\dfrac{4}{5}\) ; \(u_2=\dfrac{4/5}{9/5}=\dfrac49\) ; \(u_3=\dfrac{4/9}{13/9}=\dfrac4{13}\). <b>(1 pt)</b></li>
+<li>\(w_{n+1}=\dfrac1{u_{n+1}}=\dfrac{1+u_n}{u_n}=\dfrac1{u_n}+1=w_n+1\). <b>(1 pt)</b><br>
+\((w_n)\) est arithmétique de raison 1 et de premier terme \(w_0=\dfrac14\). <b>(0,5 pt)</b></li>
+<li>\(w_n=\dfrac14+n=\dfrac{4n+1}{4}\), donc \(u_n=\dfrac1{w_n}=\dfrac{4}{4n+1}\). <b>(1 pt)</b> (On retrouve \(u_3=\dfrac4{13}\).)</li>
+<li>\(u_{n+1}-u_n=\dfrac{4}{4n+5}-\dfrac{4}{4n+1}=\dfrac{4(4n+1)-4(4n+5)}{(4n+5)(4n+1)}=\dfrac{-16}{(4n+5)(4n+1)}&lt;0\) : \((u_n)\) est décroissante. <b>(0,5 pt)</b><br>
+Quand \(n\) devient grand, \(4n+1\) devient très grand, donc on conjecture que \(u_n\) tend vers 0. <b>(0,5 pt)</b></li>
+<li>\(u_n&lt;0{,}01\iff\dfrac4{4n+1}&lt;\dfrac1{100}\iff4n+1&gt;400\iff n&gt;99{,}75\). C'est vrai à partir du rang <b>100</b>. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Termes consécutifs", points: 6,
+          enonce: R`<ol><li><ol type="a"><li>Détermine le réel \(x&gt;0\) tel que \(3\), \(x\), \(12\) soient trois termes consécutifs d'une suite géométrique. Quelle est la raison ?</li>
+<li>Détermine le réel \(x\) tel que \(2x-1\), \(x+4\), \(3x+1\) soient trois termes consécutifs d'une suite arithmétique. Donne ces trois termes et la raison.</li></ol></li>
+<li>\((u_n)_{n\geqslant1}\) est une suite arithmétique <b>croissante</b> telle que \(u_1+u_2+u_3=15\) et \(u_1\times u_3=9\).
+<ol type="a"><li>Montre que \(u_2=5\).</li>
+<li>Détermine la raison \(r\), puis \(u_n\) en fonction de \(n\).</li>
+<li>Calcule \(u_1+u_2+\dots+u_{20}\).</li></ol></li></ol>`,
+          correction: R`<ol><li><ol type="a"><li>Il faut \(\dfrac{x}{3}=\dfrac{12}{x}\), soit \(x^2=36\), d'où \(x=6\) (car \(x&gt;0\)). La raison est \(\dfrac63=2\). <b>(1,5 pt)</b></li>
+<li>Il faut que les deux écarts soient égaux : \((x+4)-(2x-1)=(3x+1)-(x+4)\iff-x+5=2x-3\iff x=\dfrac83\). <b>(1 pt)</b><br>
+Les termes sont \(\dfrac{13}{3}\), \(\dfrac{20}{3}\), \(9\), de raison \(\dfrac73\). <b>(0,5 pt)</b></li></ol></li>
+<li><ol type="a"><li>\(u_1=u_2-r\) et \(u_3=u_2+r\), donc \(u_1+u_2+u_3=3u_2=15\) et \(u_2=5\). <b>(1 pt)</b></li>
+<li>\(u_1u_3=(5-r)(5+r)=25-r^2=9\), donc \(r^2=16\) et \(r=4\) ou \(r=-4\). La suite est croissante, donc \(r=4\). <b>(1 pt)</b><br>
+\(u_1=5-4=1\) et \(u_n=u_1+(n-1)r=4n-3\).</li>
+<li>\(u_{20}=77\) et il y a 20 termes : \(20\times\dfrac{1+77}{2}=10\times78=780\). <b>(1 pt)</b></li></ol></li></ol>` },
+        { titre: "Exercice 4 — Une boucle qui ne s'arrête jamais ?", points: 5,
+          enonce: R`On considère la suite définie par \(u_0=50\) et \(u_{n+1}=\dfrac{u_n}{2}+5\), et la fonction Python :
+<pre><code>def f(N):
+    n = 0
+    u = 50
+    while u &gt; N:
+        u = u/2 + 5
+        n = n + 1
+    return n</code></pre>
+<ol><li>Fais tourner « à la main » l'appel <code>f(12)</code> en donnant les valeurs successives de <code>n</code> et <code>u</code>. Que renvoie <code>f(12)</code> ?</li>
+<li>On pose \(v_n=u_n-10\). Montre que \((v_n)\) est géométrique et en déduire \(u_n\) en fonction de \(n\).</li>
+<li>Explique pourquoi l'appel <code>f(10)</code> ne se termine jamais. Que peut-on conjecturer sur la limite de \((u_n)\) ?</li></ol>`,
+          correction: R`<ol><li><table class="tv"><tr><td>n</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>u</td><td>50</td><td>30</td><td>20</td><td>15</td><td>12,5</td><td>11,25</td></tr></table>
+<b>(1,5 pt)</b><br>Après le 5e passage, \(u=11{,}25\leqslant12\) : la boucle s'arrête et <code>f(12)</code> renvoie <b>5</b>. <b>(0,5 pt)</b></li>
+<li>\(v_{n+1}=u_{n+1}-10=\dfrac{u_n}{2}-5=\dfrac12(u_n-10)=\dfrac12v_n\) : \((v_n)\) est géométrique de raison \(\dfrac12\) et \(v_0=40\). <b>(1 pt)</b><br>
+Donc \(v_n=40\times\left(\dfrac12\right)^n\) et \(u_n=10+40\times\left(\dfrac12\right)^n\). <b>(0,5 pt)</b></li>
+<li>Pour tout \(n\), \(40\times\left(\dfrac12\right)^n&gt;0\), donc \(u_n&gt;10\) : la condition <code>u &gt; 10</code> reste toujours vraie et la boucle ne s'arrête jamais. <b>(1 pt)</b><br>
+Comme \(\left(\dfrac12\right)^n\) tend vers 0, on conjecture que \(u_n\) tend vers 10 (sans jamais l'atteindre). <b>(0,5 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°8 — Croissance, pollution et coût d'un forage", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — Une culture de bactéries", points: 5,
+          enonce: R`Dans un laboratoire, une culture contient 5000 bactéries à l'instant initial. Leur nombre augmente de 30 % chaque heure. On note \(b_n\) le nombre de bactéries au bout de \(n\) heures.
+<ol><li>Exprime \(b_{n+1}\) en fonction de \(b_n\), puis \(b_n\) en fonction de \(n\).</li>
+<li>Combien y a-t-il de bactéries au bout de 5 heures (arrondi à l'unité) ?</li>
+<li>Écris une fonction Python <code>heures()</code> qui renvoie le nombre d'heures au bout duquel la culture dépasse strictement un million de bactéries. Que renvoie-t-elle ?</li>
+<li>Donne le sens de variation de \((b_n)\) et sa limite (conjecture).</li></ol>`,
+          correction: R`<ol><li>Augmenter de 30 %, c'est multiplier par 1,3 : \(b_{n+1}=1{,}3\,b_n\). \((b_n)\) est géométrique de raison 1,3 et de premier terme 5000, donc \(b_n=5000\times1{,}3^n\). <b>(1,5 pt)</b></li>
+<li>\(b_5=5000\times1{,}3^5=18\,564{,}65\), soit environ 18 565 bactéries. <b>(0,5 pt)</b></li>
+<li><pre><code>def heures():
+    n = 0
+    b = 5000
+    while b &lt;= 1000000:
+        b = 1.3*b
+        n = n + 1
+    return n</code></pre>
+<b>(1,5 pt)</b><br>
+\(b_{20}\approx950\,248\) et \(b_{21}\approx1\,235\,323\) : la fonction renvoie <b>21</b>. <b>(1 pt)</b></li>
+<li>\(b_0&gt;0\) et \(1{,}3&gt;1\) : \((b_n)\) est croissante, et on conjecture qu'elle tend vers \(+\infty\). <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Le coût d'un forage", points: 5,
+          enonce: R`Une entreprise creuse un puits. Le 1er mètre coûte 50 €, et chaque mètre supplémentaire coûte 4 € de plus que le précédent (il faut creuser de plus en plus profond). On note \(c_n\) le coût (en €) du \(n\)-ième mètre, donc \(c_1=50\).
+<ol><li>Quelle est la nature de la suite \((c_n)\) ? Exprime \(c_n\) en fonction de \(n\).</li>
+<li>Calcule le coût total d'un puits de 40 m.</li>
+<li>Montre que le coût total d'un puits de \(n\) mètres est \(S_n=2n^2+48n\).</li>
+<li>Le budget du client est de 10 000 €. Quelle profondeur maximale (en mètres entiers) peut-il faire creuser ?</li></ol>`,
+          correction: R`<ol><li>On ajoute 4 € à chaque mètre : \((c_n)\) est arithmétique de raison 4 et de premier terme \(c_1=50\). <b>(0,5 pt)</b><br>
+\(c_n=50+4(n-1)=4n+46\). <b>(1 pt)</b></li>
+<li>\(c_{40}=4\times40+46=206\). Le coût total est \(40\times\dfrac{50+206}{2}=40\times128=5120\) €. <b>(1,5 pt)</b></li>
+<li>\(S_n=c_1+\dots+c_n=n\times\dfrac{50+(4n+46)}{2}=n\times\dfrac{4n+96}{2}=n(2n+48)=2n^2+48n\). <b>(1 pt)</b></li>
+<li>\(S_n\) augmente avec \(n\). \(S_{59}=2\times3481+48\times59=6962+2832=9794\leqslant10\,000\) et \(S_{60}=7200+2880=10\,080&gt;10\,000\). <b>(0,5 pt)</b><br>
+(On peut aussi résoudre \(2n^2+48n-10\,000\leqslant0\) : la racine positive vaut \(-12+\sqrt{5144}\approx59{,}7\).) La profondeur maximale est <b>59 m</b>. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — La pollution d'un lac", points: 6,
+          enonce: R`Un lac contient 200 kg d'un polluant. Chaque année, les processus naturels éliminent 10 % du polluant présent, mais une usine en rejette 15 kg. On note \(p_n\) la masse de polluant (en kg) au bout de \(n\) années : \(p_0=200\) et \(p_{n+1}=0{,}9\,p_n+15\).
+<ol><li>Calcule \(p_1\) et \(p_2\).</li>
+<li>On pose \(q_n=p_n-150\). Montre que \((q_n)\) est géométrique.</li>
+<li>En déduire \(p_n\) en fonction de \(n\).</li>
+<li>Étudie le sens de variation de \((p_n)\) et conjecture sa limite.</li>
+<li>Au bout de combien d'années la masse de polluant passera-t-elle sous 160 kg ?</li>
+<li>Les écologistes veulent qu'à long terme la masse de polluant se stabilise sous 100 kg. On suppose que l'usine rejette désormais \(d\) kg par an : \(p_{n+1}=0{,}9\,p_n+d\). En cherchant le réel \(\ell\) tel que \(\ell=0{,}9\ell+d\), détermine la valeur limite en fonction de \(d\), puis la condition sur \(d\).</li></ol>`,
+          correction: R`<ol><li>\(p_1=0{,}9\times200+15=195\) ; \(p_2=0{,}9\times195+15=190{,}5\). <b>(1 pt)</b></li>
+<li>\(q_{n+1}=p_{n+1}-150=0{,}9\,p_n-135=0{,}9\,(p_n-150)=0{,}9\,q_n\). \((q_n)\) est géométrique de raison 0,9 et de premier terme \(q_0=50\). <b>(1,5 pt)</b></li>
+<li>\(q_n=50\times0{,}9^n\), donc \(p_n=150+50\times0{,}9^n\). <b>(1 pt)</b></li>
+<li>\(p_{n+1}-p_n=50\times0{,}9^n(0{,}9-1)=-5\times0{,}9^n&lt;0\) : \((p_n)\) est décroissante. Comme \(0{,}9^n\) tend vers 0, on conjecture que \(p_n\) tend vers 150 kg. <b>(1 pt)</b></li>
+<li>\(p_n&lt;160\iff50\times0{,}9^n&lt;10\iff0{,}9^n&lt;0{,}2\). À la calculatrice, \(0{,}9^{15}\approx0{,}206\) et \(0{,}9^{16}\approx0{,}185\) : au bout de <b>16 ans</b>. <b>(0,5 pt)</b></li>
+<li>\(\ell=0{,}9\ell+d\iff0{,}1\ell=d\iff\ell=10d\). Comme précédemment, \(p_n-10d\) est géométrique de raison 0,9, donc \(p_n=10d+(200-10d)\times0{,}9^n\) qui tend vers \(10d\). <b>(0,5 pt)</b><br>
+Il faut \(10d&lt;100\), soit un rejet inférieur à <b>10 kg par an</b>. <b>(0,5 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Deux méthodes pour les variations", points: 4,
+          enonce: R`<ol><li>Soit \(u_n=\dfrac{2n+3}{n+1}\) pour \(n\in\mathbb N\). Montre que \(u_{n+1}-u_n=\dfrac{-1}{(n+1)(n+2)}\) et conclus. Conjecture la limite de \((u_n)\).</li>
+<li>Soit \(v_n=\dfrac{2^n}{n!}\) pour \(n\in\mathbb N\) (rappel : \(n!=1\times2\times\dots\times n\), \(0!=1\) et \((n+1)!=(n+1)\times n!\)). Calcule \(v_0,v_1,v_2,v_3\), puis \(\dfrac{v_{n+1}}{v_n}\), et étudie le sens de variation de \((v_n)\).</li></ol>`,
+          correction: R`<ol><li>\(u_{n+1}-u_n=\dfrac{2n+5}{n+2}-\dfrac{2n+3}{n+1}=\dfrac{(2n+5)(n+1)-(2n+3)(n+2)}{(n+1)(n+2)}=\dfrac{2n^2+7n+5-2n^2-7n-6}{(n+1)(n+2)}=\dfrac{-1}{(n+1)(n+2)}\). <b>(1 pt)</b><br>
+Ce nombre est strictement négatif : \((u_n)\) est décroissante. Comme \(u_n=2+\dfrac1{n+1}\), on conjecture que \(u_n\) tend vers 2. <b>(1 pt)</b></li>
+<li>\(v_0=1\), \(v_1=2\), \(v_2=\dfrac42=2\), \(v_3=\dfrac86=\dfrac43\). <b>(0,5 pt)</b><br>
+\(\dfrac{v_{n+1}}{v_n}=\dfrac{2^{n+1}}{(n+1)!}\times\dfrac{n!}{2^n}=\dfrac{2}{n+1}\). <b>(0,5 pt)</b><br>
+Pour \(n\geqslant1\), \(\dfrac2{n+1}\leqslant1\) et les termes sont positifs, donc \(v_{n+1}\leqslant v_n\) : la suite est décroissante à partir du rang 1 (alors que \(v_1&gt;v_0\)). <b>(1 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°9 — Motifs, sommes et récurrences (sans calculatrice)", duree: "1 h", calculatrice: false,
+      exercices: [
+        { titre: "Exercice 1 — Tables et carrelage", points: 5,
+          enonce: R`<b>Partie A.</b> Dans une cantine, on aligne des tables carrées, côte à côte ; chaque table a 4 places et deux tables accolées perdent les places du côté commun. On note \(t_n\) le nombre de places autour de \(n\) tables alignées.
+<ol><li>Donne \(t_1\), \(t_2\), \(t_3\). Justifie que \((t_n)\) est arithmétique et exprime \(t_n\) en fonction de \(n\).</li>
+<li>Combien de tables faut-il aligner, au minimum, pour accueillir 50 personnes ?</li></ol>
+<b>Partie B.</b> On réalise une mosaïque : la figure 1 est un carreau seul ; on obtient la figure \(n+1\) en entourant la figure \(n\) d'une couronne de carreaux, si bien que la figure \(n\) est un carré de \(2n-1\) carreaux de côté. On note \(c_n\) le nombre de carreaux de la figure \(n\).
+<ol start="3"><li>Calcule \(c_1\), \(c_2\), \(c_3\). La suite \((c_n)\) est-elle arithmétique ?</li>
+<li>Montre que la couronne ajoutée pour passer de la figure \(n\) à la figure \(n+1\) compte \(8n\) carreaux. En déduire le sens de variation de \((c_n)\).</li>
+<li>Retrouve \(c_n\) à l'aide d'une somme : \(c_n=1+8\times(1+2+\dots+(n-1))\) pour \(n\geqslant2\).</li></ol>`,
+          correction: R`<ol><li>\(t_1=4\), \(t_2=6\), \(t_3=8\). Ajouter une table apporte 4 places mais en supprime 2 (le côté accolé) : \(t_{n+1}=t_n+2\). \((t_n)\) est arithmétique de raison 2 et \(t_n=4+2(n-1)=2n+2\). <b>(1,5 pt)</b></li>
+<li>\(2n+2\geqslant50\iff n\geqslant24\) : il faut <b>24 tables</b>. <b>(0,5 pt)</b></li>
+<li>\(c_1=1\), \(c_2=3^2=9\), \(c_3=5^2=25\). \(c_2-c_1=8\neq c_3-c_2=16\) : la suite n'est pas arithmétique. <b>(1 pt)</b></li>
+<li>\(c_{n+1}-c_n=(2n+1)^2-(2n-1)^2=(4n^2+4n+1)-(4n^2-4n+1)=8n\). <b>(0,5 pt)</b> Comme \(8n&gt;0\) pour \(n\geqslant1\), \((c_n)\) est croissante. <b>(0,5 pt)</b></li>
+<li>\(c_n=1+8\times\dfrac{(n-1)n}{2}=1+4n^2-4n=(2n-1)^2\) : on retrouve bien l'aire d'un carré de côté \(2n-1\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Une suite géométrique déguisée", points: 5,
+          enonce: R`Soit \(v_n=\dfrac{3^{n+1}}{4^n}\) pour \(n\in\mathbb N\).
+<ol><li>Montre que \((v_n)\) est géométrique ; précise sa raison et son premier terme.</li>
+<li>Donne son sens de variation et conjecture sa limite.</li>
+<li>Calcule \(v_0+v_1+v_2+v_3\) sous forme d'une fraction irréductible.</li>
+<li>On pose \(w_n=v_n+v_{n+1}\). Montre que \((w_n)\) est aussi géométrique.</li></ol>`,
+          correction: R`<ol><li>\(v_n=3\times\dfrac{3^n}{4^n}=3\times\left(\dfrac34\right)^n\), donc \(v_{n+1}=\dfrac34v_n\) : \((v_n)\) est géométrique de raison \(\dfrac34\) et de premier terme \(v_0=3\). <b>(1,5 pt)</b></li>
+<li>\(v_0&gt;0\) et \(0&lt;\dfrac34&lt;1\) : \((v_n)\) est décroissante ; on conjecture qu'elle tend vers 0. <b>(1 pt)</b></li>
+<li>\(S=3\times\dfrac{1-\left(\frac34\right)^4}{1-\frac34}=12\left(1-\dfrac{81}{256}\right)=12\times\dfrac{175}{256}=\dfrac{2100}{256}=\dfrac{525}{64}\). <b>(1,5 pt)</b><br>
+(Vérification : \(3+\dfrac94+\dfrac{27}{16}+\dfrac{81}{64}=\dfrac{192+144+108+81}{64}=\dfrac{525}{64}\).)</li>
+<li>\(w_n=v_n+\dfrac34v_n=\dfrac74v_n\), donc \(w_{n+1}=\dfrac74v_{n+1}=\dfrac74\times\dfrac34v_n=\dfrac34w_n\) : \((w_n)\) est géométrique de raison \(\dfrac34\) et de premier terme \(w_0=\dfrac{21}{4}\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Trois sommes", points: 5,
+          enonce: R`Calcule les sommes suivantes en justifiant (nature de la suite, nombre de termes).
+<ol><li>\(S=5+10+20+40+\dots+5120\).</li>
+<li>\(T=1-2+4-8+16-\dots+1024\).</li>
+<li>\(U=7+11+15+\dots+403\).</li></ol>`,
+          correction: R`<ol><li>Termes d'une suite géométrique de premier terme 5 et de raison 2 : \(5\times2^k=5120\iff2^k=1024=2^{10}\), donc de \(2^0\) à \(2^{10}\) il y a 11 termes. <b>(0,5 pt)</b><br>
+\(S=5\times\dfrac{1-2^{11}}{1-2}=5\times(2048-1)=5\times2047=10\,235\). <b>(1 pt)</b></li>
+<li>Suite géométrique de premier terme 1 et de raison \(-2\) ; \(1024=(-2)^{10}\), donc 11 termes. <b>(0,5 pt)</b><br>
+\(T=\dfrac{1-(-2)^{11}}{1-(-2)}=\dfrac{1+2048}{3}=\dfrac{2049}{3}=683\). <b>(1,5 pt)</b></li>
+<li>Suite arithmétique de premier terme 7 et de raison 4 : \(7+4k=403\iff k=99\), donc 100 termes. <b>(0,5 pt)</b><br>
+\(U=100\times\dfrac{7+403}{2}=100\times205=20\,500\). <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Récurrence et carrés parfaits", points: 5,
+          enonce: R`Soit \((u_n)\) définie par \(u_0=1\) et, pour tout \(n\in\mathbb N\), \(u_{n+1}=u_n+2n+3\).
+<ol><li>Calcule \(u_1\), \(u_2\), \(u_3\), \(u_4\). Que remarques-tu ?</li>
+<li>Étudie le sens de variation de \((u_n)\).</li>
+<li>Pour \(n\geqslant1\), on a \(u_n=u_0+(3+5+\dots+(2n+1))\). Calcule cette somme et démontre que \(u_n=(n+1)^2\).</li>
+<li>Écris une fonction Python <code>seuil(S)</code> qui renvoie le plus petit \(n\) tel que \(u_n&gt;S\), en utilisant uniquement la relation de récurrence. Que renvoie <code>seuil(10000)</code> ?</li></ol>`,
+          correction: R`<ol><li>\(u_1=1+3=4\), \(u_2=4+5=9\), \(u_3=9+7=16\), \(u_4=16+9=25\) : ce sont les carrés \(2^2,3^2,4^2,5^2\). <b>(1 pt)</b></li>
+<li>\(u_{n+1}-u_n=2n+3&gt;0\) pour tout \(n\) : \((u_n)\) est strictement croissante. <b>(1 pt)</b></li>
+<li>On ajoute successivement \(3,5,\dots,2(n-1)+3=2n+1\) : ce sont \(n\) termes d'une suite arithmétique de raison 2. <b>(0,5 pt)</b><br>
+\(3+5+\dots+(2n+1)=n\times\dfrac{3+2n+1}{2}=n(n+2)\), donc \(u_n=1+n^2+2n=(n+1)^2\) (vrai aussi pour \(n=0\)). <b>(1 pt)</b></li>
+<li><pre><code>def seuil(S):
+    n = 0
+    u = 1
+    while u &lt;= S:
+        u = u + 2*n + 3
+        n = n + 1
+    return n</code></pre>
+<b>(1 pt)</b> (Attention : on utilise l'ancienne valeur de <code>n</code> pour calculer \(u_{n+1}\), donc <code>n</code> est augmenté après.)<br>
+\((n+1)^2&gt;10\,000\iff n+1&gt;100\iff n&gt;99\) : <code>seuil(10000)</code> renvoie <b>100</b> (\(u_{99}=10\,000\) n'est pas strictement supérieur). <b>(0,5 pt)</b></li></ol>` }
+      ] },
+    { titre: "DS n°10 — Bilan du chapitre", duree: "1 h", calculatrice: true,
+      exercices: [
+        { titre: "Exercice 1 — La plante grimpante", points: 4,
+          enonce: R`Une plante grimpante mesure 40 cm. Sa hauteur augmente de 12 % chaque semaine. On note \(p_n\) sa hauteur (en cm) au bout de \(n\) semaines.
+<ol><li>Exprime \(p_n\) en fonction de \(n\).</li>
+<li>Dans un tableur, la colonne A contient \(n\) et la colonne B la hauteur, avec 40 en B2. Quelle formule saisir en B3 pour la recopier vers le bas ? Calcule \(p_4\) et le pourcentage d'augmentation de la hauteur en 4 semaines.</li>
+<li>Au bout de combien de semaines la plante dépassera-t-elle 2 m ?</li></ol>`,
+          correction: R`<ol><li>On multiplie par 1,12 chaque semaine : \((p_n)\) est géométrique de raison 1,12 et \(p_n=40\times1{,}12^n\). <b>(1 pt)</b></li>
+<li>En B3 : <code>=1.12*B2</code> (ou <code>=B2*1,12</code>). <b>(0,5 pt)</b><br>
+\(p_4=40\times1{,}12^4\approx62{,}94\) cm. Comme \(1{,}12^4\approx1{,}5735\), la hauteur a augmenté d'environ 57,4 % (et non 48 %). <b>(1 pt)</b></li>
+<li>On cherche \(n\) tel que \(40\times1{,}12^n&gt;200\), soit \(1{,}12^n&gt;5\). À la calculatrice : \(p_{14}\approx195{,}48\) et \(p_{15}\approx218{,}94\). Au bout de <b>15 semaines</b>. <b>(1,5 pt)</b></li></ol>` },
+        { titre: "Exercice 2 — Deux modes de jeu", points: 5,
+          enonce: R`Dans un jeu vidéo, deux modes de calcul des points sont proposés.
+<ul><li>Mode A : le niveau 1 rapporte 100 points, et chaque niveau rapporte 15 points de plus que le précédent. On note \(a_k\) les points du niveau \(k\).</li>
+<li>Mode B : le niveau 1 rapporte 100 points, et chaque niveau rapporte 10 % de plus que le précédent. On note \(b_k\) les points du niveau \(k\).</li></ul>
+<ol><li>Donne la nature des suites \((a_k)\) et \((b_k)\), et calcule \(a_{20}\) et \(b_{20}\) (au centième).</li>
+<li>Calcule le total des points obtenus après avoir réussi les 20 premiers niveaux dans chaque mode.</li>
+<li>La fonction suivante renvoie le nombre de niveaux à partir duquel le total du mode B dépasse celui du mode A. Explique le rôle des variables <code>A</code> et <code>B</code>. On donne les totaux après 13 niveaux (A : 2470 ; B : 2452,27) et après 14 niveaux (A : 2765 ; B : 2797,50) : que renvoie la fonction ?
+<pre><code>def niveaux():
+    k = 1
+    a = 100
+    b = 100
+    A = 100
+    B = 100
+    while B &lt;= A:
+        k = k + 1
+        a = a + 15
+        b = 1.1*b
+        A = A + a
+        B = B + b
+    return k</code></pre></li></ol>`,
+          correction: R`<ol><li>\((a_k)\) est arithmétique de raison 15 : \(a_k=100+15(k-1)\), \(a_{20}=100+285=385\). <b>(0,5 pt)</b><br>
+\((b_k)\) est géométrique de raison 1,1 : \(b_k=100\times1{,}1^{k-1}\), \(b_{20}=100\times1{,}1^{19}\approx611{,}59\). <b>(1 pt)</b></li>
+<li>Mode A : \(20\times\dfrac{100+385}{2}=10\times485=4850\) points. <b>(1 pt)</b><br>
+Mode B : \(100\times\dfrac{1-1{,}1^{20}}{1-1{,}1}=1000\times(1{,}1^{20}-1)\approx5727{,}50\) points. <b>(1 pt)</b></li>
+<li><code>a</code> et <code>b</code> contiennent les points du niveau \(k\) ; <code>A</code> et <code>B</code> contiennent les totaux cumulés des niveaux 1 à \(k\) dans chaque mode. <b>(0,5 pt)</b><br>
+La boucle continue tant que \(B\leqslant A\). Après 13 niveaux, \(2452{,}27\leqslant2470\) ; après 14 niveaux, \(2797{,}50&gt;2765\). La fonction renvoie <b>14</b>. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 3 — Les algues de l'étang", points: 6,
+          enonce: R`Des algues couvrent 120 m² d'un étang. Chaque semaine, leur surface augmente de 20 %, mais le jardinier en retire ensuite 30 m². On note \(a_n\) la surface (en m²) au bout de \(n\) semaines : \(a_0=120\) et \(a_{n+1}=1{,}2\,a_n-30\).
+<ol><li>Calcule \(a_1\) et \(a_2\).</li>
+<li>On pose \(b_n=a_n-150\). Montre que \((b_n)\) est géométrique.</li>
+<li>En déduire \(a_n\) en fonction de \(n\).</li>
+<li>Étudie le sens de variation de \((a_n)\).</li>
+<li>Au bout de combien de semaines les algues auront-elles complètement disparu ?</li>
+<li>Que se serait-il passé si les algues avaient couvert initialement 200 m² ? Justifie.</li></ol>`,
+          correction: R`<ol><li>\(a_1=1{,}2\times120-30=114\) ; \(a_2=1{,}2\times114-30=106{,}8\). <b>(1 pt)</b></li>
+<li>\(b_{n+1}=a_{n+1}-150=1{,}2\,a_n-180=1{,}2\,(a_n-150)=1{,}2\,b_n\). \((b_n)\) est géométrique de raison 1,2 et de premier terme \(b_0=-30\). <b>(1,5 pt)</b></li>
+<li>\(b_n=-30\times1{,}2^n\), donc \(a_n=150-30\times1{,}2^n\). <b>(1 pt)</b></li>
+<li>\(a_{n+1}-a_n=-30\times1{,}2^n(1{,}2-1)=-6\times1{,}2^n&lt;0\) : \((a_n)\) est décroissante. <b>(1 pt)</b></li>
+<li>\(a_n\leqslant0\iff30\times1{,}2^n\geqslant150\iff1{,}2^n\geqslant5\). À la calculatrice, \(1{,}2^8\approx4{,}30\) et \(1{,}2^9\approx5{,}16\) (\(a_8\approx21{,}0\)) : les algues disparaissent au cours de la <b>9e semaine</b>. <b>(0,5 pt)</b></li>
+<li>Avec \(a_0=200\), on a \(b_0=50\) et \(a_n=150+50\times1{,}2^n\) : la suite est croissante et tend vers \(+\infty\) (car \(1{,}2&gt;1\)). Les algues envahiraient l'étang : le seuil de 150 m² est décisif. <b>(1 pt)</b></li></ol>` },
+        { titre: "Exercice 4 — Les nombres triangulaires", points: 5,
+          enonce: R`On appelle nombres triangulaires les nombres \(t_n=1+2+\dots+n\) (pour \(n\geqslant1\)) : c'est le nombre de billes nécessaires pour former un triangle de \(n\) rangées.
+<ol><li>Démontre que \(t_n=\dfrac{n(n+1)}{2}\).</li>
+<li>Calcule \(t_{n+1}-t_n\). La suite \((t_n)\) est-elle arithmétique ? Quel est son sens de variation ?</li>
+<li>2016 est-il un nombre triangulaire ? Et 2026 ?</li></ol>`,
+          correction: R`<ol><li>On écrit \(t_n=1+2+\dots+n\) et \(t_n=n+(n-1)+\dots+1\). En additionnant terme à terme, on obtient \(n\) sommes égales à \(n+1\) : \(2t_n=n(n+1)\), donc \(t_n=\dfrac{n(n+1)}{2}\). <b>(1,5 pt)</b></li>
+<li>\(t_{n+1}-t_n=n+1\) (on ajoute une rangée de \(n+1\) billes). <b>(0,5 pt)</b> Cette différence dépend de \(n\) : la suite n'est pas arithmétique. <b>(0,5 pt)</b> Elle est strictement positive : \((t_n)\) est croissante. <b>(0,5 pt)</b></li>
+<li>\(t_n=2016\iff n(n+1)=4032\). Or \(63\times64=4032\) : <b>2016 est triangulaire</b> (\(t_{63}=2016\)). <b>(1 pt)</b><br>
+\(t_n=2026\iff n(n+1)=4052\). Or \(63\times64=4032&lt;4052&lt;64\times65=4160\) et \(n(n+1)\) augmente avec \(n\) : aucun entier ne convient, <b>2026 n'est pas triangulaire</b>. <b>(1 pt)</b></li></ol>` }
       ] }
   ]
 });
