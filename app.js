@@ -163,6 +163,7 @@
   }
 
   /* ---------- connexion, inscription, mot de passe oublié ---------- */
+  let CONFIG = { mail: false, inscription: true };
   function fullName(u) { return [u.prenom, u.nom].filter(Boolean).join(' ') || u.username; }
   const devNote = link => link ? `<br><small>Mode local, pas d'e-mail envoyé : <a href="${esc(link)}">ouvrir le lien</a></small>` : '';
 
@@ -174,12 +175,12 @@
   }
 
   function renderLogin(error, info) {
-    loginShell(`<div class="login-tabs"><button class="on" type="button">Se connecter</button><button type="button" data-go="register">Créer un compte</button></div>
+    loginShell(`${CONFIG.inscription ? '<div class="login-tabs"><button class="on" type="button">Se connecter</button><button type="button" data-go="register">Créer un compte</button></div>' : ''}
       <form class="form" id="login">
         ${info ? `<p class="form-msg ok">${info}</p>` : ''}
         <label for="lg-user">Identifiant ou e-mail</label><input id="lg-user" autocomplete="username" autocapitalize="none" required>
         <label for="lg-pass">Mot de passe</label><input id="lg-pass" type="password" autocomplete="current-password" required>
-        <div class="actions"><button class="btn primary" type="submit">Se connecter</button><button class="linkbtn" type="button" data-go="forgot">Mot de passe oublié ?</button></div>
+        <div class="actions"><button class="btn primary" type="submit">Se connecter</button>${CONFIG.mail ? '<button class="linkbtn" type="button" data-go="forgot">Mot de passe oublié ?</button>' : '<small class="muted">Mot de passe oublié ? Demande à ton professeur.</small>'}</div>
         <p class="form-msg ko" id="lg-msg">${error ? esc(error) : ''}</p>
       </form>`);
     $('#login').addEventListener('submit', async e => {
@@ -210,7 +211,7 @@
           <div><label for="rg-nom">Nom</label><input id="rg-nom" autocomplete="family-name" required></div></div>
         <label for="rg-lycee">Lycée</label><input id="rg-lycee" placeholder="Lycée Victor Hugo, Paris" required>
         <label for="rg-email">Adresse e-mail</label><input id="rg-email" type="email" autocomplete="email" required>
-        <label for="rg-user">Identifiant</label><input id="rg-user" autocapitalize="none" autocomplete="username" pattern="[a-zA-Z0-9._\\-]{2,40}" placeholder="lea.martin" required>
+        <label for="rg-user">Identifiant</label><input id="rg-user" autocapitalize="none" autocomplete="username" placeholder="Ce que tu veux, s'il n'est pas déjà pris" required>
         <label for="rg-pass">Mot de passe (6 caractères minimum)</label><input id="rg-pass" type="password" autocomplete="new-password" minlength="6" required>
         <label for="rg-pass2">Confirme le mot de passe</label><input id="rg-pass2" type="password" autocomplete="new-password" minlength="6" required>
         <div class="actions"><button class="btn primary" type="submit">Créer mon compte</button></div>
@@ -223,10 +224,8 @@
       btn.disabled = true; msg.textContent = '';
       try {
         const r = await api('POST', '/register', { prenom: $('#rg-prenom').value, nom: $('#rg-nom').value, lycee: $('#rg-lycee').value, email: $('#rg-email').value, username: $('#rg-user').value, password: $('#rg-pass').value });
-        loginShell(`<div class="done-box"><h2>Vérifie ta boîte mail</h2>
-          <p>Un e-mail de confirmation vient d'être envoyé à <b>${esc(r.email)}</b>. Clique sur le lien qu'il contient pour ouvrir ton compte, puis connecte-toi.</p>
-          <p class="lead">Rien reçu ? Regarde dans les spams. Tu pourras aussi le renvoyer depuis l'écran de connexion.${devNote(r.devLink)}</p>
-          <div class="actions"><button class="btn primary" type="button" data-go="login">Aller à la connexion</button></div></div>`);
+        ME = r.user; await loadAll(); document.body.classList.remove('logged-out'); location.hash = 'accueil'; route();
+        toast(`Bienvenue ${ME.prenom || ME.username} ! Ton compte est créé.`);
       } catch (err) { msg.textContent = err.message; btn.disabled = false; }
     });
   }
@@ -278,6 +277,7 @@
       route();
     } catch (e) {
       ME = null;
+      try { CONFIG = await api('GET', '/config'); } catch (e2) { /* valeurs par défaut */ }
       renderNav({ view: 'login' });
       const q = new URLSearchParams(location.search);
       const clearQuery = () => history.replaceState(null, '', location.pathname + location.hash);
@@ -571,6 +571,7 @@
     if (e.target.id !== 'logout') return;
     try { await api('POST', '/logout', {}); } catch (err) { /* ignore */ }
     ME = null; CH = []; BAC = []; P = emptyP(); location.hash = '';
+    try { CONFIG = await api('GET', '/config'); } catch (err) { /* valeurs par défaut */ }
     renderNav({ view: 'login' }); renderLogin();
   });
 

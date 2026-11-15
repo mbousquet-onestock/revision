@@ -24,6 +24,8 @@ function setup() {
       }
       await query(`insert into meta (key, value) values ('content_version', $1)
                    on conflict (key) do update set value = excluded.value`, [version]);
+      // la vérification par e-mail n'est plus utilisée : on ouvre les comptes qui l'attendaient
+      await query(`update users set email_verified = true, actif = true, token_hash = null, token_kind = null where not email_verified`);
       const [{ a }] = await query(`select count(*)::int as a from users where role = 'admin'`);
       if (!a) {
         const username = (process.env.ADMIN_USERNAME || 'admin').trim().toLowerCase();
@@ -115,12 +117,14 @@ async function sendToken(req, u, kind) {
     [sha(token), kind, String(hours), u.id]);
   const link = kind === 'verify' ? `${origin(req)}/api/verify/${token}` : `${origin(req)}/?reinit=${token}`;
   const m = kind === 'verify' ? mail.verifyMail(u.prenom || u.nom || u.username, link) : mail.resetMail(u.prenom || u.nom || u.username, link);
-  await mail.sendMail({ to: u.email, ...m });
+  try { await mail.sendMail({ to: u.email, ...m }); }
+  catch (e) { console.error(e); throw new HttpError(502, "L'e-mail n'a pas pu être envoyé. Demande à ton professeur de réinitialiser ton mot de passe."); }
   return process.env.VERCEL || mail.configured() ? null : link; // en local sans e-mail : lien renvoyé pour les tests
 }
 const recentlySent = (u, kind) => u.token_kind === kind && u.token_sent_at && Date.now() - new Date(u.token_sent_at) < 60 * 1000;
 const clean = (s, max = 80) => String(s || '').trim().slice(0, max);
-const cleanUsername = s => String(s || '').trim().toLowerCase();
+const cleanUsername = s => String(s || '').trim().slice(0, 60);
+const usernameTaken = async u => (await query(`select 1 from users where lower(username) = lower($1)`, [u])).length > 0;
 function checkNewPassword(pw) {
   if (typeof pw !== 'string' || pw.length < 6) throw new HttpError(400, 'Le mot de passe doit faire au moins 6 caractères.');
 }
@@ -151,7 +155,8 @@ async function handle(req, res) {
   if (method === 'POST' && path === '/login') {
     const { username, password } = await readBody(req);
     const login = cleanUsername(username);
-    const [u] = await query(`select * from users where username = $1 or lower(email) = $1`, [login]);
+    let [u] = await query(`select * from users where lower(username) = lower($1)`, [login]);
+    if (!u) { const byMail = await query(`select * from users where lower(email) = lower($1)`, [login]); if (byMail.length === 1) u = byMail[0]; }
     if (!u || !auth.checkPassword(password || '', u.password_hash)) {
       await new Promise(r => setTimeout(r, 600));
       throw new HttpError(401, 'Identifiant ou mot de passe incorrect.');
@@ -165,6 +170,9 @@ async function handle(req, res) {
     auth.setCookie(res, auth.sign({ uid: u.id }), secure);
     return send(res, 200, { user: publicUser(u) });
   }
+  if (method === 'GET' && path === '/config') {
+    return send(res, 200, { mail: mail.configured(), inscription: process.env.ALLOW_REGISTRATION !== 'false' });
+  }
   if (method === 'POST' && path === '/logout') {
     auth.setCookie(res, null, secure);
     return send(res, 200, { ok: true });
@@ -176,18 +184,16 @@ async function handle(req, res) {
     const b = await readBody(req);
     const f = { nom: clean(b.nom), prenom: clean(b.prenom), lycee: clean(b.lycee, 120), username: cleanUsername(b.username), email: clean(b.email, 160).toLowerCase() };
     if (!f.nom || !f.prenom || !f.lycee) throw new HttpError(400, 'Nom, prénom et lycée sont obligatoires.');
-    if (!/^[a-z0-9._-]{2,40}$/.test(f.username)) throw new HttpError(400, 'Identifiant invalide : lettres minuscules, chiffres, point, tiret (2 à 40 caractères).');
+    if (!f.username) throw new HttpError(400, "Choisis un identifiant.");
     if (!EMAIL_RE.test(f.email)) throw new HttpError(400, 'Adresse e-mail invalide.');
     checkNewPassword(b.password);
-    if ((await query(`select 1 from users where username = $1`, [f.username])).length) throw new HttpError(409, 'Cet identifiant est déjà pris.');
-    if ((await query(`select 1 from users where lower(email) = $1`, [f.email])).length) throw new HttpError(409, 'Un compte existe déjà avec cette adresse e-mail.');
-    const [u] = await query(`insert into users (username, nom, prenom, lycee, email, password_hash, role, actif, email_verified)
-                             values ($1, $2, $3, $4, $5, $6, 'student', false, false) returning *`,
+    if (await usernameTaken(f.username)) throw new HttpError(409, 'Cet identifiant est déjà pris, choisis-en un autre.');
+    // compte ouvert immédiatement, sans vérification de l'adresse e-mail
+    const [u] = await query(`insert into users (username, nom, prenom, lycee, email, password_hash, role, actif, email_verified, last_login)
+                             values ($1, $2, $3, $4, $5, $6, 'student', true, true, now()) returning *`,
       [f.username, f.nom, f.prenom, f.lycee, f.email, auth.hashPassword(b.password)]);
-    let devLink;
-    try { devLink = await sendToken(req, u, 'verify'); }
-    catch (e) { await query(`delete from users where id = $1`, [u.id]); throw e; }
-    return send(res, 201, { ok: true, email: f.email, devLink });
+    auth.setCookie(res, auth.sign({ uid: u.id }), secure);
+    return send(res, 201, { user: publicUser(u) });
   }
   if (method === 'POST' && path === '/resend') {
     const { login } = await readBody(req);
@@ -274,14 +280,12 @@ async function handle(req, res) {
   if (method === 'POST' && path === '/admin/users') {
     const b = await readBody(req);
     const username = cleanUsername(b.username);
-    if (!/^[a-z0-9._-]{2,40}$/.test(username)) throw new HttpError(400, 'Identifiant invalide : lettres minuscules, chiffres, point, tiret (2 à 40 caractères).');
+    if (!username) throw new HttpError(400, 'Choisis un identifiant.');
     checkNewPassword(b.password);
     const role = b.role === 'admin' ? 'admin' : 'student';
-    const exists = await query(`select 1 from users where username = $1`, [username]);
-    if (exists.length) throw new HttpError(409, 'Cet identifiant existe déjà.');
+    if (await usernameTaken(username)) throw new HttpError(409, 'Cet identifiant existe déjà.');
     const email = clean(b.email, 160).toLowerCase() || null;
     if (email && !EMAIL_RE.test(email)) throw new HttpError(400, 'Adresse e-mail invalide.');
-    if (email && (await query(`select 1 from users where lower(email) = $1`, [email])).length) throw new HttpError(409, 'Un compte existe déjà avec cette adresse e-mail.');
     const [u] = await query(`insert into users (username, nom, prenom, lycee, email, password_hash, role) values ($1, $2, $3, $4, $5, $6, $7) returning id`,
       [username, clean(b.nom), clean(b.prenom), clean(b.lycee, 120), email, auth.hashPassword(b.password), role]);
     return send(res, 201, { id: u.id });

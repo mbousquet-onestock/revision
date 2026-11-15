@@ -116,14 +116,14 @@
   /* ================= gestion des accès ================= */
   async function pageAcces(el) {
     el.innerHTML = `<div class="wrap"><section class="hero"><div class="eyebrow">Backoffice</div><h1>Gestion des accès</h1>
-      <p>Les élèves peuvent créer leur compte eux-mêmes depuis l'écran de connexion : il s'ouvre quand ils confirment leur adresse e-mail. Tu peux aussi créer un compte ici et transmettre l'identifiant et le mot de passe. Un compte désactivé ne peut plus se connecter mais garde sa progression.</p></section>
+      <p>Les élèves peuvent créer leur compte eux-mêmes depuis l'écran de connexion. Tu peux aussi créer un compte ici et transmettre l'identifiant et le mot de passe. Un compte désactivé ne peut plus se connecter mais garde sa progression.</p></section>
       <form class="sheet form grid-form" id="newuser">
         <h2>Nouveau compte</h2>
         <div><label for="nu-prenom">Prénom</label><input id="nu-prenom" placeholder="Léa"></div>
         <div><label for="nu-nom">Nom</label><input id="nu-nom" placeholder="Martin"></div>
         <div><label for="nu-lycee">Lycée</label><input id="nu-lycee"></div>
         <div><label for="nu-email">E-mail (facultatif)</label><input id="nu-email" type="email"></div>
-        <div><label for="nu-user">Identifiant</label><input id="nu-user" placeholder="lea.martin" required pattern="[a-zA-Z0-9._\\-]{2,40}" autocapitalize="none"></div>
+        <div><label for="nu-user">Identifiant</label><input id="nu-user" placeholder="lea.martin" required autocapitalize="none"></div>
         <div><label for="nu-pass">Mot de passe</label><div class="row"><input id="nu-pass" required minlength="6"><button type="button" class="btn" id="gen">Générer</button></div></div>
         <div><label for="nu-role">Rôle</label><select id="nu-role"><option value="student">Élève</option><option value="admin">Administrateur</option></select></div>
         <div class="actions"><button class="btn primary" type="submit">Créer le compte</button></div>
@@ -139,7 +139,7 @@
       try {
         await A().api('POST', '/admin/users', body);
         msg.className = 'form-msg ok';
-        msg.innerHTML = `Compte créé. À transmettre : identifiant <code>${esc(body.username.trim().toLowerCase())}</code>, mot de passe <code>${esc(body.password)}</code>`;
+        msg.innerHTML = `Compte créé. À transmettre : identifiant <code>${esc(body.username.trim())}</code>, mot de passe <code>${esc(body.password)}</code>`;
         e.target.reset(); loadUsers();
       } catch (err) { msg.className = 'form-msg ko'; msg.textContent = err.message; }
     });

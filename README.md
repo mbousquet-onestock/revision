@@ -13,7 +13,7 @@ La rubrique **Sujets type bac** contient 4 sujets de 2 h au format de l'épreuve
 
 ## Comptes élèves et backoffice
 
-Le site fonctionne avec des comptes : chaque élève se connecte avec un identifiant et un mot de passe.
+Le site fonctionne avec des comptes : chaque élève crée son compte (prénom, nom, lycée, e-mail, identifiant, mot de passe) depuis l'écran de connexion, ou l'admin le crée. Le compte est ouvert immédiatement ; la seule règle est que l'identifiant ne soit pas déjà pris (sans tenir compte des majuscules).
 Sa progression (exercices réussis, quiz, notes de DS et de bac) et les pages qu'il consulte sont enregistrées en base.
 
 Le compte **administrateur** a accès au backoffice :
@@ -28,6 +28,8 @@ Le compte **administrateur** a accès au backoffice :
    - `AUTH_SECRET` : une longue chaîne aléatoire (signe les sessions)
    - `ADMIN_PASSWORD` : mot de passe du premier compte administrateur
    - `ADMIN_USERNAME` (facultatif, `admin` par défaut)
+   - E-mail (facultatif, seulement pour « Mot de passe oublié ») : `RESEND_API_KEY` ou `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASS` (Gmail : mot de passe d'application), et `MAIL_FROM`. Sans e-mail configuré, le lien est remplacé par « Demande à ton professeur ».
+   - `ALLOW_REGISTRATION=false` pour fermer les inscriptions.
 3. Redéployer. Au premier appel, les tables sont créées, le contenu de `data/*.js` est importé et le compte admin est créé.
    Changer `ADMIN_PASSWORD` ensuite ne modifie pas le compte : utiliser le backoffice ou « Mot de passe ».
 
